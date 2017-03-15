@@ -1,0 +1,13 @@
+.widget{box-shadow:3px 3px 3px 0px #ccc;}
+		.widget:hover{background:#7266ba;cursor:pointer;}
+		.row div{text-align:center;}
+		div.ibox-tools a{margin-top:-6px;}
+		.col-sm-2 a div.widget{height:150px}
+		.font-bold{font-size:1.5em;}
+		.img-circle{border-radius:10%;width:100%;}
+		/* h2.font-bold{padding: 0 20%;}; */
+		.psrel{position:relative;}
+		.psabs{position:absolute;}
+		.w10{display:inline-block;width:7%;position:relative;}
+		.ibox{border:0px;}
+		.text-right{min-height:400px;width:25px;min-width:25px;}

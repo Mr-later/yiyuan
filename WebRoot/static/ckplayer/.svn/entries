@@ -1,0 +1,53 @@
+8
+
+dir
+2520
+http://192.168.1.115/svn/product/YiYuan/WebRoot/static/ckplayer
+http://192.168.1.115/svn/product
+
+
+
+2017-03-02T04:51:37.148572Z
+2489
+liuxin
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7c12452c-d231-f849-8346-376cf384b823
+
+ckplayer.js
+file
+
+
+
+
+2017-03-08T03:33:53.878000Z
+89785a0c722f98443e50a6ce2270a050
+2017-03-02T04:51:37.148572Z
+2489
+liuxin
+
+style.swf
+file
+
+
+
+
+2017-03-08T03:33:53.904000Z
+88a22a1bcb6a6c655099c866d9f6c358
+2017-03-02T04:51:37.148572Z
+2489
+liuxin
+has-props
+

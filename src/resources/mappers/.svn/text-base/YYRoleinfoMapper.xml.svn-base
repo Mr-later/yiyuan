@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYRoleinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYRoleinfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="rolename" property="rolename" jdbcType="VARCHAR" />
+    <result column="miaoshu" property="miaoshu" jdbcType="VARCHAR" />
+    <result column="roleinfotemp1" property="roleinfotemp1" jdbcType="VARCHAR" />
+    <result column="roleinfotemp2" property="roleinfotemp2" jdbcType="VARCHAR" />
+    <result column="roleinfotemp3" property="roleinfotemp3" jdbcType="VARCHAR" />
+    <result column="roleinfotemp4" property="roleinfotemp4" jdbcType="VARCHAR" />
+    <result column="roleinfotemp5" property="roleinfotemp5" jdbcType="VARCHAR" />
+    <result column="roleinfotemp6" property="roleinfotemp6" jdbcType="VARCHAR" />
+    <result column="roleinfotemp7" property="roleinfotemp7" jdbcType="VARCHAR" />
+    <result column="roleinfotemp8" property="roleinfotemp8" jdbcType="VARCHAR" />
+    <result column="roleinfotemp9" property="roleinfotemp9" jdbcType="VARCHAR" />
+    <result column="roleinfotemp10" property="roleinfotemp10" jdbcType="VARCHAR" />
+    <result column="roleinfotemp11" property="roleinfotemp11" jdbcType="DATE" />
+    <result column="roleinfotemp12" property="roleinfotemp12" jdbcType="DATE" />
+    <result column="roleinfotemp13" property="roleinfotemp13" jdbcType="DATE" />
+    <result column="roleinfotemp14" property="roleinfotemp14" jdbcType="DATE" />
+    <result column="roleinfotemp15" property="roleinfotemp15" jdbcType="DATE" />
+    <result column="roleinfotemp16" property="roleinfotemp16" jdbcType="INTEGER" />
+    <result column="roleinfotemp17" property="roleinfotemp17" jdbcType="INTEGER" />
+    <result column="roleinfotemp18" property="roleinfotemp18" jdbcType="INTEGER" />
+    <result column="roleinfotemp19" property="roleinfotemp19" jdbcType="INTEGER" />
+    <result column="roleinfotemp20" property="roleinfotemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, rolename, miaoshu, roleinfotemp1, roleinfotemp2, roleinfotemp3, roleinfotemp4, 
+    roleinfotemp5, roleinfotemp6, roleinfotemp7, roleinfotemp8, roleinfotemp9, roleinfotemp10, 
+    roleinfotemp11, roleinfotemp12, roleinfotemp13, roleinfotemp14, roleinfotemp15, roleinfotemp16, 
+    roleinfotemp17, roleinfotemp18, roleinfotemp19, roleinfotemp20
+  </sql>
+  <!-- *********************************** -->
+  <select id="getListRoleinfo" parameterType="map" resultMap="BaseResultMap">
+  		select  *  from yy_roleinfo where 1=1 
+  		<if test="searchtext != null and searchtext != ''" >
+	    and (id like '%${searchtext}%' or rolename like '%${searchtext}%' 
+	    or miaoshu like '%${searchtext}%' )
+    </if>
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from yy_roleinfo
+  </select>
+   <insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="id"  parameterType="com.netsdar.hospital.entity.YYRoleinfo" >
+    insert into yy_roleinfo (id, rolename, miaoshu)
+    values (#{id,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, #{miaoshu,jdbcType=VARCHAR})
+  </insert>
+   <select id="allTreeNodeByUser"  resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+ 	select role.* 
+ 	 from yy_roleinfo role LEFT JOIN yy_userrole userrole
+     on userrole.role_id =role.id where userrole.user_id=#{userid,jdbcType=INTEGER}
+  </select>
+    <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  select role.*  
+  from yy_roleinfo role LEFT JOIN yy_userrole userrole
+	on role.id=userrole.role_id where userrole.user_id=#{userid,jdbcType=INTEGER}
+  
+  </select>
+  <!-- *********************************** -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_roleinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_roleinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYRoleinfo" >
+    insert into yy_roleinfo (id, rolename, miaoshu, 
+      roleinfotemp1, roleinfotemp2, roleinfotemp3, 
+      roleinfotemp4, roleinfotemp5, roleinfotemp6, 
+      roleinfotemp7, roleinfotemp8, roleinfotemp9, 
+      roleinfotemp10, roleinfotemp11, roleinfotemp12, 
+      roleinfotemp13, roleinfotemp14, roleinfotemp15, 
+      roleinfotemp16, roleinfotemp17, roleinfotemp18, 
+      roleinfotemp19, roleinfotemp20)
+    values (#{id,jdbcType=INTEGER}, #{rolename,jdbcType=VARCHAR}, #{miaoshu,jdbcType=VARCHAR}, 
+      #{roleinfotemp1,jdbcType=VARCHAR}, #{roleinfotemp2,jdbcType=VARCHAR}, #{roleinfotemp3,jdbcType=VARCHAR}, 
+      #{roleinfotemp4,jdbcType=VARCHAR}, #{roleinfotemp5,jdbcType=VARCHAR}, #{roleinfotemp6,jdbcType=VARCHAR}, 
+      #{roleinfotemp7,jdbcType=VARCHAR}, #{roleinfotemp8,jdbcType=VARCHAR}, #{roleinfotemp9,jdbcType=VARCHAR}, 
+      #{roleinfotemp10,jdbcType=VARCHAR}, #{roleinfotemp11,jdbcType=DATE}, #{roleinfotemp12,jdbcType=DATE}, 
+      #{roleinfotemp13,jdbcType=DATE}, #{roleinfotemp14,jdbcType=DATE}, #{roleinfotemp15,jdbcType=DATE}, 
+      #{roleinfotemp16,jdbcType=INTEGER}, #{roleinfotemp17,jdbcType=INTEGER}, #{roleinfotemp18,jdbcType=INTEGER}, 
+      #{roleinfotemp19,jdbcType=INTEGER}, #{roleinfotemp20,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYRoleinfo" >
+    insert into yy_roleinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="rolename != null" >
+        rolename,
+      </if>
+      <if test="miaoshu != null" >
+        miaoshu,
+      </if>
+      <if test="roleinfotemp1 != null" >
+        roleinfotemp1,
+      </if>
+      <if test="roleinfotemp2 != null" >
+        roleinfotemp2,
+      </if>
+      <if test="roleinfotemp3 != null" >
+        roleinfotemp3,
+      </if>
+      <if test="roleinfotemp4 != null" >
+        roleinfotemp4,
+      </if>
+      <if test="roleinfotemp5 != null" >
+        roleinfotemp5,
+      </if>
+      <if test="roleinfotemp6 != null" >
+        roleinfotemp6,
+      </if>
+      <if test="roleinfotemp7 != null" >
+        roleinfotemp7,
+      </if>
+      <if test="roleinfotemp8 != null" >
+        roleinfotemp8,
+      </if>
+      <if test="roleinfotemp9 != null" >
+        roleinfotemp9,
+      </if>
+      <if test="roleinfotemp10 != null" >
+        roleinfotemp10,
+      </if>
+      <if test="roleinfotemp11 != null" >
+        roleinfotemp11,
+      </if>
+      <if test="roleinfotemp12 != null" >
+        roleinfotemp12,
+      </if>
+      <if test="roleinfotemp13 != null" >
+        roleinfotemp13,
+      </if>
+      <if test="roleinfotemp14 != null" >
+        roleinfotemp14,
+      </if>
+      <if test="roleinfotemp15 != null" >
+        roleinfotemp15,
+      </if>
+      <if test="roleinfotemp16 != null" >
+        roleinfotemp16,
+      </if>
+      <if test="roleinfotemp17 != null" >
+        roleinfotemp17,
+      </if>
+      <if test="roleinfotemp18 != null" >
+        roleinfotemp18,
+      </if>
+      <if test="roleinfotemp19 != null" >
+        roleinfotemp19,
+      </if>
+      <if test="roleinfotemp20 != null" >
+        roleinfotemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="miaoshu != null" >
+        #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp1 != null" >
+        #{roleinfotemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp2 != null" >
+        #{roleinfotemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp3 != null" >
+        #{roleinfotemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp4 != null" >
+        #{roleinfotemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp5 != null" >
+        #{roleinfotemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp6 != null" >
+        #{roleinfotemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp7 != null" >
+        #{roleinfotemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp8 != null" >
+        #{roleinfotemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp9 != null" >
+        #{roleinfotemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp10 != null" >
+        #{roleinfotemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp11 != null" >
+        #{roleinfotemp11,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp12 != null" >
+        #{roleinfotemp12,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp13 != null" >
+        #{roleinfotemp13,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp14 != null" >
+        #{roleinfotemp14,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp15 != null" >
+        #{roleinfotemp15,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp16 != null" >
+        #{roleinfotemp16,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp17 != null" >
+        #{roleinfotemp17,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp18 != null" >
+        #{roleinfotemp18,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp19 != null" >
+        #{roleinfotemp19,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp20 != null" >
+        #{roleinfotemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYRoleinfo" >
+    update yy_roleinfo
+    <set >
+      <if test="rolename != null" >
+        rolename = #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="miaoshu != null" >
+        miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp1 != null" >
+        roleinfotemp1 = #{roleinfotemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp2 != null" >
+        roleinfotemp2 = #{roleinfotemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp3 != null" >
+        roleinfotemp3 = #{roleinfotemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp4 != null" >
+        roleinfotemp4 = #{roleinfotemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp5 != null" >
+        roleinfotemp5 = #{roleinfotemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp6 != null" >
+        roleinfotemp6 = #{roleinfotemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp7 != null" >
+        roleinfotemp7 = #{roleinfotemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp8 != null" >
+        roleinfotemp8 = #{roleinfotemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp9 != null" >
+        roleinfotemp9 = #{roleinfotemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp10 != null" >
+        roleinfotemp10 = #{roleinfotemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="roleinfotemp11 != null" >
+        roleinfotemp11 = #{roleinfotemp11,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp12 != null" >
+        roleinfotemp12 = #{roleinfotemp12,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp13 != null" >
+        roleinfotemp13 = #{roleinfotemp13,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp14 != null" >
+        roleinfotemp14 = #{roleinfotemp14,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp15 != null" >
+        roleinfotemp15 = #{roleinfotemp15,jdbcType=DATE},
+      </if>
+      <if test="roleinfotemp16 != null" >
+        roleinfotemp16 = #{roleinfotemp16,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp17 != null" >
+        roleinfotemp17 = #{roleinfotemp17,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp18 != null" >
+        roleinfotemp18 = #{roleinfotemp18,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp19 != null" >
+        roleinfotemp19 = #{roleinfotemp19,jdbcType=INTEGER},
+      </if>
+      <if test="roleinfotemp20 != null" >
+        roleinfotemp20 = #{roleinfotemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYRoleinfo" >
+    update yy_roleinfo
+    set rolename = #{rolename,jdbcType=VARCHAR},
+      miaoshu = #{miaoshu,jdbcType=VARCHAR},
+      roleinfotemp1 = #{roleinfotemp1,jdbcType=VARCHAR},
+      roleinfotemp2 = #{roleinfotemp2,jdbcType=VARCHAR},
+      roleinfotemp3 = #{roleinfotemp3,jdbcType=VARCHAR},
+      roleinfotemp4 = #{roleinfotemp4,jdbcType=VARCHAR},
+      roleinfotemp5 = #{roleinfotemp5,jdbcType=VARCHAR},
+      roleinfotemp6 = #{roleinfotemp6,jdbcType=VARCHAR},
+      roleinfotemp7 = #{roleinfotemp7,jdbcType=VARCHAR},
+      roleinfotemp8 = #{roleinfotemp8,jdbcType=VARCHAR},
+      roleinfotemp9 = #{roleinfotemp9,jdbcType=VARCHAR},
+      roleinfotemp10 = #{roleinfotemp10,jdbcType=VARCHAR},
+      roleinfotemp11 = #{roleinfotemp11,jdbcType=DATE},
+      roleinfotemp12 = #{roleinfotemp12,jdbcType=DATE},
+      roleinfotemp13 = #{roleinfotemp13,jdbcType=DATE},
+      roleinfotemp14 = #{roleinfotemp14,jdbcType=DATE},
+      roleinfotemp15 = #{roleinfotemp15,jdbcType=DATE},
+      roleinfotemp16 = #{roleinfotemp16,jdbcType=INTEGER},
+      roleinfotemp17 = #{roleinfotemp17,jdbcType=INTEGER},
+      roleinfotemp18 = #{roleinfotemp18,jdbcType=INTEGER},
+      roleinfotemp19 = #{roleinfotemp19,jdbcType=INTEGER},
+      roleinfotemp20 = #{roleinfotemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

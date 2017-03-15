@@ -1,0 +1,4 @@
+.w10{position:relative;}
+a.btn1{position:absolute;top:1%;right:1%}
+.ryxqhref{cursor:pointer;}
+.ryxqhref:hover{color:#8B1C62}

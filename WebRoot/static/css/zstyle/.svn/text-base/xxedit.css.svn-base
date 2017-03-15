@@ -1,0 +1,12 @@
+/* .col-sm-9{margin-bottom:1%;}
+.col-sm-4{width:30%;display:inline-block;}
+.col-sm-8{width:60%;display:inline-block;} */
+
+.col-sm-3 {
+    /* width: 14%; */
+    display: inline-block;
+    width: 40%;}
+    .col-sm-9{width:58%;}
+.ibox-content{padding: 15px 0px 20px 0px;}
+.col-sm-2{width:29%;}
+.col-sm-10{width:70%;}
