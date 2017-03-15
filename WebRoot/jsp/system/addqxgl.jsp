@@ -170,8 +170,13 @@
     
    
     $("#addqxgl_form").on("submit",function(){
-    	
-    	 
+    	debugger;
+    	alert($("#rolename").val())
+    	if($("#rolename").val()==null || ""==$("#rolename").val() ||  $("#rolename").val()==undefined ||  $("#rolename").val().trim()==""){
+    		layer.msg("请填写角色名称");
+    		$("#rolename").focus();
+    		return false;
+    	}  
     	var functionids="";
     	var buttonids="";
     	var nodes = $.jstree.reference($("#jstree1")).get_selected(); 

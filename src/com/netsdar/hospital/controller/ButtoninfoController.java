@@ -26,8 +26,7 @@ import com.netsdar.hospital.service.ButtoninfoServiceI;
 @Controller
 @RequestMapping("/buttoninfoController")
 public class ButtoninfoController {
-                // tes-
-	        //test是的	
+               	
 		@Autowired 
 		private ButtoninfoServiceI buttoninfoServiceI;
 		@RequestMapping("/datagrid")

@@ -181,12 +181,12 @@
 	    		layer.msg("请填写group值");
 	    		$("#dictgroup").focus();
 	    		return false;
-	    	}
-	    	if($("#description").val()==null || ""==$("#description").val() ||  $("#description").val()==undefined ||  $("#description").val().trim()==""){
-	    		layer.msg("请填写description值");
-	    		$("#description").focus();
+	    	}*/
+	    	if($("#username").val()==null || ""==$("#username").val() ||  $("#username").val()==undefined ||  $("#username").val().trim()==""){
+	    		layer.msg("请填写用户名称");
+	    		$("#username").focus();
 	    		return false;
-	    	}  */
+	    	}  
 	    	var roleids="";
 	    	var nodes = $.jstree.reference($("#jstree1")).get_selected(); 
 	        $.each(nodes, function(i, n) {  
