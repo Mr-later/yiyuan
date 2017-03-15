@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYXuexijingliMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYXuexijingli" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shijianbegin" property="shijianbegin" jdbcType="DATE" />
+    <result column="shijianbeginstr" property="shijianbeginstr" jdbcType="VARCHAR" />
+    <result column="shijianend" property="shijianend" jdbcType="DATE" />
+    <result column="shijianendstr" property="shijianendstr" jdbcType="VARCHAR" />
+    <result column="yuanxiao" property="yuanxiao" jdbcType="VARCHAR" />
+    <result column="zhuanye" property="zhuanye" jdbcType="VARCHAR" />
+    <result column="xuewei" property="xuewei" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp1" property="xuexijinglitemp1" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp2" property="xuexijinglitemp2" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp3" property="xuexijinglitemp3" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp4" property="xuexijinglitemp4" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp5" property="xuexijinglitemp5" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp6" property="xuexijinglitemp6" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp7" property="xuexijinglitemp7" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp8" property="xuexijinglitemp8" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp9" property="xuexijinglitemp9" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp10" property="xuexijinglitemp10" jdbcType="VARCHAR" />
+    <result column="xuexijinglitemp11" property="xuexijinglitemp11" jdbcType="DATE" />
+    <result column="xuexijinglitemp12" property="xuexijinglitemp12" jdbcType="DATE" />
+    <result column="xuexijinglitemp13" property="xuexijinglitemp13" jdbcType="DATE" />
+    <result column="xuexijinglitemp14" property="xuexijinglitemp14" jdbcType="DATE" />
+    <result column="xuexijinglitemp15" property="xuexijinglitemp15" jdbcType="DATE" />
+    <result column="xuexijinglitemp16" property="xuexijinglitemp16" jdbcType="INTEGER" />
+    <result column="xuexijinglitemp17" property="xuexijinglitemp17" jdbcType="INTEGER" />
+    <result column="xuexijinglitemp18" property="xuexijinglitemp18" jdbcType="INTEGER" />
+    <result column="xuexijinglitemp19" property="xuexijinglitemp19" jdbcType="INTEGER" />
+    <result column="xuexijinglitemp20" property="xuexijinglitemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, shijianbegin, shijianbeginstr, shijianend, shijianendstr, yuanxiao, 
+    zhuanye, xuewei, xuexijinglitemp1, xuexijinglitemp2, xuexijinglitemp3, xuexijinglitemp4, 
+    xuexijinglitemp5, xuexijinglitemp6, xuexijinglitemp7, xuexijinglitemp8, xuexijinglitemp9, 
+    xuexijinglitemp10, xuexijinglitemp11, xuexijinglitemp12, xuexijinglitemp13, xuexijinglitemp14, 
+    xuexijinglitemp15, xuexijinglitemp16, xuexijinglitemp17, xuexijinglitemp18, xuexijinglitemp19, 
+    xuexijinglitemp20
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_xuexijingli
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_xuexijingli
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYXuexijingli" >
+    insert into yy_xuexijingli (id, user_id, shijianbegin, 
+      shijianbeginstr, shijianend, shijianendstr, 
+      yuanxiao, zhuanye, xuewei, 
+      xuexijinglitemp1, xuexijinglitemp2, xuexijinglitemp3, 
+      xuexijinglitemp4, xuexijinglitemp5, xuexijinglitemp6, 
+      xuexijinglitemp7, xuexijinglitemp8, xuexijinglitemp9, 
+      xuexijinglitemp10, xuexijinglitemp11, xuexijinglitemp12, 
+      xuexijinglitemp13, xuexijinglitemp14, xuexijinglitemp15, 
+      xuexijinglitemp16, xuexijinglitemp17, xuexijinglitemp18, 
+      xuexijinglitemp19, xuexijinglitemp20)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shijianbegin,jdbcType=DATE}, 
+      #{shijianbeginstr,jdbcType=VARCHAR}, #{shijianend,jdbcType=DATE}, #{shijianendstr,jdbcType=VARCHAR}, 
+      #{yuanxiao,jdbcType=VARCHAR}, #{zhuanye,jdbcType=VARCHAR}, #{xuewei,jdbcType=VARCHAR}, 
+      #{xuexijinglitemp1,jdbcType=VARCHAR}, #{xuexijinglitemp2,jdbcType=VARCHAR}, #{xuexijinglitemp3,jdbcType=VARCHAR}, 
+      #{xuexijinglitemp4,jdbcType=VARCHAR}, #{xuexijinglitemp5,jdbcType=VARCHAR}, #{xuexijinglitemp6,jdbcType=VARCHAR}, 
+      #{xuexijinglitemp7,jdbcType=VARCHAR}, #{xuexijinglitemp8,jdbcType=VARCHAR}, #{xuexijinglitemp9,jdbcType=VARCHAR}, 
+      #{xuexijinglitemp10,jdbcType=VARCHAR}, #{xuexijinglitemp11,jdbcType=DATE}, #{xuexijinglitemp12,jdbcType=DATE}, 
+      #{xuexijinglitemp13,jdbcType=DATE}, #{xuexijinglitemp14,jdbcType=DATE}, #{xuexijinglitemp15,jdbcType=DATE}, 
+      #{xuexijinglitemp16,jdbcType=INTEGER}, #{xuexijinglitemp17,jdbcType=INTEGER}, #{xuexijinglitemp18,jdbcType=INTEGER}, 
+      #{xuexijinglitemp19,jdbcType=INTEGER}, #{xuexijinglitemp20,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYXuexijingli" >
+    insert into yy_xuexijingli
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="shijianbegin != null" >
+        shijianbegin,
+      </if>
+      <if test="shijianbeginstr != null" >
+        shijianbeginstr,
+      </if>
+      <if test="shijianend != null" >
+        shijianend,
+      </if>
+      <if test="shijianendstr != null" >
+        shijianendstr,
+      </if>
+      <if test="yuanxiao != null" >
+        yuanxiao,
+      </if>
+      <if test="zhuanye != null" >
+        zhuanye,
+      </if>
+      <if test="xuewei != null" >
+        xuewei,
+      </if>
+      <if test="xuexijinglitemp1 != null" >
+        xuexijinglitemp1,
+      </if>
+      <if test="xuexijinglitemp2 != null" >
+        xuexijinglitemp2,
+      </if>
+      <if test="xuexijinglitemp3 != null" >
+        xuexijinglitemp3,
+      </if>
+      <if test="xuexijinglitemp4 != null" >
+        xuexijinglitemp4,
+      </if>
+      <if test="xuexijinglitemp5 != null" >
+        xuexijinglitemp5,
+      </if>
+      <if test="xuexijinglitemp6 != null" >
+        xuexijinglitemp6,
+      </if>
+      <if test="xuexijinglitemp7 != null" >
+        xuexijinglitemp7,
+      </if>
+      <if test="xuexijinglitemp8 != null" >
+        xuexijinglitemp8,
+      </if>
+      <if test="xuexijinglitemp9 != null" >
+        xuexijinglitemp9,
+      </if>
+      <if test="xuexijinglitemp10 != null" >
+        xuexijinglitemp10,
+      </if>
+      <if test="xuexijinglitemp11 != null" >
+        xuexijinglitemp11,
+      </if>
+      <if test="xuexijinglitemp12 != null" >
+        xuexijinglitemp12,
+      </if>
+      <if test="xuexijinglitemp13 != null" >
+        xuexijinglitemp13,
+      </if>
+      <if test="xuexijinglitemp14 != null" >
+        xuexijinglitemp14,
+      </if>
+      <if test="xuexijinglitemp15 != null" >
+        xuexijinglitemp15,
+      </if>
+      <if test="xuexijinglitemp16 != null" >
+        xuexijinglitemp16,
+      </if>
+      <if test="xuexijinglitemp17 != null" >
+        xuexijinglitemp17,
+      </if>
+      <if test="xuexijinglitemp18 != null" >
+        xuexijinglitemp18,
+      </if>
+      <if test="xuexijinglitemp19 != null" >
+        xuexijinglitemp19,
+      </if>
+      <if test="xuexijinglitemp20 != null" >
+        xuexijinglitemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shijianbegin != null" >
+        #{shijianbegin,jdbcType=DATE},
+      </if>
+      <if test="shijianbeginstr != null" >
+        #{shijianbeginstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shijianend != null" >
+        #{shijianend,jdbcType=DATE},
+      </if>
+      <if test="shijianendstr != null" >
+        #{shijianendstr,jdbcType=VARCHAR},
+      </if>
+      <if test="yuanxiao != null" >
+        #{yuanxiao,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null" >
+        #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="xuewei != null" >
+        #{xuewei,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp1 != null" >
+        #{xuexijinglitemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp2 != null" >
+        #{xuexijinglitemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp3 != null" >
+        #{xuexijinglitemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp4 != null" >
+        #{xuexijinglitemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp5 != null" >
+        #{xuexijinglitemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp6 != null" >
+        #{xuexijinglitemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp7 != null" >
+        #{xuexijinglitemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp8 != null" >
+        #{xuexijinglitemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp9 != null" >
+        #{xuexijinglitemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp10 != null" >
+        #{xuexijinglitemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp11 != null" >
+        #{xuexijinglitemp11,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp12 != null" >
+        #{xuexijinglitemp12,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp13 != null" >
+        #{xuexijinglitemp13,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp14 != null" >
+        #{xuexijinglitemp14,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp15 != null" >
+        #{xuexijinglitemp15,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp16 != null" >
+        #{xuexijinglitemp16,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp17 != null" >
+        #{xuexijinglitemp17,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp18 != null" >
+        #{xuexijinglitemp18,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp19 != null" >
+        #{xuexijinglitemp19,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp20 != null" >
+        #{xuexijinglitemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYXuexijingli" >
+    update yy_xuexijingli
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shijianbegin != null" >
+        shijianbegin = #{shijianbegin,jdbcType=DATE},
+      </if>
+      <if test="shijianbeginstr != null" >
+        shijianbeginstr = #{shijianbeginstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shijianend != null" >
+        shijianend = #{shijianend,jdbcType=DATE},
+      </if>
+      <if test="shijianendstr != null" >
+        shijianendstr = #{shijianendstr,jdbcType=VARCHAR},
+      </if>
+      <if test="yuanxiao != null" >
+        yuanxiao = #{yuanxiao,jdbcType=VARCHAR},
+      </if>
+      <if test="zhuanye != null" >
+        zhuanye = #{zhuanye,jdbcType=VARCHAR},
+      </if>
+      <if test="xuewei != null" >
+        xuewei = #{xuewei,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp1 != null" >
+        xuexijinglitemp1 = #{xuexijinglitemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp2 != null" >
+        xuexijinglitemp2 = #{xuexijinglitemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp3 != null" >
+        xuexijinglitemp3 = #{xuexijinglitemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp4 != null" >
+        xuexijinglitemp4 = #{xuexijinglitemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp5 != null" >
+        xuexijinglitemp5 = #{xuexijinglitemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp6 != null" >
+        xuexijinglitemp6 = #{xuexijinglitemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp7 != null" >
+        xuexijinglitemp7 = #{xuexijinglitemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp8 != null" >
+        xuexijinglitemp8 = #{xuexijinglitemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp9 != null" >
+        xuexijinglitemp9 = #{xuexijinglitemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp10 != null" >
+        xuexijinglitemp10 = #{xuexijinglitemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="xuexijinglitemp11 != null" >
+        xuexijinglitemp11 = #{xuexijinglitemp11,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp12 != null" >
+        xuexijinglitemp12 = #{xuexijinglitemp12,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp13 != null" >
+        xuexijinglitemp13 = #{xuexijinglitemp13,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp14 != null" >
+        xuexijinglitemp14 = #{xuexijinglitemp14,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp15 != null" >
+        xuexijinglitemp15 = #{xuexijinglitemp15,jdbcType=DATE},
+      </if>
+      <if test="xuexijinglitemp16 != null" >
+        xuexijinglitemp16 = #{xuexijinglitemp16,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp17 != null" >
+        xuexijinglitemp17 = #{xuexijinglitemp17,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp18 != null" >
+        xuexijinglitemp18 = #{xuexijinglitemp18,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp19 != null" >
+        xuexijinglitemp19 = #{xuexijinglitemp19,jdbcType=INTEGER},
+      </if>
+      <if test="xuexijinglitemp20 != null" >
+        xuexijinglitemp20 = #{xuexijinglitemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYXuexijingli" >
+    update yy_xuexijingli
+    set user_id = #{userId,jdbcType=INTEGER},
+      shijianbegin = #{shijianbegin,jdbcType=DATE},
+      shijianbeginstr = #{shijianbeginstr,jdbcType=VARCHAR},
+      shijianend = #{shijianend,jdbcType=DATE},
+      shijianendstr = #{shijianendstr,jdbcType=VARCHAR},
+      yuanxiao = #{yuanxiao,jdbcType=VARCHAR},
+      zhuanye = #{zhuanye,jdbcType=VARCHAR},
+      xuewei = #{xuewei,jdbcType=VARCHAR},
+      xuexijinglitemp1 = #{xuexijinglitemp1,jdbcType=VARCHAR},
+      xuexijinglitemp2 = #{xuexijinglitemp2,jdbcType=VARCHAR},
+      xuexijinglitemp3 = #{xuexijinglitemp3,jdbcType=VARCHAR},
+      xuexijinglitemp4 = #{xuexijinglitemp4,jdbcType=VARCHAR},
+      xuexijinglitemp5 = #{xuexijinglitemp5,jdbcType=VARCHAR},
+      xuexijinglitemp6 = #{xuexijinglitemp6,jdbcType=VARCHAR},
+      xuexijinglitemp7 = #{xuexijinglitemp7,jdbcType=VARCHAR},
+      xuexijinglitemp8 = #{xuexijinglitemp8,jdbcType=VARCHAR},
+      xuexijinglitemp9 = #{xuexijinglitemp9,jdbcType=VARCHAR},
+      xuexijinglitemp10 = #{xuexijinglitemp10,jdbcType=VARCHAR},
+      xuexijinglitemp11 = #{xuexijinglitemp11,jdbcType=DATE},
+      xuexijinglitemp12 = #{xuexijinglitemp12,jdbcType=DATE},
+      xuexijinglitemp13 = #{xuexijinglitemp13,jdbcType=DATE},
+      xuexijinglitemp14 = #{xuexijinglitemp14,jdbcType=DATE},
+      xuexijinglitemp15 = #{xuexijinglitemp15,jdbcType=DATE},
+      xuexijinglitemp16 = #{xuexijinglitemp16,jdbcType=INTEGER},
+      xuexijinglitemp17 = #{xuexijinglitemp17,jdbcType=INTEGER},
+      xuexijinglitemp18 = #{xuexijinglitemp18,jdbcType=INTEGER},
+      xuexijinglitemp19 = #{xuexijinglitemp19,jdbcType=INTEGER},
+      xuexijinglitemp20 = #{xuexijinglitemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
