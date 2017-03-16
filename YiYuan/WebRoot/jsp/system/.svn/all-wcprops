@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/svn/product/!svn/ver/2519/YiYuan/WebRoot/jsp/system
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system
 END
 editsjzd.jsp
 K 25
@@ -19,13 +19,13 @@ yhgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/product/!svn/ver/2519/YiYuan/WebRoot/jsp/system/yhgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/yhgl.jsp
 END
 addqxgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/product/!svn/ver/2514/YiYuan/WebRoot/jsp/system/addqxgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/addqxgl.jsp
 END
 angl.jsp
 K 25
@@ -37,13 +37,13 @@ addangl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/product/!svn/ver/2511/YiYuan/WebRoot/jsp/system/addangl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/addangl.jsp
 END
 edityhgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/product/!svn/ver/2519/YiYuan/WebRoot/jsp/system/edityhgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/edityhgl.jsp
 END
 sjzd.jsp
 K 25
@@ -55,37 +55,37 @@ addyhgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/product/!svn/ver/2519/YiYuan/WebRoot/jsp/system/addyhgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/addyhgl.jsp
 END
 addcdgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/product/!svn/ver/2511/YiYuan/WebRoot/jsp/system/addcdgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/addcdgl.jsp
 END
 editqxgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/product/!svn/ver/2514/YiYuan/WebRoot/jsp/system/editqxgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/editqxgl.jsp
 END
 addsjzd.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 64
-/svn/product/!svn/ver/2511/YiYuan/WebRoot/jsp/system/addsjzd.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/addsjzd.jsp
 END
 editangl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/product/!svn/ver/2511/YiYuan/WebRoot/jsp/system/editangl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/editangl.jsp
 END
 editcdgl.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 65
-/svn/product/!svn/ver/2511/YiYuan/WebRoot/jsp/system/editcdgl.jsp
+/svn/product/!svn/ver/2523/YiYuan/WebRoot/jsp/system/editcdgl.jsp
 END
 qxgl.jsp
 K 25

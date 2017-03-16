@@ -51,7 +51,7 @@
                                 	<th class="col-sm-2">id</th>
                                     <th class="col-sm-2">登录名</th>
                                     <th class="col-sm-2">用户名</th>
-                                    <th class="col-sm-2">权限</th>
+                                    <th class="col-sm-2">角色</th>
                                     <th class="col-sm-2">操作</th>
                                 </tr>
                             </thead>

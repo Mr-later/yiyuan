@@ -1,5 +1,6 @@
 package com.netsdar.hospital.dao;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface YYUserinfoMapper {
 	List<YYUserinfo> getListUserinfo(LinkedHashMap<String, Object> map);
 
 	YYUserinfo selectByname(String name);
+
+	int deleteUpdate(int id);
 }

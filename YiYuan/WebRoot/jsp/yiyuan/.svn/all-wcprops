@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 52
-/svn/product/!svn/ver/2518/YiYuan/WebRoot/jsp/yiyuan
+/svn/product/!svn/ver/2522/YiYuan/WebRoot/jsp/yiyuan
 END
 zzjg_edit.jsp
 K 25
@@ -21,17 +21,17 @@ svn:wc:ra_dav:version-url
 V 72
 /svn/product/!svn/ver/2488/YiYuan/WebRoot/jsp/yiyuan/renyuansq_gw_ry.jsp
 END
-shiping.jsp
-K 25
-svn:wc:ra_dav:version-url
-V 64
-/svn/product/!svn/ver/2489/YiYuan/WebRoot/jsp/yiyuan/shiping.jsp
-END
 renyuansq_gw.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 69
 /svn/product/!svn/ver/2518/YiYuan/WebRoot/jsp/yiyuan/renyuansq_gw.jsp
+END
+shiping.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/product/!svn/ver/2489/YiYuan/WebRoot/jsp/yiyuan/shiping.jsp
 END
 zuzzjg_gw_ryxq.jsp
 K 25
@@ -45,11 +45,11 @@ svn:wc:ra_dav:version-url
 V 66
 /svn/product/!svn/ver/2518/YiYuan/WebRoot/jsp/yiyuan/zuzzjg_gw.jsp
 END
-ryxq_dcdy.jsp
+ryxq_adxuexijl.jsp
 K 25
 svn:wc:ra_dav:version-url
-V 66
-/svn/product/!svn/ver/2487/YiYuan/WebRoot/jsp/yiyuan/ryxq_dcdy.jsp
+V 71
+/svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_adxuexijl.jsp
 END
 ryxq_adlvli.jsp
 K 25
@@ -57,11 +57,11 @@ svn:wc:ra_dav:version-url
 V 68
 /svn/product/!svn/ver/2488/YiYuan/WebRoot/jsp/yiyuan/ryxq_adlvli.jsp
 END
-ryxq_adxuexijl.jsp
+ryxq_dcdy.jsp
 K 25
 svn:wc:ra_dav:version-url
-V 71
-/svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_adxuexijl.jsp
+V 66
+/svn/product/!svn/ver/2487/YiYuan/WebRoot/jsp/yiyuan/ryxq_dcdy.jsp
 END
 rysq_gwsq_sqxq.jsp
 K 25
@@ -165,11 +165,11 @@ svn:wc:ra_dav:version-url
 V 72
 /svn/product/!svn/ver/2435/YiYuan/WebRoot/jsp/yiyuan/renyuanshouquan.jsp
 END
-zzjg_gw_edit.jsp
+jypx_dati.jsp
 K 25
 svn:wc:ra_dav:version-url
-V 69
-/svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zzjg_gw_edit.jsp
+V 66
+/svn/product/!svn/ver/2468/YiYuan/WebRoot/jsp/yiyuan/jypx_dati.jsp
 END
 ryxq_adgzjl.jsp
 K 25
@@ -177,11 +177,11 @@ svn:wc:ra_dav:version-url
 V 68
 /svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_adgzjl.jsp
 END
-jypx_dati.jsp
+zzjg_gw_edit.jsp
 K 25
 svn:wc:ra_dav:version-url
-V 66
-/svn/product/!svn/ver/2468/YiYuan/WebRoot/jsp/yiyuan/jypx_dati.jsp
+V 69
+/svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zzjg_gw_edit.jsp
 END
 jiaoyupeixun.jsp
 K 25
@@ -189,29 +189,29 @@ svn:wc:ra_dav:version-url
 V 69
 /svn/product/!svn/ver/2496/YiYuan/WebRoot/jsp/yiyuan/jiaoyupeixun.jsp
 END
-zuzhijiegou.jsp
-K 25
-svn:wc:ra_dav:version-url
-V 68
-/svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zuzhijiegou.jsp
-END
 zuzzjg_gw_ry.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 69
 /svn/product/!svn/ver/2487/YiYuan/WebRoot/jsp/yiyuan/zuzzjg_gw_ry.jsp
 END
-ryxq_ckpxll.jsp
+zuzhijiegou.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 68
-/svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_ckpxll.jsp
+/svn/product/!svn/ver/2522/YiYuan/WebRoot/jsp/yiyuan/zuzhijiegou.jsp
 END
 zzjg_gw_add.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zzjg_gw_add.jsp
+END
+ryxq_ckpxll.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_ckpxll.jsp
 END
 renyuanda_add.jsp
 K 25
@@ -231,17 +231,17 @@ svn:wc:ra_dav:version-url
 V 69
 /svn/product/!svn/ver/2510/YiYuan/WebRoot/jsp/yiyuan/renyuanda_ld.jsp
 END
-zzjg_add.jsp
-K 25
-svn:wc:ra_dav:version-url
-V 65
-/svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zzjg_add.jsp
-END
 ryxq_adcdkt.jsp
 K 25
 svn:wc:ra_dav:version-url
 V 68
 /svn/product/!svn/ver/2499/YiYuan/WebRoot/jsp/yiyuan/ryxq_adcdkt.jsp
+END
+zzjg_add.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/product/!svn/ver/2516/YiYuan/WebRoot/jsp/yiyuan/zzjg_add.jsp
 END
 ryxq_adfblw.jsp
 K 25

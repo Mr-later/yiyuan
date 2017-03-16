@@ -83,13 +83,17 @@
   <select id="getListUserinfo" resultMap="BaseResultMap" parameterType="map">
    select 
     <include refid="Base_Column_List" />
-    from yy_userinfo  where 1=1 
+    from yy_userinfo  where  userinfotemp7 ='1' 
     <if test="searchtext != null and searchtext != ''" >
 	    and (id like '%${searchtext}%' or loginname like '%${searchtext}%' 
 	     or username like '%${searchtext}%' 
 	    or usersex like '%${searchtext}%')
     </if>
   </select>
+  <update id="deleteUpdate"  parameterType="java.lang.Integer">
+  update yy_userinfo userinfo set userinfo.userinfotemp7='2' 
+  where userinfo.id= #{id,jdbcType=INTEGER}
+  </update>
    <!-- **************************************** -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

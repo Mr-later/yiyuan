@@ -176,7 +176,11 @@ $(function () {
   	
 	$("#editqxgl_form").on("submit",function(){
     	
-    	
+		if($("#rolename").val()==null || ""==$("#rolename").val() ||  $("#rolename").val()==undefined ||  $("#rolename").val().trim()==""){
+    		layer.msg("请填写角色名称");
+    		$("#rolename").focus();
+    		return false;
+    	}
     	var functionids="";
     	var buttonids="";
     	var nodes = $.jstree.reference($("#jstree1")).get_selected(); 
@@ -188,7 +192,11 @@ $(function () {
         $.each(nodes, function(i, n) {  
         	buttonids += n+",";
     	});
-    	
+        var funBun=functionids+buttonids;
+    	if(funBun==null || ""==funBun || funBun==undefined ){
+    		layer.msg("请选择至少一个角色权限");
+    		return false;
+    	}
     	var rolename = $("#rolename").val();
     	var miaoshu = $("#miaoshu").val();
     	$.ajax({

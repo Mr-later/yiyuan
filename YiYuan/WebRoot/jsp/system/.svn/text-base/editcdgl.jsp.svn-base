@@ -154,12 +154,12 @@
 	    		layer.msg("请填写group值");
 	    		$("#dictgroup").focus();
 	    		return false;
-	    	}
-	    	if($("#description").val()==null || ""==$("#description").val() ||  $("#description").val()==undefined ||  $("#description").val().trim()==""){
-	    		layer.msg("请填写description值");
-	    		$("#description").focus();
+	    	}*/
+	    	if($("#functionname").val()==null || ""==$("#functionname").val() ||  $("#functionname").val()==undefined ||  $("#functionname").val().trim()==""){
+	    		layer.msg("请填写菜单名称");
+	    		$("#functionname").focus();
 	    		return false;
-	    	}  */
+	    	}  
 	    	
 	    	$.ajax({
 				url : '${path}/functionController/editElement',

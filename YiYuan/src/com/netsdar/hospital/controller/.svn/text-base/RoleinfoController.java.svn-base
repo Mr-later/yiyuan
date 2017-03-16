@@ -25,9 +25,11 @@ import com.github.pagehelper.PageHelper;
 import com.netsdar.hospital.entity.YYFunction;
 import com.netsdar.hospital.entity.YYRoleinfo;
 import com.netsdar.hospital.service.FunctionServiceI;
+import com.netsdar.hospital.service.OrgRoleServiceI;
 import com.netsdar.hospital.service.RoleButtonServiceI;
 import com.netsdar.hospital.service.RoleFunctionServiceI;
 import com.netsdar.hospital.service.RoleinfoServiceI;
+import com.netsdar.hospital.service.UserRoleServiceI;
 
 @Controller
 @RequestMapping("/roleinfoController")
@@ -41,6 +43,10 @@ public class RoleinfoController {
 		RoleFunctionServiceI roleFunctionServiceI;
 		@Autowired
 		RoleButtonServiceI roleButtonServiceI;
+		@Autowired
+		UserRoleServiceI userroleServiceI;
+		@Autowired
+		OrgRoleServiceI  orgRoleServiceI;
 		@RequestMapping("/datagrid")
 		public @ResponseBody JSONObject roleinfoList(String searchtext, String draw, String start, String length, HttpServletRequest request){
 			LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
@@ -158,6 +164,15 @@ public class RoleinfoController {
 				jsonObject.put("success", true);
 				jsonObject.put("msg", "高级管理员不允许删除,如需删除请联系管理员");
 			} else {
+				
+				//删除用户角色中间表
+				userroleServiceI.deleteByRoleId(id);
+				//删除角色权限中间表
+				roleFunctionServiceI.deleteByRoleId(id);
+				//删除角色按钮中间表
+				roleButtonServiceI.deleteByRoleId(id);
+				//删除角色机构中间表
+				orgRoleServiceI.deleteByRoleId(id);
 				int deletestate = roleinfoServiceI.deletebyid(id);
 				if (deletestate == 1) {
 					jsonObject.put("success", true);
@@ -185,13 +200,14 @@ public class RoleinfoController {
 			JSONObject jsonObject = new JSONObject(true);
 			
 			yyRoleinfo.setId(Integer.valueOf(id));
+			int roleId = yyRoleinfo.getId();
 			//更新前，先进行删除
-			roleFunctionServiceI.deleteByRoleId(yyRoleinfo.getId());
+			roleFunctionServiceI.deleteByRoleId(roleId);
+			roleButtonServiceI.deleteByRoleId(roleId);
 			//qxglServiceI.insertAndGetId(mmRole);
 			//修改角色表
 			roleinfoServiceI.editElement(yyRoleinfo);
-			//修改角色功能表
-			int roleId = yyRoleinfo.getId();
+			//修改角色功能中间表
 			Map map = new HashMap();
 			
 			if (functionids != null && functionids!="") {
@@ -230,7 +246,7 @@ public class RoleinfoController {
 				}
 			}
 			//修改角色按钮中间表
-			roleButtonServiceI.deleteByRoleId(roleId);
+			
 			if (buttonids != null&& buttonids!="") {
 				String resource1[] = buttonids.split(",");
 				for (int i = 0; i < resource1.length; i++) {

@@ -110,8 +110,9 @@ public class UserinfoController {
 		JSONObject jsonObject = new JSONObject(true);
 	//	dictServiceI.addElement(mmDict);
 		//添加用户
+		yyUserinfo.setUserinfotemp7("1");
 		int state = userinfoServiceI.addElement(yyUserinfo);
-	
+		
 		//添加用户角色中间表
 		YYUserinfo userinfo = userinfoServiceI.selectByname(yyUserinfo.getLoginname());
 		int userid=userinfo.getId();
@@ -173,7 +174,9 @@ public class UserinfoController {
 		int userId=yyUserinfo.getId();
 		//添加用户角色中间表
 		String roles = request.getParameter("roleids");
-		if(roles!=null ){
+		//更新前先删除
+		userroleServiceI.deleteByUserId(userId);
+		if(roles!=null && roles != ""){
 			userroleServiceI.deleteByUserId(userId);
 			String[] roleArray = roles.split(",");
 			for(int i=0;i<roleArray.length;i++){
@@ -206,6 +209,7 @@ public class UserinfoController {
 		if (userByName != null) {
 			jsonObject.put("msg", "用户名已存在！");
 			jsonObject.put("success", true);
+			jsonObject.put("username", name);
 		}
 		return jsonObject;
 	}

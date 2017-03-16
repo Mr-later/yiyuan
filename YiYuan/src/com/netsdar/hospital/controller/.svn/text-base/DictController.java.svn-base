@@ -77,7 +77,6 @@ public class DictController {
 		jsonObject.put("data", jsonArray);
 		return jsonObject;
 		
-		
 	}
 	
 	@RequestMapping("/addElement")
@@ -87,7 +86,6 @@ public class DictController {
 		jsonObject.put("msg", "添加成功");
 		jsonObject.put("success", true);
 		return jsonObject;
-		
 		
 	}
 	

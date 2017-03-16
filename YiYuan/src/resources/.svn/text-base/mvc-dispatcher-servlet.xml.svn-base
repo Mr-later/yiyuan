@@ -61,7 +61,7 @@
             <mvc:exclude-mapping path="/img/**"/>
             <mvc:exclude-mapping path="/static/**"/>
              <mvc:exclude-mapping path="/jsp/js/**"/>
-<!--             <mvc:exclude-mapping path="/temp/**"/>
+<!--            <mvc:exclude-mapping path="/temp/**"/>
             <mvc:exclude-mapping path="/template/**"/>
             <mvc:exclude-mapping path="/staticlib/**"/> -->
             <bean class="com.netsdar.hospital.intercepters.loginIntercepter" />

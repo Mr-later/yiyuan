@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 55
-/svn/product/!svn/ver/2519/YiYuan/src/resources/mappers
+/svn/product/!svn/ver/2523/YiYuan/src/resources/mappers
 END
 YYRolebuttonMapper.xml
 K 25
@@ -13,7 +13,7 @@ YYOrgroleMapper.xml
 K 25
 svn:wc:ra_dav:version-url
 V 75
-/svn/product/!svn/ver/2498/YiYuan/src/resources/mappers/YYOrgroleMapper.xml
+/svn/product/!svn/ver/2523/YiYuan/src/resources/mappers/YYOrgroleMapper.xml
 END
 YYOrgzhiwuMapper.xml
 K 25
@@ -37,7 +37,7 @@ YYUserinfoMapper.xml
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svn/product/!svn/ver/2519/YiYuan/src/resources/mappers/YYUserinfoMapper.xml
+/svn/product/!svn/ver/2523/YiYuan/src/resources/mappers/YYUserinfoMapper.xml
 END
 YYUserorgMapper.xml
 K 25
@@ -67,7 +67,7 @@ YYUserroleMapper.xml
 K 25
 svn:wc:ra_dav:version-url
 V 76
-/svn/product/!svn/ver/2519/YiYuan/src/resources/mappers/YYUserroleMapper.xml
+/svn/product/!svn/ver/2523/YiYuan/src/resources/mappers/YYUserroleMapper.xml
 END
 YYZhengshuMapper.xml
 K 25

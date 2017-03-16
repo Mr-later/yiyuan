@@ -21,4 +21,6 @@ public interface YYUserroleMapper {
 
 	void deleteByUserId(Integer id);
 
+	void deleteByRoleId(int id);
+
 }

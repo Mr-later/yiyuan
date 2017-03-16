@@ -1,5 +1,6 @@
 package com.netsdar.hospital.service;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class UserinfoServiceI {
 		}
 		public int deletebyid(int id) {
 			// TODO Auto-generated method stub
-			return yyUserinfoMapper.deleteByPrimaryKey(id);
+			return yyUserinfoMapper.deleteUpdate(id);
 		}
 		public YYUserinfo selectByPrimaryKey(int id) {
 			// TODO Auto-generated method stub

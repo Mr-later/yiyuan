@@ -74,7 +74,7 @@
 
 				                         <div class="col-sm-5">
 				                              
-							                         <p>按钮设置</p>
+							                         <p>角色设置</p>
 							                         <div id="jstree1"></div>
 						                        
 				                         </div>
@@ -146,36 +146,36 @@
     	});
     	 var index = parent.layer.getFrameIndex(window.name);
 	    $("#adduser_form").on("submit",function(){
-	    	/* if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
-	    		layer.msg("请填写key值");
-	    		$("#dictkey").focus();
+	    	 if($("#loginname").val()==null || ""==$("#loginname").val() ||  $("#loginname").val()==undefined ||  $("#loginname").val().trim()==""){
+	    		layer.msg("请填写登录名");
+	    		$("#loginname").focus();
 	    		return false;
-	    	}else if (isNaN($("#dictkey").val())) { 
-	    		layer.msg("请输入数字");
-	    		$("#dictkey").focus();
-	 		   	return false;
-	      	} 
+	    	}
 	    	
-	    	if( $("#dictvalue").val()==null || ""==$("#dictvalue").val() ||  $("#dictvalue").val()==undefined ||  $("#dictvalue").val().trim()==""){
-	    		layer.msg("请填写value值");
-	    		$("#dictvalue").focus();
+	    	if( $("#username").val()==null || ""==$("#username").val() ||  $("#username").val()==undefined ||  $("#username").val().trim()==""){
+	    		layer.msg("请填写用户名");
+	    		$("#username").focus();
 	    		return false;
 	    	}
-	    	if($("#dictgroup").val()==null || ""==$("#dictgroup").val() ||  $("#dictgroup").val()==undefined ||  $("#dictgroup").val().trim()==""){
-	    		layer.msg("请填写group值");
-	    		$("#dictgroup").focus();
+	    	if($("#password").val()==null || ""==$("#password").val() ||  $("#password").val()==undefined ||  $("#password").val().trim()==""){
+	    		layer.msg("请填写密码");
+	    		$("#password").focus();
 	    		return false;
-	    	}
-	    	if($("#description").val()==null || ""==$("#description").val() ||  $("#description").val()==undefined ||  $("#description").val().trim()==""){
-	    		layer.msg("请填写description值");
-	    		$("#description").focus();
-	    		return false;
+	    	}/*  else if(isNaN($("#password").val())  || $("#password").val().length <=5){
+		    		layer.msg("请输入大于六位数的数字");
+		    		$("#password").focus();
+		 		   	return false;
 	    	}  */
+	    	
 	    	var roleids="";
 	    	var nodes = $.jstree.reference($("#jstree1")).get_selected(); 
 	        $.each(nodes, function(i, n) {  
 	        	roleids += n+",";
-	    	});  
+	    	}); 
+	        if(nodes==null || ""==nodes ||  nodes==undefined ){
+	    		layer.msg("请选择至少一个角色");
+	    		return false;
+	    	}
 	    	var loginname = $("#loginname").val();
 	    	var username = $("#username").val();
 	    	$.ajax({
@@ -207,7 +207,7 @@
 		var loginname = document.getElementById("loginname").value;
 		$.ajax({
 			type: "post",
-			url : '${path}/userController/verify',
+			url : '${path}/userinfoController/verify',
 			data:{
 				"name":loginname
 			},
@@ -217,7 +217,8 @@
 				if(result.success){
 					layer.msg(result.msg);	
 					//$("#loginname").attr("value","");
-					document.getElementById("loginname").value="";
+					document.getElementById("loginname").value=result.username;
+					$("#loginname").focus();
 				}
 			}
 		});

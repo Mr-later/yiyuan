@@ -59,8 +59,9 @@
 				                                    <select  type="text" class="form-control" name="pid" id="pid">
 				                                    	<!-- <option value="100">根节点</option>   -->
 				                                    	<option value="0">根节点</option>
-				                                    	<c:forEach var="yyFunction" items="${pids}">
-				   	 									<option value="${yyFunction.id}" ${yyFunction.functionname}</option>   
+   														<c:forEach var="function" items="${pids}">
+				   	 									<option value="${function.id}">${function.functionname }
+				   	 									</option>   
    														</c:forEach>
 				                                    </select>
 				                                </div>
@@ -132,6 +133,7 @@
     <script>
     $(function(){
     	var index = parent.layer.getFrameIndex(window.name);
+    	
 	    $("#addcdgl_form").on("submit",function(){
 	    	
 	    	/* if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
@@ -153,12 +155,12 @@
 	    		layer.msg("请填写group值");
 	    		$("#dictgroup").focus();
 	    		return false;
-	    	}
-	    	if($("#description").val()==null || ""==$("#description").val() ||  $("#description").val()==undefined ||  $("#description").val().trim()==""){
-	    		layer.msg("请填写description值");
-	    		$("#description").focus();
+	    	}*/
+	    	if($("#functionname").val()==null || ""==$("#functionname").val() ||  $("#functionname").val()==undefined ||  $("#functionname").val().trim()==""){
+	    		layer.msg("请填写菜单名称");
+	    		$("#functionname").focus();
 	    		return false;
-	    	}  */
+	    	}  
 	    	
 	    	$.ajax({
 				url : '${path}/functionController/addElement',

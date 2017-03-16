@@ -135,12 +135,12 @@
 	    		layer.msg("请填写group值");
 	    		$("#dictgroup").focus();
 	    		return false;
-	    	}
-	    	if($("#description").val()==null || ""==$("#description").val() ||  $("#description").val()==undefined ||  $("#description").val().trim()==""){
-	    		layer.msg("请填写description值");
-	    		$("#description").focus();
+	    	}*/
+	    	if($("#buttonname").val()==null || ""==$("#buttonname").val() ||  $("#buttonname").val()==undefined ||  $("#buttonname").val().trim()==""){
+	    		layer.msg("请填写按钮名称");
+	    		$("#buttonname").focus();
 	    		return false;
-	    	}  */
+	    	}  
 	    	$.ajax({
 				url : '${path}/buttoninfoController/addElement',
 				method: 'post',

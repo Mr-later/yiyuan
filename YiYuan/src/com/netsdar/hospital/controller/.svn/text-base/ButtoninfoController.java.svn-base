@@ -146,40 +146,36 @@ public class ButtoninfoController {
 		public @ResponseBody
 		JSONArray getTreeSelect(String roleid, HttpServletRequest request) {
 			JSONArray jsonArray = new JSONArray();
-			List<YYButtoninfo> mmFunctionList = buttoninfoServiceI.selectAll();
-			List<YYButtoninfo> mmFunctionCheckList = buttoninfoServiceI.allTreeNodeByUser(Integer.valueOf(roleid)); // 可操作的菜单集合
+			List<YYButtoninfo> yyButtoninfoList = buttoninfoServiceI.selectAll();
+			List<YYButtoninfo> yyButtoninfoCheckList = buttoninfoServiceI.allTreeNodeByUser(Integer.valueOf(roleid)); // 可操作的菜单集合
 			List<String> temp = new ArrayList<String>();
 
-			for (int j = 0; j < mmFunctionCheckList.size(); j++) {
-				mmFunctionCheckList.get(j).setButtoninfotemp16(1);
-				temp.add(mmFunctionCheckList.get(j).getId().toString());
+			for (int j = 0; j < yyButtoninfoCheckList.size(); j++) {
+				yyButtoninfoCheckList.get(j).setButtoninfotemp16(1);
+				temp.add(yyButtoninfoCheckList.get(j).getId().toString());
 			}
-			for (int k = 0; k < mmFunctionList.size(); k++) {
-				if (!temp.contains(mmFunctionList.get(k).getId().toString())) {
-					mmFunctionList.get(k).setButtoninfotemp16(0);
-					mmFunctionCheckList.add(mmFunctionList.get(k));
+			for (int k = 0; k < yyButtoninfoList.size(); k++) {
+				if (!temp.contains(yyButtoninfoList.get(k).getId().toString())) {
+					yyButtoninfoList.get(k).setButtoninfotemp16(0);
+					yyButtoninfoCheckList.add(yyButtoninfoList.get(k));
 				}
 			}
-			JSONArray childrenBtnArr = new JSONArray();
-			JSONObject jsonObject = new JSONObject();
-			mmFunctionList = mmFunctionCheckList;
+			yyButtoninfoList = yyButtoninfoCheckList;
 
-					for (int j = 0; j < mmFunctionList.size(); j++) {
-							JSONObject childrenBtnObj = new JSONObject(true);
-							childrenBtnObj.put("id", mmFunctionList.get(j).getId());
-							childrenBtnObj.put("text", mmFunctionList.get(j).getButtonname());
-							if(mmFunctionList.get(j).getButtoninfotemp16()==1)
+					for (int j = 0; j < yyButtoninfoList.size(); j++) {
+							JSONObject json = new JSONObject(true);
+							json.put("id", yyButtoninfoList.get(j).getId());
+							json.put("text", yyButtoninfoList.get(j).getButtonname());
+							if(yyButtoninfoList.get(j).getButtoninfotemp16()==1)
 							{
 								 JSONObject stateJsonchild = new JSONObject(true);
 								 stateJsonchild.put("opened", true);
 								 stateJsonchild.put("selected", true);
-								 childrenBtnObj.put("state", stateJsonchild);
+								 json.put("state", stateJsonchild);
 							}
 							
-							childrenBtnArr.add(childrenBtnObj);
+							jsonArray.add(json);
 						}
-					jsonObject.put("children", childrenBtnArr);
-					jsonArray.add(jsonObject);
 			return jsonArray;
 		}
 		

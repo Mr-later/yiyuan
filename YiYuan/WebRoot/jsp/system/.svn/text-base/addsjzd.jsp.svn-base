@@ -114,7 +114,7 @@
     	var index = parent.layer.getFrameIndex(window.name);
 	    $("#addsjzd_form").on("submit",function(){
 	    	
-	    	if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
+	    	/* if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
 	    		layer.msg("请填写key值");
 	    		$("#dictkey").focus();
 	    		return false;
@@ -122,7 +122,7 @@
 	    		layer.msg("请输入数字");
 	    		$("#dictkey").focus();
 	 		   	return false;
-	      	} 
+	      	}  */
 	    	
 	    	if( $("#dictvalue").val()==null || ""==$("#dictvalue").val() ||  $("#dictvalue").val()==undefined ||  $("#dictvalue").val().trim()==""){
 	    		layer.msg("请填写value值");

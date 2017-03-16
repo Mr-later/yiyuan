@@ -1,13 +1,13 @@
 K 25
 svn:wc:ra_dav:version-url
 V 62
-/svn/product/!svn/ver/2519/YiYuan/src/com/netsdar/hospital/dao
+/svn/product/!svn/ver/2523/YiYuan/src/com/netsdar/hospital/dao
 END
 YYUserroleMapper.java
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/svn/product/!svn/ver/2519/YiYuan/src/com/netsdar/hospital/dao/YYUserroleMapper.java
+/svn/product/!svn/ver/2523/YiYuan/src/com/netsdar/hospital/dao/YYUserroleMapper.java
 END
 YYButtoninfoMapper.java
 K 25
@@ -49,7 +49,7 @@ YYOrgroleMapper.java
 K 25
 svn:wc:ra_dav:version-url
 V 83
-/svn/product/!svn/ver/2498/YiYuan/src/com/netsdar/hospital/dao/YYOrgroleMapper.java
+/svn/product/!svn/ver/2523/YiYuan/src/com/netsdar/hospital/dao/YYOrgroleMapper.java
 END
 YYFunctionMapper.java
 K 25
@@ -61,7 +61,7 @@ YYUserinfoMapper.java
 K 25
 svn:wc:ra_dav:version-url
 V 84
-/svn/product/!svn/ver/2519/YiYuan/src/com/netsdar/hospital/dao/YYUserinfoMapper.java
+/svn/product/!svn/ver/2523/YiYuan/src/com/netsdar/hospital/dao/YYUserinfoMapper.java
 END
 YYFileinfoMapper.java
 K 25

@@ -32,6 +32,11 @@
     orgroletemp12, orgroletemp13, orgroletemp14, orgroletemp15, orgroletemp16, orgroletemp17, 
     orgroletemp18, orgroletemp19, orgroletemp20
   </sql>
+  <!-- ****************************************** -->
+  <delete id="deleteByRoleId"  parameterType="java.lang.Integer">
+  delete from yy_orgrole where role_id=#{roleid,jdbcType=INTEGER}
+  </delete>
+  <!-- ****************************************** -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

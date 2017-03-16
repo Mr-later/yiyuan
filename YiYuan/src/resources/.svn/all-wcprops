@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/product/!svn/ver/2519/YiYuan/src/resources
+/svn/product/!svn/ver/2523/YiYuan/src/resources
 END
 spring-database.xml
 K 25
@@ -25,7 +25,7 @@ mvc-dispatcher-servlet.xml
 K 25
 svn:wc:ra_dav:version-url
 V 74
-/svn/product/!svn/ver/2498/YiYuan/src/resources/mvc-dispatcher-servlet.xml
+/svn/product/!svn/ver/2523/YiYuan/src/resources/mvc-dispatcher-servlet.xml
 END
 file.properties
 K 25
