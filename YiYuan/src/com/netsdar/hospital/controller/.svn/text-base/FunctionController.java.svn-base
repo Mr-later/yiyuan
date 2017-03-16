@@ -146,6 +146,7 @@ public class FunctionController {
 			return "system/addcdgl";
 		}
 		
+		//只支持两级目录
 		@RequestMapping("/getTree")
 		public @ResponseBody JSONArray getTree(YYFunction yyFunction,HttpServletRequest request){
 			JSONArray jsonArray = new JSONArray();

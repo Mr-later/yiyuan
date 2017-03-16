@@ -210,9 +210,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYDict" >
     update yy_dict
     <set >
-      <if test="dictkey != null" >
+      
         dictkey = #{dictkey,jdbcType=INTEGER},
-      </if>
+      
       <if test="dictvalue != null" >
         dictvalue = #{dictvalue,jdbcType=VARCHAR},
       </if>

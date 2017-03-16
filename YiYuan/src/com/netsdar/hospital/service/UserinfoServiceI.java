@@ -31,9 +31,9 @@ public class UserinfoServiceI {
 			}
 			return yyUserinfoMapper.insert(yyUserinfo);
 		}
-		public int deletebyid(int id) {
+		public int UpdateTemp7ById(int id) {
 			// TODO Auto-generated method stub
-			return yyUserinfoMapper.deleteUpdate(id);
+			return yyUserinfoMapper.UpdateTemp7ById(id);
 		}
 		public YYUserinfo selectByPrimaryKey(int id) {
 			// TODO Auto-generated method stub

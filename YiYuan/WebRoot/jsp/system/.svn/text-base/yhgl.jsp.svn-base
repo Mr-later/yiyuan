@@ -187,7 +187,7 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['${path}/userinfoController/toEditPage?id='+id]
+              ,content: ['${path}/userinfoController/toEditPage?id='+id] //edityhgl.jsp
           	  ,end: function(){
 	    		table._fnAjaxUpdate(table.oSettings);
 	       	}

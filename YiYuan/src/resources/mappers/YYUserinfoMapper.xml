@@ -90,7 +90,7 @@
 	    or usersex like '%${searchtext}%')
     </if>
   </select>
-  <update id="deleteUpdate"  parameterType="java.lang.Integer">
+  <update id="UpdateTemp7ById"  parameterType="java.lang.Integer">
   update yy_userinfo userinfo set userinfo.userinfotemp7='2' 
   where userinfo.id= #{id,jdbcType=INTEGER}
   </update>

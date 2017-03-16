@@ -1,15 +1,15 @@
 8
 
 dir
-2511
+2525
 http://192.168.1.115/svn/product/YiYuan/.settings
 http://192.168.1.115/svn/product
 
 
 
-2017-03-02T04:51:37.148572Z
-2489
-liuxin
+2017-03-16T05:51:51.978821Z
+2525
+wangshiwei
 
 
 svn:special svn:externals svn:needs-lock
@@ -116,11 +116,11 @@ file
 
 
 
-2017-03-08T03:33:58.643000Z
-7c39121a1db473f5775eb3b042b15799
-2017-01-16T07:14:14.674904Z
-2435
-zn
+2017-03-08T03:38:38.483000Z
+790723c252c7f0546b716d1981bed6e2
+2017-03-16T05:51:51.978821Z
+2525
+wangshiwei
 
 org.eclipse.wst.common.project.facet.core.xml
 file

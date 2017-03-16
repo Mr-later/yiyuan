@@ -10,12 +10,14 @@ import com.netsdar.hospital.dao.YYRolebuttonMapper;
 @Service
 public class RoleButtonServiceI {
 
-		@Autowired
-		YYRolebuttonMapper yyRolebuttonMapper;
-	public  void insertByMap(Map map) {
+	@Autowired
+	YYRolebuttonMapper yyRolebuttonMapper;
+
+	public void insertByMap(Map map) {
 		// TODO Auto-generated method stub
 		yyRolebuttonMapper.insertByMap(map);
 	}
+
 	public void deleteByRoleId(int roleId) {
 		// TODO Auto-generated method stub
 		yyRolebuttonMapper.deleteByRoleId(roleId);

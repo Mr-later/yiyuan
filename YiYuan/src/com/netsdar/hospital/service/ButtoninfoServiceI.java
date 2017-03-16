@@ -25,7 +25,7 @@ public class ButtoninfoServiceI {
 		yyButtonifoMapper.insert(yyButtoninfo);
 	}
 
-	public int deletebyid(int id) {
+	public int deleteByPrimaryKey(int id) {
 		// TODO Auto-generated method stub
 		int key = yyButtonifoMapper.deleteByPrimaryKey(id);
 		return key;

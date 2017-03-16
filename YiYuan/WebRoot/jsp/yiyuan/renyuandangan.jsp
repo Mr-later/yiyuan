@@ -44,9 +44,9 @@
                     <div>
                        <div class="wrapper wrapper-content animated fadeInRight" style="">
 
-					        <div class="row text-center" style="display:block">
+					        <div class="row text-center" style="display:block" id="shangjijiedian">
 					    
-										        <div class="col-sm-3" style="margin-left:38%;">
+										       <!--  <div class="col-sm-3" style="margin-left:38%;">
 											         <a href="renyuanda_ld.jsp">
 											                <div class="widget red-bg p-lg text-center">
 											               
@@ -54,20 +54,21 @@
 											                        <i class="fa fa-user-md fa-4x"></i>
 											                        <h2 class="m-xs">&nbsp;</h2>
 											                        <h2 class="font-bold no-margins">
-											                               检验科
+											                               检验科1
 											                        </h2>
 											                       
 											                    </div>
 											                </div>
 											         </a> 
-										           </div>
+											         
+										           </div> -->
 										        
 					          
 					        </div>
-					         <div class="row text-center" >
-					         	<div class="row_1" >
+					         <div class="row text-center"  id="xiajijiedian">
+					         	 <div class="row_1" >
 					         		
-											                <div class="widget navy-bg p-lg text-center w100">
+											              <!--  <div class="widget navy-bg p-lg text-center w100">
 											               
 											                    <div class="m-b-md fontlink_gw">
 											                      
@@ -117,7 +118,7 @@
 											                        </h2>
 											                       
 											                    </div>
-											                </div>
+											                </div>--> 
 											       
 										         
 								 </div>       
@@ -141,13 +142,63 @@
 
    <script type="text/javascript">
    jQuery(document).ready(function() {
-	   	$('.fontlink_gw').click(function(){
+	   	
+	  /*  $('.fontlink_gw').click(function(){
 	   	      tiaozhuan();//跳转到人员档案-岗位
-	   	    });
+	   	}); */
+	   $.ajax({
+           cache: true,
+           type: "POST",
+           url:'${path}/renYuanDaController/orgList',
+           async: false,
+           success: function(data) {
+           	var html="";
+             	var html2="";
+             	$("#shangjijiedian").empty();
+             	$("#xiajijiedian").empty();	
+             	var data=data.data;
+               for (var i = 0, j = data.length; i < j; i++){
+               	if(data[i].pid==0){
+               		
+               			html +='<div class="col-sm-3" style="margin-left:38%;">'
+                     		html +='<a href="renyuanda_ld.jsp">'
+                     		html +=' <div class="widget red-bg p-lg text-center">'
+                     		html +='<div class="m-b-md"><i class="fa fa-user-md fa-4x"></i>'
+                     		html +='<h2 class="m-xs">&nbsp;</h2>'
+                     		html +='<h2 class="font-bold no-margins">'
+                     		html +=data[i].orgname
+                     		html +='</h2>'
+                     		html +='</div></div></a>'
+                     		html +='</div>'
+               	}
+               	if(data[i].pid==1){
+               		
+               			html2 +='<div class="widget navy-bg p-lg text-center w100">'
+               			html2 +='<div class="m-b-md fontlink_gw">'
+               			
+               			html2 +='<h2 class="font-bold no-margins">'
+               			html2 +=data[i].orgname
+               			html2 +='</h2>'
+               			
+               			html2 +='</div>'
+               			html2 +='</div>'
+               	}
+               }
+               $("#shangjijiedian").append(html);
+               $("#xiajijiedian").append(html2);
+           }
+       });
+
+	   
    }); 
 	   function tiaozhuan(){//跳转到人员档案-岗位
 	   	location.href="renyuanda_gw.jsp"
 	   };
+	    jQuery(document).ready(function() {
+	   	$('.fontlink_gw').click(function(){
+	   	      tiaozhuan();//跳转到人员档案-岗位
+	   	    });
+   		});
   </script>  
 
 </body>

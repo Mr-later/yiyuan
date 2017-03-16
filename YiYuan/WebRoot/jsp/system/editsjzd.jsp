@@ -116,16 +116,19 @@
 	    $("#editsjzd_form").on("submit",function(){
 	    	
 	    	//非空验证  数字验证
-	    	if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
+	    	/* if($("#dictkey").val()==null || ""==$("#dictkey").val() ||  $("#dictkey").val()==undefined ||  $("#dictkey").val().trim()==""){
 	    		layer.msg("请填写key值");
 	    		$("#dictkey").focus();
 	    		return false;
 	    	}else if (isNaN($("#dictkey").val())) { 
 	    	layer.msg("请输入数字");
 	 		   return false;
-	      } 
-	    
-	    /* 	if( $("#dictvalue").val()==null || ""==$("#dictvalue").val() ||  $("#dictvalue").val()==undefined ||  $("#dictvalue").val().trim()==""){
+	      }  */
+	      if (isNaN($("#dictkey").val()) && ( $("#dictkey").val()!=null ||  ""==$("#dictkey").val() ) ) { 
+		    	layer.msg("请输入数字");
+		 		   return false;
+		      } 
+	     	if( $("#dictvalue").val()==null || ""==$("#dictvalue").val() ||  $("#dictvalue").val()==undefined ||  $("#dictvalue").val().trim()==""){
 	    		layer.msg("请填写value值");
 	    		 $("#dictvalue").focus();
 	    		return false;
@@ -139,7 +142,7 @@
 	    		layer.msg("请填写description值");
 	    		$("#description").focus();
 	    		return false;
-	    	}  */
+	    	}  
 
 	    	
 	    	$.ajax({

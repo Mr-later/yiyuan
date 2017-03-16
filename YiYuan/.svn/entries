@@ -1,14 +1,14 @@
 8
 
 dir
-2511
+2525
 http://192.168.1.115/svn/product/YiYuan
 http://192.168.1.115/svn/product
 
 
 
-2017-03-10T01:20:06.120857Z
-2511
+2017-03-16T05:51:51.978821Z
+2525
 wangshiwei
 
 
@@ -38,6 +38,13 @@ file
 2435
 zn
 
+.myeclipse
+dir
+
+
+
+add
+
 .mymetadata
 file
 
@@ -56,11 +63,11 @@ file
 
 
 
-2017-03-08T03:33:58.614000Z
-e60df4012b76ce1563fcf38d4b2028de
-2017-01-04T08:51:43.370534Z
-2335
-fuxiaokai
+2017-03-08T04:36:48.627000Z
+eb15dd25d03cef3fd6b9d32c9a9e794a
+2017-03-16T05:51:51.978821Z
+2525
+wangshiwei
 
 .project
 file

@@ -142,7 +142,7 @@ public class UserinfoController {
 	public @ResponseBody JSONObject deleteuser(int id){
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
 		JSONObject jsonObject = new JSONObject(true);
-		int deletestate = userinfoServiceI.deletebyid(id);
+		int deletestate = userinfoServiceI.UpdateTemp7ById(id);
 		if(deletestate!=0){
 			jsonObject.put("success", true);
 			jsonObject.put("msg", "删除成功");

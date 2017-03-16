@@ -47,7 +47,9 @@
 				                </div>
 				            </a> 
 			        
-				          <a href="yiyuan/renyuanshouquan.jsp">
+				        
+				         <%--  <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanshouquan"> --%>
+				                   <a href="yiyuan/renyuanshouquan.jsp"> 
 				                <div class="widget yellow-bg p-lg text-center">
 				                    <div class="m-b-md">
 				                        <i class="fa fa-gears fa-4x"></i>

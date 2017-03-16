@@ -19,9 +19,10 @@ public interface YYUserinfoMapper {
 
     int updateByPrimaryKey(YYUserinfo record);
 
+    //获得所有在职用户
 	List<YYUserinfo> getListUserinfo(LinkedHashMap<String, Object> map);
 
 	YYUserinfo selectByname(String name);
 
-	int deleteUpdate(int id);
+	int UpdateTemp7ById(int id);
 }

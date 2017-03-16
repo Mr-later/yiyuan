@@ -93,7 +93,7 @@ public class ButtoninfoController {
 		public @ResponseBody JSONObject deletedict(int id){
 			LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
 			JSONObject jsonObject = new JSONObject(true);
-			int deletestate = buttoninfoServiceI.deletebyid(id);
+			int deletestate = buttoninfoServiceI.deleteByPrimaryKey(id);
 			if(deletestate != 0){
 				jsonObject.put("success", true);
 				jsonObject.put("msg", "删除成功");
