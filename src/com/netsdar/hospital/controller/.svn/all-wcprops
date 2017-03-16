@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/product/!svn/ver/2520/YiYuan/src/com/netsdar/hospital/controller
+END
+LoginController.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/product/!svn/ver/2497/YiYuan/src/com/netsdar/hospital/controller/LoginController.java
+END
+UserinfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/product/!svn/ver/2520/YiYuan/src/com/netsdar/hospital/controller/UserinfoController.java
+END
+FunctionController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/product/!svn/ver/2512/YiYuan/src/com/netsdar/hospital/controller/FunctionController.java
+END
+OrgController.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/product/!svn/ver/2516/YiYuan/src/com/netsdar/hospital/controller/OrgController.java
+END
+ButtoninfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/product/!svn/ver/2512/YiYuan/src/com/netsdar/hospital/controller/ButtoninfoController.java
+END
+DictController.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/product/!svn/ver/2507/YiYuan/src/com/netsdar/hospital/controller/DictController.java
+END
+PageController.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/product/!svn/ver/2516/YiYuan/src/com/netsdar/hospital/controller/PageController.java
+END
+RoleinfoController.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/product/!svn/ver/2519/YiYuan/src/com/netsdar/hospital/controller/RoleinfoController.java
+END

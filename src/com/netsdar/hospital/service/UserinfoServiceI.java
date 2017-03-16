@@ -1,0 +1,55 @@
+package com.netsdar.hospital.service;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.netsdar.hospital.dao.YYUserinfoMapper;
+import com.netsdar.hospital.entity.YYUserinfo;
+import com.netsdar.hospital.utils.StringUtil;
+
+@Service
+public class UserinfoServiceI {
+
+		@Autowired
+		YYUserinfoMapper yyUserinfoMapper;
+		public int insertSelective(YYUserinfo  yyUserinfo){
+			return yyUserinfoMapper.insertSelective(yyUserinfo);
+		}
+		public List<YYUserinfo> getList(LinkedHashMap<String, Object> map) {
+			// TODO Auto-generated method stub
+			return yyUserinfoMapper.getListUserinfo( map);
+		}
+		public int addElement(YYUserinfo yyUserinfo) {
+			// TODO Auto-generated method stub
+			if(yyUserinfo.getPassword() != null && yyUserinfo.getPassword() != ""){
+				String pass = StringUtil.EncoderByMd5(yyUserinfo.getPassword());
+				yyUserinfo.setPassword(pass);
+			}
+			return yyUserinfoMapper.insert(yyUserinfo);
+		}
+		public int deletebyid(int id) {
+			// TODO Auto-generated method stub
+			return yyUserinfoMapper.deleteUpdate(id);
+		}
+		public YYUserinfo selectByPrimaryKey(int id) {
+			// TODO Auto-generated method stub
+			return yyUserinfoMapper.selectByPrimaryKey(id);
+		}
+		public int editElement(YYUserinfo yyUserinfo) {
+			// TODO Auto-generated method stub
+			if(yyUserinfo.getPassword() != null && yyUserinfo.getPassword() != ""){
+				String pass = StringUtil.EncoderByMd5(yyUserinfo.getPassword());
+				yyUserinfo.setPassword(pass);
+			}
+			return yyUserinfoMapper.updateByPrimaryKeySelective(yyUserinfo);
+		}
+		public YYUserinfo selectByname(String name) {
+			// TODO Auto-generated method stub
+			return yyUserinfoMapper.selectByname(name);
+		}
+		
+}

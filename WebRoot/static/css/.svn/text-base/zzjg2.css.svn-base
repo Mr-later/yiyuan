@@ -1,0 +1,5 @@
+.w100{width:18%;display:inline-block;vertical-align:top;position:relative;}
+.fontlink_gw{height:60px;cursor:pointer;}
+a.btn1{position:absolute;bottom:2%;right:40px;display:none;}
+a.btn2{position:absolute;bottom:2%;right:5px;display:none;}
+a.btn1{background-color:#F0F0F0;border:1px solid #F0F0F0; }

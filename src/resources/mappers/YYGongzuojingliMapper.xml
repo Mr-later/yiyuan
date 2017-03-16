@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYGongzuojingliMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYGongzuojingli" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="shijianbegin" property="shijianbegin" jdbcType="DATE" />
+    <result column="shijianbeginstr" property="shijianbeginstr" jdbcType="VARCHAR" />
+    <result column="shijianend" property="shijianend" jdbcType="DATE" />
+    <result column="shijianendstr" property="shijianendstr" jdbcType="VARCHAR" />
+    <result column="danwei" property="danwei" jdbcType="VARCHAR" />
+    <result column="zhiwu" property="zhiwu" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp1" property="gongzuojinglitemp1" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp2" property="gongzuojinglitemp2" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp3" property="gongzuojinglitemp3" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp4" property="gongzuojinglitemp4" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp5" property="gongzuojinglitemp5" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp6" property="gongzuojinglitemp6" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp7" property="gongzuojinglitemp7" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp8" property="gongzuojinglitemp8" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp9" property="gongzuojinglitemp9" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp10" property="gongzuojinglitemp10" jdbcType="VARCHAR" />
+    <result column="gongzuojinglitemp11" property="gongzuojinglitemp11" jdbcType="DATE" />
+    <result column="gongzuojinglitemp12" property="gongzuojinglitemp12" jdbcType="DATE" />
+    <result column="gongzuojinglitemp13" property="gongzuojinglitemp13" jdbcType="DATE" />
+    <result column="gongzuojinglitemp14" property="gongzuojinglitemp14" jdbcType="DATE" />
+    <result column="gongzuojinglitemp15" property="gongzuojinglitemp15" jdbcType="DATE" />
+    <result column="gongzuojinglitemp16" property="gongzuojinglitemp16" jdbcType="INTEGER" />
+    <result column="gongzuojinglitemp17" property="gongzuojinglitemp17" jdbcType="INTEGER" />
+    <result column="gongzuojinglitemp18" property="gongzuojinglitemp18" jdbcType="INTEGER" />
+    <result column="gongzuojinglitemp19" property="gongzuojinglitemp19" jdbcType="INTEGER" />
+    <result column="gongzuojinglitemp20" property="gongzuojinglitemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, shijianbegin, shijianbeginstr, shijianend, shijianendstr, danwei, zhiwu, 
+    gongzuojinglitemp1, gongzuojinglitemp2, gongzuojinglitemp3, gongzuojinglitemp4, gongzuojinglitemp5, 
+    gongzuojinglitemp6, gongzuojinglitemp7, gongzuojinglitemp8, gongzuojinglitemp9, gongzuojinglitemp10, 
+    gongzuojinglitemp11, gongzuojinglitemp12, gongzuojinglitemp13, gongzuojinglitemp14, 
+    gongzuojinglitemp15, gongzuojinglitemp16, gongzuojinglitemp17, gongzuojinglitemp18, 
+    gongzuojinglitemp19, gongzuojinglitemp20
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_gongzuojingli
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_gongzuojingli
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYGongzuojingli" >
+    insert into yy_gongzuojingli (id, user_id, shijianbegin, 
+      shijianbeginstr, shijianend, shijianendstr, 
+      danwei, zhiwu, gongzuojinglitemp1, 
+      gongzuojinglitemp2, gongzuojinglitemp3, 
+      gongzuojinglitemp4, gongzuojinglitemp5, 
+      gongzuojinglitemp6, gongzuojinglitemp7, 
+      gongzuojinglitemp8, gongzuojinglitemp9, 
+      gongzuojinglitemp10, gongzuojinglitemp11, 
+      gongzuojinglitemp12, gongzuojinglitemp13, gongzuojinglitemp14, 
+      gongzuojinglitemp15, gongzuojinglitemp16, 
+      gongzuojinglitemp17, gongzuojinglitemp18, 
+      gongzuojinglitemp19, gongzuojinglitemp20
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{shijianbegin,jdbcType=DATE}, 
+      #{shijianbeginstr,jdbcType=VARCHAR}, #{shijianend,jdbcType=DATE}, #{shijianendstr,jdbcType=VARCHAR}, 
+      #{danwei,jdbcType=VARCHAR}, #{zhiwu,jdbcType=VARCHAR}, #{gongzuojinglitemp1,jdbcType=VARCHAR}, 
+      #{gongzuojinglitemp2,jdbcType=VARCHAR}, #{gongzuojinglitemp3,jdbcType=VARCHAR}, 
+      #{gongzuojinglitemp4,jdbcType=VARCHAR}, #{gongzuojinglitemp5,jdbcType=VARCHAR}, 
+      #{gongzuojinglitemp6,jdbcType=VARCHAR}, #{gongzuojinglitemp7,jdbcType=VARCHAR}, 
+      #{gongzuojinglitemp8,jdbcType=VARCHAR}, #{gongzuojinglitemp9,jdbcType=VARCHAR}, 
+      #{gongzuojinglitemp10,jdbcType=VARCHAR}, #{gongzuojinglitemp11,jdbcType=DATE}, 
+      #{gongzuojinglitemp12,jdbcType=DATE}, #{gongzuojinglitemp13,jdbcType=DATE}, #{gongzuojinglitemp14,jdbcType=DATE}, 
+      #{gongzuojinglitemp15,jdbcType=DATE}, #{gongzuojinglitemp16,jdbcType=INTEGER}, 
+      #{gongzuojinglitemp17,jdbcType=INTEGER}, #{gongzuojinglitemp18,jdbcType=INTEGER}, 
+      #{gongzuojinglitemp19,jdbcType=INTEGER}, #{gongzuojinglitemp20,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYGongzuojingli" >
+    insert into yy_gongzuojingli
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="shijianbegin != null" >
+        shijianbegin,
+      </if>
+      <if test="shijianbeginstr != null" >
+        shijianbeginstr,
+      </if>
+      <if test="shijianend != null" >
+        shijianend,
+      </if>
+      <if test="shijianendstr != null" >
+        shijianendstr,
+      </if>
+      <if test="danwei != null" >
+        danwei,
+      </if>
+      <if test="zhiwu != null" >
+        zhiwu,
+      </if>
+      <if test="gongzuojinglitemp1 != null" >
+        gongzuojinglitemp1,
+      </if>
+      <if test="gongzuojinglitemp2 != null" >
+        gongzuojinglitemp2,
+      </if>
+      <if test="gongzuojinglitemp3 != null" >
+        gongzuojinglitemp3,
+      </if>
+      <if test="gongzuojinglitemp4 != null" >
+        gongzuojinglitemp4,
+      </if>
+      <if test="gongzuojinglitemp5 != null" >
+        gongzuojinglitemp5,
+      </if>
+      <if test="gongzuojinglitemp6 != null" >
+        gongzuojinglitemp6,
+      </if>
+      <if test="gongzuojinglitemp7 != null" >
+        gongzuojinglitemp7,
+      </if>
+      <if test="gongzuojinglitemp8 != null" >
+        gongzuojinglitemp8,
+      </if>
+      <if test="gongzuojinglitemp9 != null" >
+        gongzuojinglitemp9,
+      </if>
+      <if test="gongzuojinglitemp10 != null" >
+        gongzuojinglitemp10,
+      </if>
+      <if test="gongzuojinglitemp11 != null" >
+        gongzuojinglitemp11,
+      </if>
+      <if test="gongzuojinglitemp12 != null" >
+        gongzuojinglitemp12,
+      </if>
+      <if test="gongzuojinglitemp13 != null" >
+        gongzuojinglitemp13,
+      </if>
+      <if test="gongzuojinglitemp14 != null" >
+        gongzuojinglitemp14,
+      </if>
+      <if test="gongzuojinglitemp15 != null" >
+        gongzuojinglitemp15,
+      </if>
+      <if test="gongzuojinglitemp16 != null" >
+        gongzuojinglitemp16,
+      </if>
+      <if test="gongzuojinglitemp17 != null" >
+        gongzuojinglitemp17,
+      </if>
+      <if test="gongzuojinglitemp18 != null" >
+        gongzuojinglitemp18,
+      </if>
+      <if test="gongzuojinglitemp19 != null" >
+        gongzuojinglitemp19,
+      </if>
+      <if test="gongzuojinglitemp20 != null" >
+        gongzuojinglitemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shijianbegin != null" >
+        #{shijianbegin,jdbcType=DATE},
+      </if>
+      <if test="shijianbeginstr != null" >
+        #{shijianbeginstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shijianend != null" >
+        #{shijianend,jdbcType=DATE},
+      </if>
+      <if test="shijianendstr != null" >
+        #{shijianendstr,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwu != null" >
+        #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp1 != null" >
+        #{gongzuojinglitemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp2 != null" >
+        #{gongzuojinglitemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp3 != null" >
+        #{gongzuojinglitemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp4 != null" >
+        #{gongzuojinglitemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp5 != null" >
+        #{gongzuojinglitemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp6 != null" >
+        #{gongzuojinglitemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp7 != null" >
+        #{gongzuojinglitemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp8 != null" >
+        #{gongzuojinglitemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp9 != null" >
+        #{gongzuojinglitemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp10 != null" >
+        #{gongzuojinglitemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp11 != null" >
+        #{gongzuojinglitemp11,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp12 != null" >
+        #{gongzuojinglitemp12,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp13 != null" >
+        #{gongzuojinglitemp13,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp14 != null" >
+        #{gongzuojinglitemp14,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp15 != null" >
+        #{gongzuojinglitemp15,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp16 != null" >
+        #{gongzuojinglitemp16,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp17 != null" >
+        #{gongzuojinglitemp17,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp18 != null" >
+        #{gongzuojinglitemp18,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp19 != null" >
+        #{gongzuojinglitemp19,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp20 != null" >
+        #{gongzuojinglitemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYGongzuojingli" >
+    update yy_gongzuojingli
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="shijianbegin != null" >
+        shijianbegin = #{shijianbegin,jdbcType=DATE},
+      </if>
+      <if test="shijianbeginstr != null" >
+        shijianbeginstr = #{shijianbeginstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shijianend != null" >
+        shijianend = #{shijianend,jdbcType=DATE},
+      </if>
+      <if test="shijianendstr != null" >
+        shijianendstr = #{shijianendstr,jdbcType=VARCHAR},
+      </if>
+      <if test="danwei != null" >
+        danwei = #{danwei,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwu != null" >
+        zhiwu = #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp1 != null" >
+        gongzuojinglitemp1 = #{gongzuojinglitemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp2 != null" >
+        gongzuojinglitemp2 = #{gongzuojinglitemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp3 != null" >
+        gongzuojinglitemp3 = #{gongzuojinglitemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp4 != null" >
+        gongzuojinglitemp4 = #{gongzuojinglitemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp5 != null" >
+        gongzuojinglitemp5 = #{gongzuojinglitemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp6 != null" >
+        gongzuojinglitemp6 = #{gongzuojinglitemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp7 != null" >
+        gongzuojinglitemp7 = #{gongzuojinglitemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp8 != null" >
+        gongzuojinglitemp8 = #{gongzuojinglitemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp9 != null" >
+        gongzuojinglitemp9 = #{gongzuojinglitemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp10 != null" >
+        gongzuojinglitemp10 = #{gongzuojinglitemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="gongzuojinglitemp11 != null" >
+        gongzuojinglitemp11 = #{gongzuojinglitemp11,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp12 != null" >
+        gongzuojinglitemp12 = #{gongzuojinglitemp12,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp13 != null" >
+        gongzuojinglitemp13 = #{gongzuojinglitemp13,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp14 != null" >
+        gongzuojinglitemp14 = #{gongzuojinglitemp14,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp15 != null" >
+        gongzuojinglitemp15 = #{gongzuojinglitemp15,jdbcType=DATE},
+      </if>
+      <if test="gongzuojinglitemp16 != null" >
+        gongzuojinglitemp16 = #{gongzuojinglitemp16,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp17 != null" >
+        gongzuojinglitemp17 = #{gongzuojinglitemp17,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp18 != null" >
+        gongzuojinglitemp18 = #{gongzuojinglitemp18,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp19 != null" >
+        gongzuojinglitemp19 = #{gongzuojinglitemp19,jdbcType=INTEGER},
+      </if>
+      <if test="gongzuojinglitemp20 != null" >
+        gongzuojinglitemp20 = #{gongzuojinglitemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYGongzuojingli" >
+    update yy_gongzuojingli
+    set user_id = #{userId,jdbcType=INTEGER},
+      shijianbegin = #{shijianbegin,jdbcType=DATE},
+      shijianbeginstr = #{shijianbeginstr,jdbcType=VARCHAR},
+      shijianend = #{shijianend,jdbcType=DATE},
+      shijianendstr = #{shijianendstr,jdbcType=VARCHAR},
+      danwei = #{danwei,jdbcType=VARCHAR},
+      zhiwu = #{zhiwu,jdbcType=VARCHAR},
+      gongzuojinglitemp1 = #{gongzuojinglitemp1,jdbcType=VARCHAR},
+      gongzuojinglitemp2 = #{gongzuojinglitemp2,jdbcType=VARCHAR},
+      gongzuojinglitemp3 = #{gongzuojinglitemp3,jdbcType=VARCHAR},
+      gongzuojinglitemp4 = #{gongzuojinglitemp4,jdbcType=VARCHAR},
+      gongzuojinglitemp5 = #{gongzuojinglitemp5,jdbcType=VARCHAR},
+      gongzuojinglitemp6 = #{gongzuojinglitemp6,jdbcType=VARCHAR},
+      gongzuojinglitemp7 = #{gongzuojinglitemp7,jdbcType=VARCHAR},
+      gongzuojinglitemp8 = #{gongzuojinglitemp8,jdbcType=VARCHAR},
+      gongzuojinglitemp9 = #{gongzuojinglitemp9,jdbcType=VARCHAR},
+      gongzuojinglitemp10 = #{gongzuojinglitemp10,jdbcType=VARCHAR},
+      gongzuojinglitemp11 = #{gongzuojinglitemp11,jdbcType=DATE},
+      gongzuojinglitemp12 = #{gongzuojinglitemp12,jdbcType=DATE},
+      gongzuojinglitemp13 = #{gongzuojinglitemp13,jdbcType=DATE},
+      gongzuojinglitemp14 = #{gongzuojinglitemp14,jdbcType=DATE},
+      gongzuojinglitemp15 = #{gongzuojinglitemp15,jdbcType=DATE},
+      gongzuojinglitemp16 = #{gongzuojinglitemp16,jdbcType=INTEGER},
+      gongzuojinglitemp17 = #{gongzuojinglitemp17,jdbcType=INTEGER},
+      gongzuojinglitemp18 = #{gongzuojinglitemp18,jdbcType=INTEGER},
+      gongzuojinglitemp19 = #{gongzuojinglitemp19,jdbcType=INTEGER},
+      gongzuojinglitemp20 = #{gongzuojinglitemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

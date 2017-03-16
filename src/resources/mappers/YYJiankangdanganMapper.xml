@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYJiankangdanganMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYJiankangdangan" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="danganmingcheng" property="danganmingcheng" jdbcType="VARCHAR" />
+    <result column="jiankangdanganlujing" property="jiankangdanganlujing" jdbcType="VARCHAR" />
+    <result column="zuihoucaozuoshijian" property="zuihoucaozuoshijian" jdbcType="DATE" />
+    <result column="zuihoucaozuoshijianstr" property="zuihoucaozuoshijianstr" jdbcType="VARCHAR" />
+    <result column="zuihoucaozuoyonghu" property="zuihoucaozuoyonghu" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp1" property="jiankangdangantemp1" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp2" property="jiankangdangantemp2" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp3" property="jiankangdangantemp3" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp4" property="jiankangdangantemp4" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp5" property="jiankangdangantemp5" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp6" property="jiankangdangantemp6" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp7" property="jiankangdangantemp7" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp8" property="jiankangdangantemp8" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp9" property="jiankangdangantemp9" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp10" property="jiankangdangantemp10" jdbcType="VARCHAR" />
+    <result column="jiankangdangantemp11" property="jiankangdangantemp11" jdbcType="DATE" />
+    <result column="jiankangdangantemp12" property="jiankangdangantemp12" jdbcType="DATE" />
+    <result column="jiankangdangantemp13" property="jiankangdangantemp13" jdbcType="DATE" />
+    <result column="jiankangdangantemp14" property="jiankangdangantemp14" jdbcType="DATE" />
+    <result column="jiankangdangantemp15" property="jiankangdangantemp15" jdbcType="DATE" />
+    <result column="jiankangdangantemp16" property="jiankangdangantemp16" jdbcType="INTEGER" />
+    <result column="jiankangdangantemp17" property="jiankangdangantemp17" jdbcType="INTEGER" />
+    <result column="jiankangdangantemp18" property="jiankangdangantemp18" jdbcType="INTEGER" />
+    <result column="jiankangdangantemp19" property="jiankangdangantemp19" jdbcType="INTEGER" />
+    <result column="jiankangdangantemp20" property="jiankangdangantemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, danganmingcheng, jiankangdanganlujing, zuihoucaozuoshijian, zuihoucaozuoshijianstr, 
+    zuihoucaozuoyonghu, jiankangdangantemp1, jiankangdangantemp2, jiankangdangantemp3, 
+    jiankangdangantemp4, jiankangdangantemp5, jiankangdangantemp6, jiankangdangantemp7, 
+    jiankangdangantemp8, jiankangdangantemp9, jiankangdangantemp10, jiankangdangantemp11, 
+    jiankangdangantemp12, jiankangdangantemp13, jiankangdangantemp14, jiankangdangantemp15, 
+    jiankangdangantemp16, jiankangdangantemp17, jiankangdangantemp18, jiankangdangantemp19, 
+    jiankangdangantemp20
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_jiankangdangan
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_jiankangdangan
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYJiankangdangan" >
+    insert into yy_jiankangdangan (id, user_id, danganmingcheng, 
+      jiankangdanganlujing, zuihoucaozuoshijian, 
+      zuihoucaozuoshijianstr, zuihoucaozuoyonghu, 
+      jiankangdangantemp1, jiankangdangantemp2, 
+      jiankangdangantemp3, jiankangdangantemp4, 
+      jiankangdangantemp5, jiankangdangantemp6, 
+      jiankangdangantemp7, jiankangdangantemp8, 
+      jiankangdangantemp9, jiankangdangantemp10, 
+      jiankangdangantemp11, jiankangdangantemp12, jiankangdangantemp13, 
+      jiankangdangantemp14, jiankangdangantemp15, jiankangdangantemp16, 
+      jiankangdangantemp17, jiankangdangantemp18, 
+      jiankangdangantemp19, jiankangdangantemp20
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{danganmingcheng,jdbcType=VARCHAR}, 
+      #{jiankangdanganlujing,jdbcType=VARCHAR}, #{zuihoucaozuoshijian,jdbcType=DATE}, 
+      #{zuihoucaozuoshijianstr,jdbcType=VARCHAR}, #{zuihoucaozuoyonghu,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp1,jdbcType=VARCHAR}, #{jiankangdangantemp2,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp3,jdbcType=VARCHAR}, #{jiankangdangantemp4,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp5,jdbcType=VARCHAR}, #{jiankangdangantemp6,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp7,jdbcType=VARCHAR}, #{jiankangdangantemp8,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp9,jdbcType=VARCHAR}, #{jiankangdangantemp10,jdbcType=VARCHAR}, 
+      #{jiankangdangantemp11,jdbcType=DATE}, #{jiankangdangantemp12,jdbcType=DATE}, #{jiankangdangantemp13,jdbcType=DATE}, 
+      #{jiankangdangantemp14,jdbcType=DATE}, #{jiankangdangantemp15,jdbcType=DATE}, #{jiankangdangantemp16,jdbcType=INTEGER}, 
+      #{jiankangdangantemp17,jdbcType=INTEGER}, #{jiankangdangantemp18,jdbcType=INTEGER}, 
+      #{jiankangdangantemp19,jdbcType=INTEGER}, #{jiankangdangantemp20,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYJiankangdangan" >
+    insert into yy_jiankangdangan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="danganmingcheng != null" >
+        danganmingcheng,
+      </if>
+      <if test="jiankangdanganlujing != null" >
+        jiankangdanganlujing,
+      </if>
+      <if test="zuihoucaozuoshijian != null" >
+        zuihoucaozuoshijian,
+      </if>
+      <if test="zuihoucaozuoshijianstr != null" >
+        zuihoucaozuoshijianstr,
+      </if>
+      <if test="zuihoucaozuoyonghu != null" >
+        zuihoucaozuoyonghu,
+      </if>
+      <if test="jiankangdangantemp1 != null" >
+        jiankangdangantemp1,
+      </if>
+      <if test="jiankangdangantemp2 != null" >
+        jiankangdangantemp2,
+      </if>
+      <if test="jiankangdangantemp3 != null" >
+        jiankangdangantemp3,
+      </if>
+      <if test="jiankangdangantemp4 != null" >
+        jiankangdangantemp4,
+      </if>
+      <if test="jiankangdangantemp5 != null" >
+        jiankangdangantemp5,
+      </if>
+      <if test="jiankangdangantemp6 != null" >
+        jiankangdangantemp6,
+      </if>
+      <if test="jiankangdangantemp7 != null" >
+        jiankangdangantemp7,
+      </if>
+      <if test="jiankangdangantemp8 != null" >
+        jiankangdangantemp8,
+      </if>
+      <if test="jiankangdangantemp9 != null" >
+        jiankangdangantemp9,
+      </if>
+      <if test="jiankangdangantemp10 != null" >
+        jiankangdangantemp10,
+      </if>
+      <if test="jiankangdangantemp11 != null" >
+        jiankangdangantemp11,
+      </if>
+      <if test="jiankangdangantemp12 != null" >
+        jiankangdangantemp12,
+      </if>
+      <if test="jiankangdangantemp13 != null" >
+        jiankangdangantemp13,
+      </if>
+      <if test="jiankangdangantemp14 != null" >
+        jiankangdangantemp14,
+      </if>
+      <if test="jiankangdangantemp15 != null" >
+        jiankangdangantemp15,
+      </if>
+      <if test="jiankangdangantemp16 != null" >
+        jiankangdangantemp16,
+      </if>
+      <if test="jiankangdangantemp17 != null" >
+        jiankangdangantemp17,
+      </if>
+      <if test="jiankangdangantemp18 != null" >
+        jiankangdangantemp18,
+      </if>
+      <if test="jiankangdangantemp19 != null" >
+        jiankangdangantemp19,
+      </if>
+      <if test="jiankangdangantemp20 != null" >
+        jiankangdangantemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="danganmingcheng != null" >
+        #{danganmingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdanganlujing != null" >
+        #{jiankangdanganlujing,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoshijian != null" >
+        #{zuihoucaozuoshijian,jdbcType=DATE},
+      </if>
+      <if test="zuihoucaozuoshijianstr != null" >
+        #{zuihoucaozuoshijianstr,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoyonghu != null" >
+        #{zuihoucaozuoyonghu,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp1 != null" >
+        #{jiankangdangantemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp2 != null" >
+        #{jiankangdangantemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp3 != null" >
+        #{jiankangdangantemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp4 != null" >
+        #{jiankangdangantemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp5 != null" >
+        #{jiankangdangantemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp6 != null" >
+        #{jiankangdangantemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp7 != null" >
+        #{jiankangdangantemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp8 != null" >
+        #{jiankangdangantemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp9 != null" >
+        #{jiankangdangantemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp10 != null" >
+        #{jiankangdangantemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp11 != null" >
+        #{jiankangdangantemp11,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp12 != null" >
+        #{jiankangdangantemp12,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp13 != null" >
+        #{jiankangdangantemp13,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp14 != null" >
+        #{jiankangdangantemp14,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp15 != null" >
+        #{jiankangdangantemp15,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp16 != null" >
+        #{jiankangdangantemp16,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp17 != null" >
+        #{jiankangdangantemp17,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp18 != null" >
+        #{jiankangdangantemp18,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp19 != null" >
+        #{jiankangdangantemp19,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp20 != null" >
+        #{jiankangdangantemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYJiankangdangan" >
+    update yy_jiankangdangan
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="danganmingcheng != null" >
+        danganmingcheng = #{danganmingcheng,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdanganlujing != null" >
+        jiankangdanganlujing = #{jiankangdanganlujing,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoshijian != null" >
+        zuihoucaozuoshijian = #{zuihoucaozuoshijian,jdbcType=DATE},
+      </if>
+      <if test="zuihoucaozuoshijianstr != null" >
+        zuihoucaozuoshijianstr = #{zuihoucaozuoshijianstr,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoyonghu != null" >
+        zuihoucaozuoyonghu = #{zuihoucaozuoyonghu,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp1 != null" >
+        jiankangdangantemp1 = #{jiankangdangantemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp2 != null" >
+        jiankangdangantemp2 = #{jiankangdangantemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp3 != null" >
+        jiankangdangantemp3 = #{jiankangdangantemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp4 != null" >
+        jiankangdangantemp4 = #{jiankangdangantemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp5 != null" >
+        jiankangdangantemp5 = #{jiankangdangantemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp6 != null" >
+        jiankangdangantemp6 = #{jiankangdangantemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp7 != null" >
+        jiankangdangantemp7 = #{jiankangdangantemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp8 != null" >
+        jiankangdangantemp8 = #{jiankangdangantemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp9 != null" >
+        jiankangdangantemp9 = #{jiankangdangantemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp10 != null" >
+        jiankangdangantemp10 = #{jiankangdangantemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="jiankangdangantemp11 != null" >
+        jiankangdangantemp11 = #{jiankangdangantemp11,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp12 != null" >
+        jiankangdangantemp12 = #{jiankangdangantemp12,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp13 != null" >
+        jiankangdangantemp13 = #{jiankangdangantemp13,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp14 != null" >
+        jiankangdangantemp14 = #{jiankangdangantemp14,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp15 != null" >
+        jiankangdangantemp15 = #{jiankangdangantemp15,jdbcType=DATE},
+      </if>
+      <if test="jiankangdangantemp16 != null" >
+        jiankangdangantemp16 = #{jiankangdangantemp16,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp17 != null" >
+        jiankangdangantemp17 = #{jiankangdangantemp17,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp18 != null" >
+        jiankangdangantemp18 = #{jiankangdangantemp18,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp19 != null" >
+        jiankangdangantemp19 = #{jiankangdangantemp19,jdbcType=INTEGER},
+      </if>
+      <if test="jiankangdangantemp20 != null" >
+        jiankangdangantemp20 = #{jiankangdangantemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYJiankangdangan" >
+    update yy_jiankangdangan
+    set user_id = #{userId,jdbcType=INTEGER},
+      danganmingcheng = #{danganmingcheng,jdbcType=VARCHAR},
+      jiankangdanganlujing = #{jiankangdanganlujing,jdbcType=VARCHAR},
+      zuihoucaozuoshijian = #{zuihoucaozuoshijian,jdbcType=DATE},
+      zuihoucaozuoshijianstr = #{zuihoucaozuoshijianstr,jdbcType=VARCHAR},
+      zuihoucaozuoyonghu = #{zuihoucaozuoyonghu,jdbcType=VARCHAR},
+      jiankangdangantemp1 = #{jiankangdangantemp1,jdbcType=VARCHAR},
+      jiankangdangantemp2 = #{jiankangdangantemp2,jdbcType=VARCHAR},
+      jiankangdangantemp3 = #{jiankangdangantemp3,jdbcType=VARCHAR},
+      jiankangdangantemp4 = #{jiankangdangantemp4,jdbcType=VARCHAR},
+      jiankangdangantemp5 = #{jiankangdangantemp5,jdbcType=VARCHAR},
+      jiankangdangantemp6 = #{jiankangdangantemp6,jdbcType=VARCHAR},
+      jiankangdangantemp7 = #{jiankangdangantemp7,jdbcType=VARCHAR},
+      jiankangdangantemp8 = #{jiankangdangantemp8,jdbcType=VARCHAR},
+      jiankangdangantemp9 = #{jiankangdangantemp9,jdbcType=VARCHAR},
+      jiankangdangantemp10 = #{jiankangdangantemp10,jdbcType=VARCHAR},
+      jiankangdangantemp11 = #{jiankangdangantemp11,jdbcType=DATE},
+      jiankangdangantemp12 = #{jiankangdangantemp12,jdbcType=DATE},
+      jiankangdangantemp13 = #{jiankangdangantemp13,jdbcType=DATE},
+      jiankangdangantemp14 = #{jiankangdangantemp14,jdbcType=DATE},
+      jiankangdangantemp15 = #{jiankangdangantemp15,jdbcType=DATE},
+      jiankangdangantemp16 = #{jiankangdangantemp16,jdbcType=INTEGER},
+      jiankangdangantemp17 = #{jiankangdangantemp17,jdbcType=INTEGER},
+      jiankangdangantemp18 = #{jiankangdangantemp18,jdbcType=INTEGER},
+      jiankangdangantemp19 = #{jiankangdangantemp19,jdbcType=INTEGER},
+      jiankangdangantemp20 = #{jiankangdangantemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

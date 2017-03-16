@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYOrginfoMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYOrginfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="orgname" property="orgname" jdbcType="VARCHAR" />
+    <result column="orglevel" property="orglevel" jdbcType="VARCHAR" />
+    <result column="orginfotemp1" property="orginfotemp1" jdbcType="VARCHAR" />
+    <result column="orginfotemp2" property="orginfotemp2" jdbcType="VARCHAR" />
+    <result column="orginfotemp3" property="orginfotemp3" jdbcType="VARCHAR" />
+    <result column="orginfotemp4" property="orginfotemp4" jdbcType="VARCHAR" />
+    <result column="orginfotemp5" property="orginfotemp5" jdbcType="VARCHAR" />
+    <result column="orginfotemp6" property="orginfotemp6" jdbcType="VARCHAR" />
+    <result column="orginfotemp7" property="orginfotemp7" jdbcType="VARCHAR" />
+    <result column="orginfotemp8" property="orginfotemp8" jdbcType="VARCHAR" />
+    <result column="orginfotemp9" property="orginfotemp9" jdbcType="VARCHAR" />
+    <result column="orginfotemp10" property="orginfotemp10" jdbcType="VARCHAR" />
+    <result column="orginfotemp11" property="orginfotemp11" jdbcType="DATE" />
+    <result column="orginfotemp12" property="orginfotemp12" jdbcType="DATE" />
+    <result column="orginfotemp13" property="orginfotemp13" jdbcType="DATE" />
+    <result column="orginfotemp14" property="orginfotemp14" jdbcType="DATE" />
+    <result column="orginfotemp15" property="orginfotemp15" jdbcType="DATE" />
+    <result column="orginfotemp16" property="orginfotemp16" jdbcType="INTEGER" />
+    <result column="orginfotemp17" property="orginfotemp17" jdbcType="INTEGER" />
+    <result column="orginfotemp18" property="orginfotemp18" jdbcType="INTEGER" />
+    <result column="orginfotemp19" property="orginfotemp19" jdbcType="INTEGER" />
+    <result column="orginfotemp20" property="orginfotemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, orgname, orglevel, orginfotemp1, orginfotemp2, orginfotemp3, orginfotemp4, 
+    orginfotemp5, orginfotemp6, orginfotemp7, orginfotemp8, orginfotemp9, orginfotemp10, 
+    orginfotemp11, orginfotemp12, orginfotemp13, orginfotemp14, orginfotemp15, orginfotemp16, 
+    orginfotemp17, orginfotemp18, orginfotemp19, orginfotemp20
+  </sql>
+  <!-- ********************************** -->
+  <select id="selectAll" resultMap="BaseResultMap">
+    
+    select 
+    <include refid="Base_Column_List" />
+    from yy_orginfo
+  </select>
+  
+  <select id="selectOrgListByPid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    from yy_orginfo
+    where pid = #{pid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- ********************************** -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_orginfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_orginfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYOrginfo" >
+    insert into yy_orginfo (id, pid, orgname, 
+      orglevel, orginfotemp1, orginfotemp2, 
+      orginfotemp3, orginfotemp4, orginfotemp5, 
+      orginfotemp6, orginfotemp7, orginfotemp8, 
+      orginfotemp9, orginfotemp10, orginfotemp11, 
+      orginfotemp12, orginfotemp13, orginfotemp14, 
+      orginfotemp15, orginfotemp16, orginfotemp17, 
+      orginfotemp18, orginfotemp19, orginfotemp20
+      )
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{orgname,jdbcType=VARCHAR}, 
+      #{orglevel,jdbcType=VARCHAR}, #{orginfotemp1,jdbcType=VARCHAR}, #{orginfotemp2,jdbcType=VARCHAR}, 
+      #{orginfotemp3,jdbcType=VARCHAR}, #{orginfotemp4,jdbcType=VARCHAR}, #{orginfotemp5,jdbcType=VARCHAR}, 
+      #{orginfotemp6,jdbcType=VARCHAR}, #{orginfotemp7,jdbcType=VARCHAR}, #{orginfotemp8,jdbcType=VARCHAR}, 
+      #{orginfotemp9,jdbcType=VARCHAR}, #{orginfotemp10,jdbcType=VARCHAR}, #{orginfotemp11,jdbcType=DATE}, 
+      #{orginfotemp12,jdbcType=DATE}, #{orginfotemp13,jdbcType=DATE}, #{orginfotemp14,jdbcType=DATE}, 
+      #{orginfotemp15,jdbcType=DATE}, #{orginfotemp16,jdbcType=INTEGER}, #{orginfotemp17,jdbcType=INTEGER}, 
+      #{orginfotemp18,jdbcType=INTEGER}, #{orginfotemp19,jdbcType=INTEGER}, #{orginfotemp20,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYOrginfo" >
+    insert into yy_orginfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="orgname != null" >
+        orgname,
+      </if>
+      <if test="orglevel != null" >
+        orglevel,
+      </if>
+      <if test="orginfotemp1 != null" >
+        orginfotemp1,
+      </if>
+      <if test="orginfotemp2 != null" >
+        orginfotemp2,
+      </if>
+      <if test="orginfotemp3 != null" >
+        orginfotemp3,
+      </if>
+      <if test="orginfotemp4 != null" >
+        orginfotemp4,
+      </if>
+      <if test="orginfotemp5 != null" >
+        orginfotemp5,
+      </if>
+      <if test="orginfotemp6 != null" >
+        orginfotemp6,
+      </if>
+      <if test="orginfotemp7 != null" >
+        orginfotemp7,
+      </if>
+      <if test="orginfotemp8 != null" >
+        orginfotemp8,
+      </if>
+      <if test="orginfotemp9 != null" >
+        orginfotemp9,
+      </if>
+      <if test="orginfotemp10 != null" >
+        orginfotemp10,
+      </if>
+      <if test="orginfotemp11 != null" >
+        orginfotemp11,
+      </if>
+      <if test="orginfotemp12 != null" >
+        orginfotemp12,
+      </if>
+      <if test="orginfotemp13 != null" >
+        orginfotemp13,
+      </if>
+      <if test="orginfotemp14 != null" >
+        orginfotemp14,
+      </if>
+      <if test="orginfotemp15 != null" >
+        orginfotemp15,
+      </if>
+      <if test="orginfotemp16 != null" >
+        orginfotemp16,
+      </if>
+      <if test="orginfotemp17 != null" >
+        orginfotemp17,
+      </if>
+      <if test="orginfotemp18 != null" >
+        orginfotemp18,
+      </if>
+      <if test="orginfotemp19 != null" >
+        orginfotemp19,
+      </if>
+      <if test="orginfotemp20 != null" >
+        orginfotemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="orgname != null" >
+        #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orglevel != null" >
+        #{orglevel,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp1 != null" >
+        #{orginfotemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp2 != null" >
+        #{orginfotemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp3 != null" >
+        #{orginfotemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp4 != null" >
+        #{orginfotemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp5 != null" >
+        #{orginfotemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp6 != null" >
+        #{orginfotemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp7 != null" >
+        #{orginfotemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp8 != null" >
+        #{orginfotemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp9 != null" >
+        #{orginfotemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp10 != null" >
+        #{orginfotemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp11 != null" >
+        #{orginfotemp11,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp12 != null" >
+        #{orginfotemp12,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp13 != null" >
+        #{orginfotemp13,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp14 != null" >
+        #{orginfotemp14,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp15 != null" >
+        #{orginfotemp15,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp16 != null" >
+        #{orginfotemp16,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp17 != null" >
+        #{orginfotemp17,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp18 != null" >
+        #{orginfotemp18,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp19 != null" >
+        #{orginfotemp19,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp20 != null" >
+        #{orginfotemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYOrginfo" >
+    update yy_orginfo
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="orgname != null" >
+        orgname = #{orgname,jdbcType=VARCHAR},
+      </if>
+      <if test="orglevel != null" >
+        orglevel = #{orglevel,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp1 != null" >
+        orginfotemp1 = #{orginfotemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp2 != null" >
+        orginfotemp2 = #{orginfotemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp3 != null" >
+        orginfotemp3 = #{orginfotemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp4 != null" >
+        orginfotemp4 = #{orginfotemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp5 != null" >
+        orginfotemp5 = #{orginfotemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp6 != null" >
+        orginfotemp6 = #{orginfotemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp7 != null" >
+        orginfotemp7 = #{orginfotemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp8 != null" >
+        orginfotemp8 = #{orginfotemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp9 != null" >
+        orginfotemp9 = #{orginfotemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp10 != null" >
+        orginfotemp10 = #{orginfotemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="orginfotemp11 != null" >
+        orginfotemp11 = #{orginfotemp11,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp12 != null" >
+        orginfotemp12 = #{orginfotemp12,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp13 != null" >
+        orginfotemp13 = #{orginfotemp13,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp14 != null" >
+        orginfotemp14 = #{orginfotemp14,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp15 != null" >
+        orginfotemp15 = #{orginfotemp15,jdbcType=DATE},
+      </if>
+      <if test="orginfotemp16 != null" >
+        orginfotemp16 = #{orginfotemp16,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp17 != null" >
+        orginfotemp17 = #{orginfotemp17,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp18 != null" >
+        orginfotemp18 = #{orginfotemp18,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp19 != null" >
+        orginfotemp19 = #{orginfotemp19,jdbcType=INTEGER},
+      </if>
+      <if test="orginfotemp20 != null" >
+        orginfotemp20 = #{orginfotemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYOrginfo" >
+    update yy_orginfo
+    set pid = #{pid,jdbcType=INTEGER},
+      orgname = #{orgname,jdbcType=VARCHAR},
+      orglevel = #{orglevel,jdbcType=VARCHAR},
+      orginfotemp1 = #{orginfotemp1,jdbcType=VARCHAR},
+      orginfotemp2 = #{orginfotemp2,jdbcType=VARCHAR},
+      orginfotemp3 = #{orginfotemp3,jdbcType=VARCHAR},
+      orginfotemp4 = #{orginfotemp4,jdbcType=VARCHAR},
+      orginfotemp5 = #{orginfotemp5,jdbcType=VARCHAR},
+      orginfotemp6 = #{orginfotemp6,jdbcType=VARCHAR},
+      orginfotemp7 = #{orginfotemp7,jdbcType=VARCHAR},
+      orginfotemp8 = #{orginfotemp8,jdbcType=VARCHAR},
+      orginfotemp9 = #{orginfotemp9,jdbcType=VARCHAR},
+      orginfotemp10 = #{orginfotemp10,jdbcType=VARCHAR},
+      orginfotemp11 = #{orginfotemp11,jdbcType=DATE},
+      orginfotemp12 = #{orginfotemp12,jdbcType=DATE},
+      orginfotemp13 = #{orginfotemp13,jdbcType=DATE},
+      orginfotemp14 = #{orginfotemp14,jdbcType=DATE},
+      orginfotemp15 = #{orginfotemp15,jdbcType=DATE},
+      orginfotemp16 = #{orginfotemp16,jdbcType=INTEGER},
+      orginfotemp17 = #{orginfotemp17,jdbcType=INTEGER},
+      orginfotemp18 = #{orginfotemp18,jdbcType=INTEGER},
+      orginfotemp19 = #{orginfotemp19,jdbcType=INTEGER},
+      orginfotemp20 = #{orginfotemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
