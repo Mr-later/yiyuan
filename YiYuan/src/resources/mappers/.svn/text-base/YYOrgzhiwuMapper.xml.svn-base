@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYOrgzhiwuMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYOrgzhiwu" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="orgid" property="orgid" jdbcType="INTEGER" />
+    <result column="zhiwu" property="zhiwu" jdbcType="VARCHAR" />
+    <result column="zhiwujibie" property="zhiwujibie" jdbcType="INTEGER" />
+    <result column="orgzhiwutemp1" property="orgzhiwutemp1" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp2" property="orgzhiwutemp2" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp3" property="orgzhiwutemp3" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp4" property="orgzhiwutemp4" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp5" property="orgzhiwutemp5" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp6" property="orgzhiwutemp6" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp7" property="orgzhiwutemp7" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp8" property="orgzhiwutemp8" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp9" property="orgzhiwutemp9" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp10" property="orgzhiwutemp10" jdbcType="VARCHAR" />
+    <result column="orgzhiwutemp11" property="orgzhiwutemp11" jdbcType="DATE" />
+    <result column="orgzhiwutemp12" property="orgzhiwutemp12" jdbcType="DATE" />
+    <result column="orgzhiwutemp13" property="orgzhiwutemp13" jdbcType="DATE" />
+    <result column="orgzhiwutemp14" property="orgzhiwutemp14" jdbcType="DATE" />
+    <result column="orgzhiwutemp15" property="orgzhiwutemp15" jdbcType="DATE" />
+    <result column="orgzhiwutemp16" property="orgzhiwutemp16" jdbcType="INTEGER" />
+    <result column="orgzhiwutemp17" property="orgzhiwutemp17" jdbcType="INTEGER" />
+    <result column="orgzhiwutemp18" property="orgzhiwutemp18" jdbcType="INTEGER" />
+    <result column="orgzhiwutemp19" property="orgzhiwutemp19" jdbcType="INTEGER" />
+    <result column="orgzhiwutemp20" property="orgzhiwutemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, orgid, zhiwu, zhiwujibie, orgzhiwutemp1, orgzhiwutemp2, orgzhiwutemp3, orgzhiwutemp4, 
+    orgzhiwutemp5, orgzhiwutemp6, orgzhiwutemp7, orgzhiwutemp8, orgzhiwutemp9, orgzhiwutemp10, 
+    orgzhiwutemp11, orgzhiwutemp12, orgzhiwutemp13, orgzhiwutemp14, orgzhiwutemp15, orgzhiwutemp16, 
+    orgzhiwutemp17, orgzhiwutemp18, orgzhiwutemp19, orgzhiwutemp20
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_orgzhiwu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_orgzhiwu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYOrgzhiwu" >
+    insert into yy_orgzhiwu (id, orgid, zhiwu, 
+      zhiwujibie, orgzhiwutemp1, orgzhiwutemp2, 
+      orgzhiwutemp3, orgzhiwutemp4, orgzhiwutemp5, 
+      orgzhiwutemp6, orgzhiwutemp7, orgzhiwutemp8, 
+      orgzhiwutemp9, orgzhiwutemp10, orgzhiwutemp11, 
+      orgzhiwutemp12, orgzhiwutemp13, orgzhiwutemp14, 
+      orgzhiwutemp15, orgzhiwutemp16, orgzhiwutemp17, 
+      orgzhiwutemp18, orgzhiwutemp19, orgzhiwutemp20
+      )
+    values (#{id,jdbcType=INTEGER}, #{orgid,jdbcType=INTEGER}, #{zhiwu,jdbcType=VARCHAR}, 
+      #{zhiwujibie,jdbcType=INTEGER}, #{orgzhiwutemp1,jdbcType=VARCHAR}, #{orgzhiwutemp2,jdbcType=VARCHAR}, 
+      #{orgzhiwutemp3,jdbcType=VARCHAR}, #{orgzhiwutemp4,jdbcType=VARCHAR}, #{orgzhiwutemp5,jdbcType=VARCHAR}, 
+      #{orgzhiwutemp6,jdbcType=VARCHAR}, #{orgzhiwutemp7,jdbcType=VARCHAR}, #{orgzhiwutemp8,jdbcType=VARCHAR}, 
+      #{orgzhiwutemp9,jdbcType=VARCHAR}, #{orgzhiwutemp10,jdbcType=VARCHAR}, #{orgzhiwutemp11,jdbcType=DATE}, 
+      #{orgzhiwutemp12,jdbcType=DATE}, #{orgzhiwutemp13,jdbcType=DATE}, #{orgzhiwutemp14,jdbcType=DATE}, 
+      #{orgzhiwutemp15,jdbcType=DATE}, #{orgzhiwutemp16,jdbcType=INTEGER}, #{orgzhiwutemp17,jdbcType=INTEGER}, 
+      #{orgzhiwutemp18,jdbcType=INTEGER}, #{orgzhiwutemp19,jdbcType=INTEGER}, #{orgzhiwutemp20,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYOrgzhiwu" >
+    insert into yy_orgzhiwu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgid != null" >
+        orgid,
+      </if>
+      <if test="zhiwu != null" >
+        zhiwu,
+      </if>
+      <if test="zhiwujibie != null" >
+        zhiwujibie,
+      </if>
+      <if test="orgzhiwutemp1 != null" >
+        orgzhiwutemp1,
+      </if>
+      <if test="orgzhiwutemp2 != null" >
+        orgzhiwutemp2,
+      </if>
+      <if test="orgzhiwutemp3 != null" >
+        orgzhiwutemp3,
+      </if>
+      <if test="orgzhiwutemp4 != null" >
+        orgzhiwutemp4,
+      </if>
+      <if test="orgzhiwutemp5 != null" >
+        orgzhiwutemp5,
+      </if>
+      <if test="orgzhiwutemp6 != null" >
+        orgzhiwutemp6,
+      </if>
+      <if test="orgzhiwutemp7 != null" >
+        orgzhiwutemp7,
+      </if>
+      <if test="orgzhiwutemp8 != null" >
+        orgzhiwutemp8,
+      </if>
+      <if test="orgzhiwutemp9 != null" >
+        orgzhiwutemp9,
+      </if>
+      <if test="orgzhiwutemp10 != null" >
+        orgzhiwutemp10,
+      </if>
+      <if test="orgzhiwutemp11 != null" >
+        orgzhiwutemp11,
+      </if>
+      <if test="orgzhiwutemp12 != null" >
+        orgzhiwutemp12,
+      </if>
+      <if test="orgzhiwutemp13 != null" >
+        orgzhiwutemp13,
+      </if>
+      <if test="orgzhiwutemp14 != null" >
+        orgzhiwutemp14,
+      </if>
+      <if test="orgzhiwutemp15 != null" >
+        orgzhiwutemp15,
+      </if>
+      <if test="orgzhiwutemp16 != null" >
+        orgzhiwutemp16,
+      </if>
+      <if test="orgzhiwutemp17 != null" >
+        orgzhiwutemp17,
+      </if>
+      <if test="orgzhiwutemp18 != null" >
+        orgzhiwutemp18,
+      </if>
+      <if test="orgzhiwutemp19 != null" >
+        orgzhiwutemp19,
+      </if>
+      <if test="orgzhiwutemp20 != null" >
+        orgzhiwutemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null" >
+        #{orgid,jdbcType=INTEGER},
+      </if>
+      <if test="zhiwu != null" >
+        #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwujibie != null" >
+        #{zhiwujibie,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp1 != null" >
+        #{orgzhiwutemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp2 != null" >
+        #{orgzhiwutemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp3 != null" >
+        #{orgzhiwutemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp4 != null" >
+        #{orgzhiwutemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp5 != null" >
+        #{orgzhiwutemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp6 != null" >
+        #{orgzhiwutemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp7 != null" >
+        #{orgzhiwutemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp8 != null" >
+        #{orgzhiwutemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp9 != null" >
+        #{orgzhiwutemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp10 != null" >
+        #{orgzhiwutemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp11 != null" >
+        #{orgzhiwutemp11,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp12 != null" >
+        #{orgzhiwutemp12,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp13 != null" >
+        #{orgzhiwutemp13,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp14 != null" >
+        #{orgzhiwutemp14,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp15 != null" >
+        #{orgzhiwutemp15,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp16 != null" >
+        #{orgzhiwutemp16,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp17 != null" >
+        #{orgzhiwutemp17,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp18 != null" >
+        #{orgzhiwutemp18,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp19 != null" >
+        #{orgzhiwutemp19,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp20 != null" >
+        #{orgzhiwutemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYOrgzhiwu" >
+    update yy_orgzhiwu
+    <set >
+      <if test="orgid != null" >
+        orgid = #{orgid,jdbcType=INTEGER},
+      </if>
+      <if test="zhiwu != null" >
+        zhiwu = #{zhiwu,jdbcType=VARCHAR},
+      </if>
+      <if test="zhiwujibie != null" >
+        zhiwujibie = #{zhiwujibie,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp1 != null" >
+        orgzhiwutemp1 = #{orgzhiwutemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp2 != null" >
+        orgzhiwutemp2 = #{orgzhiwutemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp3 != null" >
+        orgzhiwutemp3 = #{orgzhiwutemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp4 != null" >
+        orgzhiwutemp4 = #{orgzhiwutemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp5 != null" >
+        orgzhiwutemp5 = #{orgzhiwutemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp6 != null" >
+        orgzhiwutemp6 = #{orgzhiwutemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp7 != null" >
+        orgzhiwutemp7 = #{orgzhiwutemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp8 != null" >
+        orgzhiwutemp8 = #{orgzhiwutemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp9 != null" >
+        orgzhiwutemp9 = #{orgzhiwutemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp10 != null" >
+        orgzhiwutemp10 = #{orgzhiwutemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="orgzhiwutemp11 != null" >
+        orgzhiwutemp11 = #{orgzhiwutemp11,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp12 != null" >
+        orgzhiwutemp12 = #{orgzhiwutemp12,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp13 != null" >
+        orgzhiwutemp13 = #{orgzhiwutemp13,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp14 != null" >
+        orgzhiwutemp14 = #{orgzhiwutemp14,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp15 != null" >
+        orgzhiwutemp15 = #{orgzhiwutemp15,jdbcType=DATE},
+      </if>
+      <if test="orgzhiwutemp16 != null" >
+        orgzhiwutemp16 = #{orgzhiwutemp16,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp17 != null" >
+        orgzhiwutemp17 = #{orgzhiwutemp17,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp18 != null" >
+        orgzhiwutemp18 = #{orgzhiwutemp18,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp19 != null" >
+        orgzhiwutemp19 = #{orgzhiwutemp19,jdbcType=INTEGER},
+      </if>
+      <if test="orgzhiwutemp20 != null" >
+        orgzhiwutemp20 = #{orgzhiwutemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYOrgzhiwu" >
+    update yy_orgzhiwu
+    set orgid = #{orgid,jdbcType=INTEGER},
+      zhiwu = #{zhiwu,jdbcType=VARCHAR},
+      zhiwujibie = #{zhiwujibie,jdbcType=INTEGER},
+      orgzhiwutemp1 = #{orgzhiwutemp1,jdbcType=VARCHAR},
+      orgzhiwutemp2 = #{orgzhiwutemp2,jdbcType=VARCHAR},
+      orgzhiwutemp3 = #{orgzhiwutemp3,jdbcType=VARCHAR},
+      orgzhiwutemp4 = #{orgzhiwutemp4,jdbcType=VARCHAR},
+      orgzhiwutemp5 = #{orgzhiwutemp5,jdbcType=VARCHAR},
+      orgzhiwutemp6 = #{orgzhiwutemp6,jdbcType=VARCHAR},
+      orgzhiwutemp7 = #{orgzhiwutemp7,jdbcType=VARCHAR},
+      orgzhiwutemp8 = #{orgzhiwutemp8,jdbcType=VARCHAR},
+      orgzhiwutemp9 = #{orgzhiwutemp9,jdbcType=VARCHAR},
+      orgzhiwutemp10 = #{orgzhiwutemp10,jdbcType=VARCHAR},
+      orgzhiwutemp11 = #{orgzhiwutemp11,jdbcType=DATE},
+      orgzhiwutemp12 = #{orgzhiwutemp12,jdbcType=DATE},
+      orgzhiwutemp13 = #{orgzhiwutemp13,jdbcType=DATE},
+      orgzhiwutemp14 = #{orgzhiwutemp14,jdbcType=DATE},
+      orgzhiwutemp15 = #{orgzhiwutemp15,jdbcType=DATE},
+      orgzhiwutemp16 = #{orgzhiwutemp16,jdbcType=INTEGER},
+      orgzhiwutemp17 = #{orgzhiwutemp17,jdbcType=INTEGER},
+      orgzhiwutemp18 = #{orgzhiwutemp18,jdbcType=INTEGER},
+      orgzhiwutemp19 = #{orgzhiwutemp19,jdbcType=INTEGER},
+      orgzhiwutemp20 = #{orgzhiwutemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

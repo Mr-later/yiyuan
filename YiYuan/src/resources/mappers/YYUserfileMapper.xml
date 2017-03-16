@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYUserfileMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYUserfile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="file_id" property="fileId" jdbcType="INTEGER" />
+    <result column="shifoudati" property="shifoudati" jdbcType="VARCHAR" />
+    <result column="userfiletemp1" property="userfiletemp1" jdbcType="VARCHAR" />
+    <result column="userfiletemp2" property="userfiletemp2" jdbcType="VARCHAR" />
+    <result column="userfiletemp3" property="userfiletemp3" jdbcType="VARCHAR" />
+    <result column="userfiletemp4" property="userfiletemp4" jdbcType="VARCHAR" />
+    <result column="userfiletemp5" property="userfiletemp5" jdbcType="VARCHAR" />
+    <result column="userfiletemp6" property="userfiletemp6" jdbcType="VARCHAR" />
+    <result column="userfiletemp7" property="userfiletemp7" jdbcType="VARCHAR" />
+    <result column="userfiletemp8" property="userfiletemp8" jdbcType="VARCHAR" />
+    <result column="userfiletemp9" property="userfiletemp9" jdbcType="VARCHAR" />
+    <result column="userfiletemp10" property="userfiletemp10" jdbcType="VARCHAR" />
+    <result column="userfiletemp11" property="userfiletemp11" jdbcType="DATE" />
+    <result column="userfiletemp12" property="userfiletemp12" jdbcType="DATE" />
+    <result column="userfiletemp13" property="userfiletemp13" jdbcType="DATE" />
+    <result column="userfiletemp14" property="userfiletemp14" jdbcType="DATE" />
+    <result column="userfiletemp15" property="userfiletemp15" jdbcType="DATE" />
+    <result column="userfiletemp16" property="userfiletemp16" jdbcType="INTEGER" />
+    <result column="userfiletemp17" property="userfiletemp17" jdbcType="INTEGER" />
+    <result column="userfiletemp18" property="userfiletemp18" jdbcType="INTEGER" />
+    <result column="userfiletemp19" property="userfiletemp19" jdbcType="INTEGER" />
+    <result column="userfiletemp20" property="userfiletemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, file_id, shifoudati, userfiletemp1, userfiletemp2, userfiletemp3, userfiletemp4, 
+    userfiletemp5, userfiletemp6, userfiletemp7, userfiletemp8, userfiletemp9, userfiletemp10, 
+    userfiletemp11, userfiletemp12, userfiletemp13, userfiletemp14, userfiletemp15, userfiletemp16, 
+    userfiletemp17, userfiletemp18, userfiletemp19, userfiletemp20
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_userfile
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_userfile
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYUserfile" >
+    insert into yy_userfile (id, user_id, file_id, 
+      shifoudati, userfiletemp1, userfiletemp2, 
+      userfiletemp3, userfiletemp4, userfiletemp5, 
+      userfiletemp6, userfiletemp7, userfiletemp8, 
+      userfiletemp9, userfiletemp10, userfiletemp11, 
+      userfiletemp12, userfiletemp13, userfiletemp14, 
+      userfiletemp15, userfiletemp16, userfiletemp17, 
+      userfiletemp18, userfiletemp19, userfiletemp20
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{fileId,jdbcType=INTEGER}, 
+      #{shifoudati,jdbcType=VARCHAR}, #{userfiletemp1,jdbcType=VARCHAR}, #{userfiletemp2,jdbcType=VARCHAR}, 
+      #{userfiletemp3,jdbcType=VARCHAR}, #{userfiletemp4,jdbcType=VARCHAR}, #{userfiletemp5,jdbcType=VARCHAR}, 
+      #{userfiletemp6,jdbcType=VARCHAR}, #{userfiletemp7,jdbcType=VARCHAR}, #{userfiletemp8,jdbcType=VARCHAR}, 
+      #{userfiletemp9,jdbcType=VARCHAR}, #{userfiletemp10,jdbcType=VARCHAR}, #{userfiletemp11,jdbcType=DATE}, 
+      #{userfiletemp12,jdbcType=DATE}, #{userfiletemp13,jdbcType=DATE}, #{userfiletemp14,jdbcType=DATE}, 
+      #{userfiletemp15,jdbcType=DATE}, #{userfiletemp16,jdbcType=INTEGER}, #{userfiletemp17,jdbcType=INTEGER}, 
+      #{userfiletemp18,jdbcType=INTEGER}, #{userfiletemp19,jdbcType=INTEGER}, #{userfiletemp20,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYUserfile" >
+    insert into yy_userfile
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="fileId != null" >
+        file_id,
+      </if>
+      <if test="shifoudati != null" >
+        shifoudati,
+      </if>
+      <if test="userfiletemp1 != null" >
+        userfiletemp1,
+      </if>
+      <if test="userfiletemp2 != null" >
+        userfiletemp2,
+      </if>
+      <if test="userfiletemp3 != null" >
+        userfiletemp3,
+      </if>
+      <if test="userfiletemp4 != null" >
+        userfiletemp4,
+      </if>
+      <if test="userfiletemp5 != null" >
+        userfiletemp5,
+      </if>
+      <if test="userfiletemp6 != null" >
+        userfiletemp6,
+      </if>
+      <if test="userfiletemp7 != null" >
+        userfiletemp7,
+      </if>
+      <if test="userfiletemp8 != null" >
+        userfiletemp8,
+      </if>
+      <if test="userfiletemp9 != null" >
+        userfiletemp9,
+      </if>
+      <if test="userfiletemp10 != null" >
+        userfiletemp10,
+      </if>
+      <if test="userfiletemp11 != null" >
+        userfiletemp11,
+      </if>
+      <if test="userfiletemp12 != null" >
+        userfiletemp12,
+      </if>
+      <if test="userfiletemp13 != null" >
+        userfiletemp13,
+      </if>
+      <if test="userfiletemp14 != null" >
+        userfiletemp14,
+      </if>
+      <if test="userfiletemp15 != null" >
+        userfiletemp15,
+      </if>
+      <if test="userfiletemp16 != null" >
+        userfiletemp16,
+      </if>
+      <if test="userfiletemp17 != null" >
+        userfiletemp17,
+      </if>
+      <if test="userfiletemp18 != null" >
+        userfiletemp18,
+      </if>
+      <if test="userfiletemp19 != null" >
+        userfiletemp19,
+      </if>
+      <if test="userfiletemp20 != null" >
+        userfiletemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="fileId != null" >
+        #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="shifoudati != null" >
+        #{shifoudati,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp1 != null" >
+        #{userfiletemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp2 != null" >
+        #{userfiletemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp3 != null" >
+        #{userfiletemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp4 != null" >
+        #{userfiletemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp5 != null" >
+        #{userfiletemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp6 != null" >
+        #{userfiletemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp7 != null" >
+        #{userfiletemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp8 != null" >
+        #{userfiletemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp9 != null" >
+        #{userfiletemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp10 != null" >
+        #{userfiletemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp11 != null" >
+        #{userfiletemp11,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp12 != null" >
+        #{userfiletemp12,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp13 != null" >
+        #{userfiletemp13,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp14 != null" >
+        #{userfiletemp14,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp15 != null" >
+        #{userfiletemp15,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp16 != null" >
+        #{userfiletemp16,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp17 != null" >
+        #{userfiletemp17,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp18 != null" >
+        #{userfiletemp18,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp19 != null" >
+        #{userfiletemp19,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp20 != null" >
+        #{userfiletemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYUserfile" >
+    update yy_userfile
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="fileId != null" >
+        file_id = #{fileId,jdbcType=INTEGER},
+      </if>
+      <if test="shifoudati != null" >
+        shifoudati = #{shifoudati,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp1 != null" >
+        userfiletemp1 = #{userfiletemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp2 != null" >
+        userfiletemp2 = #{userfiletemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp3 != null" >
+        userfiletemp3 = #{userfiletemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp4 != null" >
+        userfiletemp4 = #{userfiletemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp5 != null" >
+        userfiletemp5 = #{userfiletemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp6 != null" >
+        userfiletemp6 = #{userfiletemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp7 != null" >
+        userfiletemp7 = #{userfiletemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp8 != null" >
+        userfiletemp8 = #{userfiletemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp9 != null" >
+        userfiletemp9 = #{userfiletemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp10 != null" >
+        userfiletemp10 = #{userfiletemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="userfiletemp11 != null" >
+        userfiletemp11 = #{userfiletemp11,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp12 != null" >
+        userfiletemp12 = #{userfiletemp12,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp13 != null" >
+        userfiletemp13 = #{userfiletemp13,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp14 != null" >
+        userfiletemp14 = #{userfiletemp14,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp15 != null" >
+        userfiletemp15 = #{userfiletemp15,jdbcType=DATE},
+      </if>
+      <if test="userfiletemp16 != null" >
+        userfiletemp16 = #{userfiletemp16,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp17 != null" >
+        userfiletemp17 = #{userfiletemp17,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp18 != null" >
+        userfiletemp18 = #{userfiletemp18,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp19 != null" >
+        userfiletemp19 = #{userfiletemp19,jdbcType=INTEGER},
+      </if>
+      <if test="userfiletemp20 != null" >
+        userfiletemp20 = #{userfiletemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYUserfile" >
+    update yy_userfile
+    set user_id = #{userId,jdbcType=INTEGER},
+      file_id = #{fileId,jdbcType=INTEGER},
+      shifoudati = #{shifoudati,jdbcType=VARCHAR},
+      userfiletemp1 = #{userfiletemp1,jdbcType=VARCHAR},
+      userfiletemp2 = #{userfiletemp2,jdbcType=VARCHAR},
+      userfiletemp3 = #{userfiletemp3,jdbcType=VARCHAR},
+      userfiletemp4 = #{userfiletemp4,jdbcType=VARCHAR},
+      userfiletemp5 = #{userfiletemp5,jdbcType=VARCHAR},
+      userfiletemp6 = #{userfiletemp6,jdbcType=VARCHAR},
+      userfiletemp7 = #{userfiletemp7,jdbcType=VARCHAR},
+      userfiletemp8 = #{userfiletemp8,jdbcType=VARCHAR},
+      userfiletemp9 = #{userfiletemp9,jdbcType=VARCHAR},
+      userfiletemp10 = #{userfiletemp10,jdbcType=VARCHAR},
+      userfiletemp11 = #{userfiletemp11,jdbcType=DATE},
+      userfiletemp12 = #{userfiletemp12,jdbcType=DATE},
+      userfiletemp13 = #{userfiletemp13,jdbcType=DATE},
+      userfiletemp14 = #{userfiletemp14,jdbcType=DATE},
+      userfiletemp15 = #{userfiletemp15,jdbcType=DATE},
+      userfiletemp16 = #{userfiletemp16,jdbcType=INTEGER},
+      userfiletemp17 = #{userfiletemp17,jdbcType=INTEGER},
+      userfiletemp18 = #{userfiletemp18,jdbcType=INTEGER},
+      userfiletemp19 = #{userfiletemp19,jdbcType=INTEGER},
+      userfiletemp20 = #{userfiletemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

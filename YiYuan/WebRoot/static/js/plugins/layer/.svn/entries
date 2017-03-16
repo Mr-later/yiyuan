@@ -1,0 +1,52 @@
+8
+
+dir
+2520
+http://192.168.1.115/svn/product/YiYuan/WebRoot/static/js/plugins/layer
+http://192.168.1.115/svn/product
+
+
+
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7c12452c-d231-f849-8346-376cf384b823
+
+extend
+dir
+
+laydate
+dir
+
+layer.min.js
+file
+
+
+
+
+2017-03-08T03:33:56.813000Z
+2a120d703abe708047def99fad7ff5d9
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+
+layim
+dir
+
+skin
+dir
+

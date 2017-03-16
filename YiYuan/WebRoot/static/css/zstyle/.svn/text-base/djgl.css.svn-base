@@ -1,0 +1,9 @@
+  table tr th{text-align:center;}
+    .project-people{text-align:center;}
+    thead tr td{font-weight:bold;}
+    .project-list table tr td {
+    border-top: 0;
+    border-bottom: 1px solid #e7eaec;
+    padding: 4px 10px;
+    vertical-align: middle;
+}

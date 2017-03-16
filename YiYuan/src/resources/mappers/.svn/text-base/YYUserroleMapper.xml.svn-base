@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netsdar.hospital.dao.YYUserroleMapper" >
+  <resultMap id="BaseResultMap" type="com.netsdar.hospital.entity.YYUserrole" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="role_id" property="roleId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="userroletemp1" property="userroletemp1" jdbcType="VARCHAR" />
+    <result column="userroletemp2" property="userroletemp2" jdbcType="VARCHAR" />
+    <result column="userroletemp3" property="userroletemp3" jdbcType="VARCHAR" />
+    <result column="userroletemp4" property="userroletemp4" jdbcType="VARCHAR" />
+    <result column="userroletemp5" property="userroletemp5" jdbcType="VARCHAR" />
+    <result column="userroletemp6" property="userroletemp6" jdbcType="VARCHAR" />
+    <result column="userroletemp7" property="userroletemp7" jdbcType="VARCHAR" />
+    <result column="userroletemp8" property="userroletemp8" jdbcType="VARCHAR" />
+    <result column="userroletemp9" property="userroletemp9" jdbcType="VARCHAR" />
+    <result column="userroletemp10" property="userroletemp10" jdbcType="VARCHAR" />
+    <result column="userroletemp11" property="userroletemp11" jdbcType="DATE" />
+    <result column="userroletemp12" property="userroletemp12" jdbcType="DATE" />
+    <result column="userroletemp13" property="userroletemp13" jdbcType="DATE" />
+    <result column="userroletemp14" property="userroletemp14" jdbcType="DATE" />
+    <result column="userroletemp15" property="userroletemp15" jdbcType="DATE" />
+    <result column="userroletemp16" property="userroletemp16" jdbcType="INTEGER" />
+    <result column="userroletemp17" property="userroletemp17" jdbcType="INTEGER" />
+    <result column="userroletemp18" property="userroletemp18" jdbcType="INTEGER" />
+    <result column="userroletemp19" property="userroletemp19" jdbcType="INTEGER" />
+    <result column="userroletemp20" property="userroletemp20" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, role_id, user_id, userroletemp1, userroletemp2, userroletemp3, userroletemp4, 
+    userroletemp5, userroletemp6, userroletemp7, userroletemp8, userroletemp9, userroletemp10, 
+    userroletemp11, userroletemp12, userroletemp13, userroletemp14, userroletemp15, userroletemp16, 
+    userroletemp17, userroletemp18, userroletemp19, userroletemp20
+  </sql>
+  <!-- ********************************** -->
+     <insert id="insertByMap" parameterType="map" >
+    insert into yy_userrole (role_id, user_id)
+    values (#{roleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER})
+  </insert>
+  <delete id="deleteByUserId" parameterType="java.lang.Integer">
+  delete from yy_userrole where user_id=#{userId,jdbcType=INTEGER}
+  </delete>
+  <!-- ********************************** -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from yy_userrole
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from yy_userrole
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netsdar.hospital.entity.YYUserrole" >
+    insert into yy_userrole (id, role_id, user_id, 
+      userroletemp1, userroletemp2, userroletemp3, 
+      userroletemp4, userroletemp5, userroletemp6, 
+      userroletemp7, userroletemp8, userroletemp9, 
+      userroletemp10, userroletemp11, userroletemp12, 
+      userroletemp13, userroletemp14, userroletemp15, 
+      userroletemp16, userroletemp17, userroletemp18, 
+      userroletemp19, userroletemp20)
+    values (#{id,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{userroletemp1,jdbcType=VARCHAR}, #{userroletemp2,jdbcType=VARCHAR}, #{userroletemp3,jdbcType=VARCHAR}, 
+      #{userroletemp4,jdbcType=VARCHAR}, #{userroletemp5,jdbcType=VARCHAR}, #{userroletemp6,jdbcType=VARCHAR}, 
+      #{userroletemp7,jdbcType=VARCHAR}, #{userroletemp8,jdbcType=VARCHAR}, #{userroletemp9,jdbcType=VARCHAR}, 
+      #{userroletemp10,jdbcType=VARCHAR}, #{userroletemp11,jdbcType=DATE}, #{userroletemp12,jdbcType=DATE}, 
+      #{userroletemp13,jdbcType=DATE}, #{userroletemp14,jdbcType=DATE}, #{userroletemp15,jdbcType=DATE}, 
+      #{userroletemp16,jdbcType=INTEGER}, #{userroletemp17,jdbcType=INTEGER}, #{userroletemp18,jdbcType=INTEGER}, 
+      #{userroletemp19,jdbcType=INTEGER}, #{userroletemp20,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.netsdar.hospital.entity.YYUserrole" >
+    insert into yy_userrole
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="roleId != null" >
+        role_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userroletemp1 != null" >
+        userroletemp1,
+      </if>
+      <if test="userroletemp2 != null" >
+        userroletemp2,
+      </if>
+      <if test="userroletemp3 != null" >
+        userroletemp3,
+      </if>
+      <if test="userroletemp4 != null" >
+        userroletemp4,
+      </if>
+      <if test="userroletemp5 != null" >
+        userroletemp5,
+      </if>
+      <if test="userroletemp6 != null" >
+        userroletemp6,
+      </if>
+      <if test="userroletemp7 != null" >
+        userroletemp7,
+      </if>
+      <if test="userroletemp8 != null" >
+        userroletemp8,
+      </if>
+      <if test="userroletemp9 != null" >
+        userroletemp9,
+      </if>
+      <if test="userroletemp10 != null" >
+        userroletemp10,
+      </if>
+      <if test="userroletemp11 != null" >
+        userroletemp11,
+      </if>
+      <if test="userroletemp12 != null" >
+        userroletemp12,
+      </if>
+      <if test="userroletemp13 != null" >
+        userroletemp13,
+      </if>
+      <if test="userroletemp14 != null" >
+        userroletemp14,
+      </if>
+      <if test="userroletemp15 != null" >
+        userroletemp15,
+      </if>
+      <if test="userroletemp16 != null" >
+        userroletemp16,
+      </if>
+      <if test="userroletemp17 != null" >
+        userroletemp17,
+      </if>
+      <if test="userroletemp18 != null" >
+        userroletemp18,
+      </if>
+      <if test="userroletemp19 != null" >
+        userroletemp19,
+      </if>
+      <if test="userroletemp20 != null" >
+        userroletemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp1 != null" >
+        #{userroletemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp2 != null" >
+        #{userroletemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp3 != null" >
+        #{userroletemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp4 != null" >
+        #{userroletemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp5 != null" >
+        #{userroletemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp6 != null" >
+        #{userroletemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp7 != null" >
+        #{userroletemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp8 != null" >
+        #{userroletemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp9 != null" >
+        #{userroletemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp10 != null" >
+        #{userroletemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp11 != null" >
+        #{userroletemp11,jdbcType=DATE},
+      </if>
+      <if test="userroletemp12 != null" >
+        #{userroletemp12,jdbcType=DATE},
+      </if>
+      <if test="userroletemp13 != null" >
+        #{userroletemp13,jdbcType=DATE},
+      </if>
+      <if test="userroletemp14 != null" >
+        #{userroletemp14,jdbcType=DATE},
+      </if>
+      <if test="userroletemp15 != null" >
+        #{userroletemp15,jdbcType=DATE},
+      </if>
+      <if test="userroletemp16 != null" >
+        #{userroletemp16,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp17 != null" >
+        #{userroletemp17,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp18 != null" >
+        #{userroletemp18,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp19 != null" >
+        #{userroletemp19,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp20 != null" >
+        #{userroletemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netsdar.hospital.entity.YYUserrole" >
+    update yy_userrole
+    <set >
+      <if test="roleId != null" >
+        role_id = #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp1 != null" >
+        userroletemp1 = #{userroletemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp2 != null" >
+        userroletemp2 = #{userroletemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp3 != null" >
+        userroletemp3 = #{userroletemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp4 != null" >
+        userroletemp4 = #{userroletemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp5 != null" >
+        userroletemp5 = #{userroletemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp6 != null" >
+        userroletemp6 = #{userroletemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp7 != null" >
+        userroletemp7 = #{userroletemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp8 != null" >
+        userroletemp8 = #{userroletemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp9 != null" >
+        userroletemp9 = #{userroletemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp10 != null" >
+        userroletemp10 = #{userroletemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="userroletemp11 != null" >
+        userroletemp11 = #{userroletemp11,jdbcType=DATE},
+      </if>
+      <if test="userroletemp12 != null" >
+        userroletemp12 = #{userroletemp12,jdbcType=DATE},
+      </if>
+      <if test="userroletemp13 != null" >
+        userroletemp13 = #{userroletemp13,jdbcType=DATE},
+      </if>
+      <if test="userroletemp14 != null" >
+        userroletemp14 = #{userroletemp14,jdbcType=DATE},
+      </if>
+      <if test="userroletemp15 != null" >
+        userroletemp15 = #{userroletemp15,jdbcType=DATE},
+      </if>
+      <if test="userroletemp16 != null" >
+        userroletemp16 = #{userroletemp16,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp17 != null" >
+        userroletemp17 = #{userroletemp17,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp18 != null" >
+        userroletemp18 = #{userroletemp18,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp19 != null" >
+        userroletemp19 = #{userroletemp19,jdbcType=INTEGER},
+      </if>
+      <if test="userroletemp20 != null" >
+        userroletemp20 = #{userroletemp20,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netsdar.hospital.entity.YYUserrole" >
+    update yy_userrole
+    set role_id = #{roleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      userroletemp1 = #{userroletemp1,jdbcType=VARCHAR},
+      userroletemp2 = #{userroletemp2,jdbcType=VARCHAR},
+      userroletemp3 = #{userroletemp3,jdbcType=VARCHAR},
+      userroletemp4 = #{userroletemp4,jdbcType=VARCHAR},
+      userroletemp5 = #{userroletemp5,jdbcType=VARCHAR},
+      userroletemp6 = #{userroletemp6,jdbcType=VARCHAR},
+      userroletemp7 = #{userroletemp7,jdbcType=VARCHAR},
+      userroletemp8 = #{userroletemp8,jdbcType=VARCHAR},
+      userroletemp9 = #{userroletemp9,jdbcType=VARCHAR},
+      userroletemp10 = #{userroletemp10,jdbcType=VARCHAR},
+      userroletemp11 = #{userroletemp11,jdbcType=DATE},
+      userroletemp12 = #{userroletemp12,jdbcType=DATE},
+      userroletemp13 = #{userroletemp13,jdbcType=DATE},
+      userroletemp14 = #{userroletemp14,jdbcType=DATE},
+      userroletemp15 = #{userroletemp15,jdbcType=DATE},
+      userroletemp16 = #{userroletemp16,jdbcType=INTEGER},
+      userroletemp17 = #{userroletemp17,jdbcType=INTEGER},
+      userroletemp18 = #{userroletemp18,jdbcType=INTEGER},
+      userroletemp19 = #{userroletemp19,jdbcType=INTEGER},
+      userroletemp20 = #{userroletemp20,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

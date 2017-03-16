@@ -1,0 +1,52 @@
+8
+
+dir
+2520
+http://192.168.1.115/svn/product/YiYuan/WebRoot/static/js/plugins/bootstrap-table/locale
+http://192.168.1.115/svn/product
+
+
+
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7c12452c-d231-f849-8346-376cf384b823
+
+bootstrap-table-zh-CN.js
+file
+
+
+
+
+2017-03-08T03:33:56.168000Z
+dfbf28964bff85dfe5dae2d4a581ca5f
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+
+bootstrap-table-zh-CN.min.js
+file
+
+
+
+
+2017-03-08T03:33:56.171000Z
+c8f1530c2271d4a168cb20ffb50aa9cf
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+

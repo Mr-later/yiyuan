@@ -1,0 +1,97 @@
+8
+
+dir
+2521
+http://192.168.1.115/svn/product/YiYuan/src/resources
+http://192.168.1.115/svn/product
+
+
+
+2017-03-15T05:28:58.469055Z
+2519
+wangshiwei
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+7c12452c-d231-f849-8346-376cf384b823
+
+conf
+dir
+
+file.properties
+file
+
+
+
+
+2017-03-08T03:33:58.334000Z
+8e4813ae7959c6945f6561576eaa19e8
+2017-01-04T08:51:43.370534Z
+2335
+fuxiaokai
+
+init
+dir
+
+jdbc.properties
+file
+
+
+
+
+2017-03-09T05:41:06.047000Z
+eba028a3f4a3828b4ac7d1c8503801cf
+2017-03-15T05:28:58.469055Z
+2519
+wangshiwei
+
+logback.xml
+file
+
+
+
+
+2017-03-08T03:33:58.198000Z
+6e3713bd828c4d1de8c25778ed60faaa
+2017-01-05T06:15:05.012180Z
+2337
+fuxiaokai
+
+mappers
+dir
+
+mvc-dispatcher-servlet.xml
+file
+
+
+
+
+2017-03-08T03:33:58.336000Z
+9d4add7a480525d05e0272116b5f3431
+2017-03-07T02:27:55.776997Z
+2498
+fuxiaokai
+
+spring-database.xml
+file
+
+
+
+
+2017-03-08T03:33:58.213000Z
+2fc6cae8cc82c2355a0aa0c72b2af236
+2017-03-07T02:27:55.776997Z
+2498
+fuxiaokai
+
