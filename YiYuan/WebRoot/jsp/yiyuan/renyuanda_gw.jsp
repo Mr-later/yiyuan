@@ -34,9 +34,10 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>人员档案-岗位</h5>
+                        <h5>人员档案-${parentOrg.orgname}-岗位</h5>
                         <div class="ibox-tools">
-                            <a href="renyuandangan.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                        
+                            <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuandangan" class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuandangan.jsp -->
                             <!--  <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
                         </div>
@@ -45,9 +46,9 @@
 		                       <div class="wrapper wrapper-content animated fadeInRight" style="">
 		
 							        <div class="row " >
-							    		<div class="col-sm-2">
+							    		<div class="col-sm-2"  id="shangjijiedian">
 							    		 <a href="zuzzjg_gw_ryxq.jsp">
-				                            <div class="ibox-content text-center">
+				                            <div class="ibox-content text-center"  >
 					                                <h1>组长</h1>
 						                                <div class="m-b-sm">
 						                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
@@ -78,8 +79,21 @@
 				                            <div class="ibox float-e-margins">
 				                            <div class="ibox-content">
                       
-						                        <div class="text-center"> 
-							                        <a href="renyuanda_gw_ry.jsp">
+						                        <div class="text-center"   id="xiajijiedian"> 
+						                        <c:forEach items="${yyOrginfoList}" var="tempElement">
+							                   <!--    //<a href="go("+$(tempElement.pid)+")"> -->  	<!-- renyuanda_gw_ry.jsp -->
+							                        	<div class="widget style1 lazur-bg w10"  onclick="go_renyuan(${tempElement.pid })">
+							                        	
+																	                    <div class="row vertical-align">
+																	                       
+																	                        <div class="text-right">
+																	                            <h2 class="font-bold" style="word-wrap: break-word;">${tempElement.orgname}</h2>
+																	                        </div>
+																	                    </div>
+														</div>
+													<!-- </a> -->
+													</c:forEach>
+							                        <!-- <a href="renyuanda_gw_ry.jsp">
 							                        	<div class="widget style1 lazur-bg w10">
 							                        	
 																	                    <div class="row vertical-align">
@@ -186,7 +200,7 @@
 																                            <h2 class="font-bold" style="width:10%;word-wrap: break-word;">脱落细胞检测岗</h2>
 																                        </div>
 																                    </div>
-													</div>
+													</div> -->
 												</div>
 						                      
 						                    </div>
@@ -222,13 +236,15 @@
     <script src="${path}/static/js/demo/peity-demo.js"></script> --%>
 
    <script type="text/javascript">
-        jQuery(document).ready(function() {
-        	
-             	
-        }); 
+        
         //返回上一步
         function goback1(){
         	window.history.back(-1);
+        }
+        function go_renyuan(index){
+        	
+        	location.href="${path}/renYuanDaController/ToRenyuandaGwRy?id="+index;
+        	 
         }
   </script>  
 

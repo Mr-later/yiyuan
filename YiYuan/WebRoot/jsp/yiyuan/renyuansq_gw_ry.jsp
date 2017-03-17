@@ -39,7 +39,7 @@
                         <div class="ibox-tools">
                         <a href="javascript:sqdc()" class="btn btn-primary btn-rounded btn-xs" >岗位授权导出</a>
                          <a href="javascript:sfsq2()" class="btn btn-primary btn-rounded btn-xs" >一键授权</a>
-                            <a href="renyuansq_gw.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                         <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuansq_gw" class="btn btn-primary btn-rounded btn-xs">返回</a><!-- renyuansq_gw.jsp -->
                             <!--  <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
                         </div>
@@ -238,7 +238,7 @@
    <script type="text/javascript">
         jQuery(document).ready(function() {
         	
-             	
+             	alert(${pid})
         }); 
         //返回上一步
         function goback1(){

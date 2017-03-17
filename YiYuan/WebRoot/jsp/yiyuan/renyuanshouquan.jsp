@@ -38,7 +38,7 @@
                     <div class="ibox-title">
                         <h5>人员授权</h5>
                         <div class="ibox-tools">
-                        <a href="../index_v1.jsp" class="btn btn-primary btn-rounded btn-xs">返回主页</a>
+                        <a href="${path}/renYuanShouQuanController/toIndexPage" class="btn btn-primary btn-rounded btn-xs">返回主页</a> <!-- ../index_v1.jsp -->
                             <!-- <a href="" class="btn btn-primary btn-rounded btn-xs">新增</a>
                              <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
@@ -47,12 +47,12 @@
                     <div>
                        <div class="wrapper wrapper-content animated fadeInRight" style="">
 
-					        <div class="row text-center" style="display:block">
+					        <div class="row text-center" style="display:block"  id="shangjijiedian">
 					    
-										        <div class="col-sm-3" style="margin-left:38%;">
+										        <!-- <div class="col-sm-3" style="margin-left:38%;">
 											          
 											                <div class="widget red-bg p-lg text-center">
-											               <!--  <span class="badge badge-warning"">12</span> -->
+											                <span class="badge badge-warning"">12</span>
 											                    <div class="m-b-md">
 											                        <i class="fa fa-user-md fa-4x"></i>
 											                        <h2 class="m-xs">&nbsp;</h2>
@@ -63,14 +63,14 @@
 											                    </div>
 											                </div>
 											          
-										           </div>
+										           </div> -->
 										        
 					          
 					        </div>
 					         <div class="row text-center" >
-					         	<div class="row_1" >
+					         	<div class="row_1"  id="xiajijiedian">
 					         		
-											                <div class="widget navy-bg p-lg text-center w100">
+											              <!--   <div class="widget navy-bg p-lg text-center w100">
 												                <span class="badge badge-danger">14</span>
 												                    <div class="m-b-md fontlink_zu">
 												                      
@@ -121,7 +121,7 @@
 											                       
 											                    </div>
 											                </div>
-											         
+											          -->
 								 </div>       
 					         </div>
 						</div>
@@ -152,15 +152,63 @@
 
    <script type="text/javascript">
         jQuery(document).ready(function() {
-        	$('.fontlink_zu').click(function(){
+        	/* $('.fontlink_zu').click(function(){
       	      tiaozhuan();//跳转到人员授权-组
       	    });
-             	
+    */
+        	$.ajax({
+                cache: true,
+                type: "POST",
+                url:'${path}/renYuanShouQuanController/orgList',
+                async: false,
+                success: function(data) {
+                	var html="";
+                  	var html2="";
+                  	$("#shangjijiedian").empty();
+                  	$("#xiajijiedian").empty();	
+                  	var data=data.data;
+                    for (var i = 0, j = data.length; i < j; i++){
+                    	if(data[i].pid==0){
+                    			html +='<div class="col-sm-3" style="margin-left:38%;">'
+                          		html +='<div class="widget red-bg p-lg text-center">'
+                          		
+                          		html +='<div class="m-b-md">'
+                          		html +=' <i class="fa fa-user-md fa-4x"></i>'
+                          		html +='<h2 class="m-xs">&nbsp;</h2><h2 class="font-bold no-margins">'
+                          		html +=data[i].orgname
+                          		html +='</h2>'
+                          		html +='</div></div>'
+                          		html +='</div>'
+                    	}
+                    	if(data[i].pid==1){
+                    		
+                    			html2 +='<div class="widget lazur-bg p-lg text-center w100">'
+                    			html2 +='<span class="badge badge-danger">14</span>'
+                    			html2 +='<div class="m-b-md fontlink_zu">'
+                    			html2 +='<h2 class="font-bold no-margins ">'
+                   				html2 +='<a href="${path}/renYuanShouQuanController/listByPid?id='+data[i].id+'">'
+                       			html2 +=data[i].orgname
+                       			html += '</a>'
+                    			html2 +='</h2>'
+                    			
+                    			html2 +='</div>'
+                    			html2 +='</div>'
+                    	}
+                    }
+                    $("#shangjijiedian").append(html);
+                    $("#xiajijiedian").append(html2);
+                }
+            });
+        	
         });
         function tiaozhuan(){//跳转到人员授权-组
 	    	location.href="renyuansq_gw.jsp"
 	    };
-       
+	    jQuery(document).ready(function() {
+		   	$('.fontlink_zu').click(function(){
+		   	      tiaozhuan();//跳转到人员档案-岗位
+		   	    });
+	   		});
   </script>  
 
 </body>

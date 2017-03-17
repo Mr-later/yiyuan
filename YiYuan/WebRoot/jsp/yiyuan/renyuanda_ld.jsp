@@ -39,7 +39,7 @@
                         <h5>人员档案-领导</h5>
                         <div class="ibox-tools">
                          	<a onclick="opadd()" class="btn btn-primary btn-rounded btn-xs">新增</a>
-                            <a href="renyuandangan.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                            <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuandangan" class="btn btn-primary btn-rounded btn-xs">返回</a><!-- renyuandangan.jsp -->
                            
                         </div>
                     </div>
@@ -272,7 +272,7 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content:['renyuanda_add.jsp']
+              ,content:['${path}/renYuanDaController/toAddPage']  // renyuanda_add.jsp 
              
             });    
 

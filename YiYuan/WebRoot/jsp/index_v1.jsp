@@ -34,7 +34,8 @@
 	        <div class="row">
 	    
 			        
-				          <a href="yiyuan/renyuandangan.jsp">
+				         <%-- <a href="yiyuan/renyuandangan.jsp"> --%>
+				         <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuandangan">
 				                <div class="widget navy-bg p-lg text-center">
 				                    <div class="m-b-md">
 				                        <i class="fa fa-file-text-o fa-4x"></i>
@@ -48,8 +49,8 @@
 				            </a> 
 			        
 				        
-				         <%--  <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanshouquan"> --%>
-				                   <a href="yiyuan/renyuanshouquan.jsp"> 
+				                  <%--<a href="yiyuan/renyuanshouquan.jsp">  --%> 
+				                <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanshouquan">
 				                <div class="widget yellow-bg p-lg text-center">
 				                    <div class="m-b-md">
 				                        <i class="fa fa-gears fa-4x"></i>
@@ -76,7 +77,8 @@
 				                </div>
 				            </a> 
 			       
-		          <a href="yiyuan/jiaoyupeixun.jsp">
+		          <!--<a href="yiyuan/jiaoyupeixun.jsp">  -->
+		          <a href="${path}/pageController/jumpPage?toPageName=yiyuan/jiaoyupeixun">
 		                <div class="widget red-bg p-lg text-center">
 		                    <div class="m-b-md">
 		                        <i class="fa fa-map fa-4x"></i>

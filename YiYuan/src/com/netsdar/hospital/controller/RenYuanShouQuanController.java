@@ -1,12 +1,9 @@
 package com.netsdar.hospital.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +16,8 @@ import com.netsdar.hospital.entity.YYOrginfo;
 import com.netsdar.hospital.service.OrgServiceI;
 
 @Controller
-@RequestMapping("/renYuanDaController")
-public class RenYuanDaController {
+@RequestMapping("/renYuanShouQuanController")
+public class RenYuanShouQuanController {
 
 
 	@Autowired
@@ -40,6 +37,7 @@ public class RenYuanDaController {
 		
 		
 	}
+	
 
 	//跳转到 组织结构-岗位 一级
 	@RequestMapping("/listByPid")
@@ -54,7 +52,7 @@ public class RenYuanDaController {
 		
 		model.addAttribute("parentOrg", parentOrg);
 		model.addAttribute("yyOrginfoList", resultMap);
-		return "yiyuan/renyuanda_gw";
+		return "yiyuan/renyuansq_gw";
 	}
 	
 	
@@ -126,6 +124,7 @@ public class RenYuanDaController {
 		model.addAttribute("yyOrginfoList", resultMap);
 		
 		
+		
 		jsonObject.put("msg", "添加成功");
 		jsonObject.put("success", true);
 		return "yiyuan/zuzzjg_gw";*/
@@ -137,7 +136,7 @@ public class RenYuanDaController {
 		YYOrginfo YYOrginfo=orgServiceI.selectByPrimaryKey(id);
 	
 		model.addAttribute("YYOrginfo", YYOrginfo);
-		return "yiyuan/renyuanda_edit";
+		return "yiyuan/zzjg_edit";
 
 	}
 	
@@ -286,13 +285,8 @@ public class RenYuanDaController {
 		jsonObject.put("success", true);
 		return jsonObject;
 		
-	}*/
-	@RequestMapping("/ToRenyuandaGwRy")
-	public String  toRenyuandaGwRy(Model model,HttpServletRequest req){
-		String pid = req.getParameter("id");
-		model.addAttribute("pid", pid);
 		
-		return "yiyuan/renyuanda_gw_ry";
-	}
+	}*/
+	
 
 }

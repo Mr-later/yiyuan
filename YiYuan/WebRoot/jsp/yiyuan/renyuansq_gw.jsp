@@ -34,18 +34,18 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>人员授权-岗位</h5>
+                        <h5>人员授权-${parentOrg.orgname}-岗位</h5>
                         <div class="ibox-tools">
-                            <a href="renyuanshouquan.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                            <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanshouquan" class="btn btn-primary btn-rounded btn-xs">返回</a><!-- renyuanshouquan.jsp -->
                             <!--  <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
                         </div>
                     </div>
-                   
+                
 		                       <div class="wrapper wrapper-content animated fadeInRight" style="">
 		
 							        <div class="row " >
-							    		<div class="col-sm-2">
+							    		<div class="col-sm-2"  id="shangjijiedian">
 				                            <div class="ibox-content text-center">
 					                                <h1>组长</h1>
 						                                <div class="m-b-sm">
@@ -67,15 +67,29 @@
 					                                <div class="text-center">
 					                                    副主任医师
 					                                </div>
-				                            </div>
+				                            </div> 
 		                        		</div>
-		                        		
+		    
+		                        		                		
 		                        		<div class="col-sm-10 ">
 				                            <div class="ibox float-e-margins">
 				                            <div class="ibox-content">
                       
-						                        <div class="text-center"> 
-							                        <a href="renyuansq_gw_ry.jsp">
+						                        <div class="text-center"  id="xiajijiedian"> 
+						                         <c:forEach items="${yyOrginfoList}" var="tempElement">
+							                        	<a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuansq_gw_ry"><!-- renyuansq_gw_ry.jsp -->
+							                        	<div class="widget style1 lazur-bg w10">
+							                        	<span class="badge badge-danger">2</span>
+																	                    <div class="row vertical-align">
+																	                       
+																	                        <div class="text-right">
+																	                            <h2 class="font-bold" style="word-wrap: break-word;">${tempElement.orgname}</h2>
+																	                        </div>
+																	                    </div>
+														</div>
+													</a>
+													</c:forEach>
+							                        <!-- <a href="renyuansq_gw_ry.jsp">
 							                        	<div class="widget style1 lazur-bg w10">
 							                        	<span class="badge badge-danger">2</span>
 																	                    <div class="row vertical-align">
@@ -182,7 +196,7 @@
 																                            <h2 class="font-bold" style="width:10%;word-wrap: break-word;">脱落细胞检测岗</h2>
 																                        </div>
 																                    </div>
-													</div>
+													</div> -->
 												</div>
 						                      
 						                    </div>
@@ -218,10 +232,7 @@
     <script src="${path}/static/js/demo/peity-demo.js"></script> --%>
 
    <script type="text/javascript">
-        jQuery(document).ready(function() {
-        	
-             	
-        }); 
+        
         //返回上一步
         function goback1(){
         	window.history.back(-1);

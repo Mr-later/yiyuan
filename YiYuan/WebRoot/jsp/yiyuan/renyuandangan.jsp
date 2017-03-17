@@ -36,7 +36,7 @@
                     <div class="ibox-title">
                         <h5>人员档案</h5>
                         <div class="ibox-tools">
-                           <a href="../index_v1.jsp" class="btn btn-primary btn-rounded btn-xs">返回主页</a>
+                           <a href="${path}/renYuanDaController/toIndexPage" class="btn btn-primary btn-rounded btn-xs">返回主页</a> <!-- ../index_v1.jsp -->
                              <!--  <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
                         </div>
@@ -161,7 +161,7 @@
                	if(data[i].pid==0){
                		
                			html +='<div class="col-sm-3" style="margin-left:38%;">'
-                     		html +='<a href="renyuanda_ld.jsp">'
+                     		html +='<a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanda_ld">'/* renyuanda_ld.jsp */
                      		html +=' <div class="widget red-bg p-lg text-center">'
                      		html +='<div class="m-b-md"><i class="fa fa-user-md fa-4x"></i>'
                      		html +='<h2 class="m-xs">&nbsp;</h2>'
@@ -177,7 +177,9 @@
                			html2 +='<div class="m-b-md fontlink_gw">'
                			
                			html2 +='<h2 class="font-bold no-margins">'
+           				html2 +='<a href="${path}/renYuanDaController/listByPid?id='+data[i].id+'">'
                			html2 +=data[i].orgname
+               			html += '</a>'
                			html2 +='</h2>'
                			
                			html2 +='</div>'

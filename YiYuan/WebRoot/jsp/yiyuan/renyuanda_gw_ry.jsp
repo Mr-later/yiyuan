@@ -36,11 +36,11 @@ a.btn1{display:none;}
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>人员档案-岗位-人员</h5>
+                        <h5>人员档案-岗位-人员${pid}</h5>
                         <div class="ibox-tools">
                         <a href="jypx_rydd.jsp" class="btn btn-primary btn-rounded btn-xs">人员调动</a>
                         	<a onclick="opadd()" class="btn btn-primary btn-rounded btn-xs">新增</a>
-                            <a href="renyuanda_gw.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                            <a href="${path}/renYuanDaController/listByPid?id="+${pid}  class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuanda_gw.jsp -->
                           
                         </div>
                     </div>
@@ -48,7 +48,6 @@ a.btn1{display:none;}
 		                       <div class="wrapper wrapper-content animated fadeInRight" style="">
 		
 							        <div class="row " >
-							    	
 		                        		
 		                        		<div class="col-sm-12 ">
 				                            <div class="ibox float-e-margins">
