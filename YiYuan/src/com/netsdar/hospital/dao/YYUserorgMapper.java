@@ -1,5 +1,8 @@
 package com.netsdar.hospital.dao;
 
+import java.util.List;
+
+import com.netsdar.hospital.entity.YYUserinfo;
 import com.netsdar.hospital.entity.YYUserorg;
 
 public interface YYUserorgMapper {
@@ -14,4 +17,5 @@ public interface YYUserorgMapper {
     int updateByPrimaryKeySelective(YYUserorg record);
 
     int updateByPrimaryKey(YYUserorg record);
+
 }

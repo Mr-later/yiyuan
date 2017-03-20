@@ -47,7 +47,37 @@
 		
 							        <div class="row " >
 							    		<div class="col-sm-2"  id="shangjijiedian">
-							    		 <a href="zuzzjg_gw_ryxq.jsp">
+							    		<c:forEach items="${zuzhangs }" var="template">
+							    		<a href="zuzzjg_gw_ryxq.jsp">
+				                            <div class="ibox-content text-center"  >
+					                                <h1>${template.zhiwu }</h1>
+						                                <div class="m-b-sm">
+						                                    <img alt="image" class="img-circle" src="${path}/static/img/a1.jpg">
+						                                </div>
+					                                <p class="font-bold">${template.username }</p>
+				
+					                                <div class="text-center">
+					                                    ${template.zhicheng }
+					                                </div>
+				                            </div>
+				                         </a>
+				                         </c:forEach>
+				                         <c:forEach items="${fuzuzhangs }" var="template">
+				                         <a href="zuzzjg_gw_ryxq.jsp">
+				                             <div class="ibox-content text-center">
+					                                <h1>${template.zhiwu }</h1>
+						                                <div class="m-b-sm">
+						                                    <img alt="image" class="img-circle" src="${path}/static/img/a2.jpg">
+						                                </div>
+					                                <p class="font-bold">${template.username }</p>
+				
+					                                <div class="text-center">
+					                                    ${template.zhicheng }
+					                                </div>
+				                            </div>
+				                          </a>
+				                          </c:forEach>
+							    		<%--  <a href="zuzzjg_gw_ryxq.jsp">
 				                            <div class="ibox-content text-center"  >
 					                                <h1>组长</h1>
 						                                <div class="m-b-sm">
@@ -72,7 +102,7 @@
 					                                    副主任医师
 					                                </div>
 				                            </div>
-				                          </a>
+				                          </a> --%>
 		                        		</div>
 		                        		
 		                        		<div class="col-sm-10 ">
@@ -82,7 +112,7 @@
 						                        <div class="text-center"   id="xiajijiedian"> 
 						                        <c:forEach items="${yyOrginfoList}" var="tempElement">
 							                   <!--    //<a href="go("+$(tempElement.pid)+")"> -->  	<!-- renyuanda_gw_ry.jsp -->
-							                        	<div class="widget style1 lazur-bg w10"  onclick="go_renyuan(${tempElement.pid })">
+							                        	<div class="widget style1 lazur-bg w10"  onclick="go_renyuan(${tempElement.id })">
 							                        	
 																	                    <div class="row vertical-align">
 																	                       
@@ -242,7 +272,6 @@
         	window.history.back(-1);
         }
         function go_renyuan(index){
-        	
         	location.href="${path}/renYuanDaController/ToRenyuandaGwRy?id="+index;
         	 
         }

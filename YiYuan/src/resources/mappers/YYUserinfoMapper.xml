@@ -74,6 +74,13 @@
     userinfotemp35, userinfotemp36, userinfotemp37, userinfotemp38, userinfotemp39, userinfotemp40
   </sql>
   <!-- **************************************** -->
+   <select id="GetUsersByOrgid"  resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+  select 
+   user.id ,user.zhiwu ,user.username  ,user.zhicheng ,userorg.org_id 
+   from yy_userinfo  user LEFT JOIN yy_userorg userorg 
+	on user.id=userorg.user_id  where userorg.org_id=#{id,jdbcType=INTEGER} and user.userinfotemp7='1'
+    
+  </select>
   <select id="selectByname" resultMap="BaseResultMap"  parameterType="java.lang.String">
   select 
   <include refid="Base_Column_List" />

@@ -55,7 +55,7 @@
                       
 						                        <div class="text-center"> 
 							                    
-							                        	 <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+							                        	<%-- <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
 					                                		  <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
@@ -68,9 +68,24 @@
 						                                		</div>
 						                                		
 						                                	</div>
+				                          				 </div>  --%>
+				                          		 <c:forEach items="${fuzhurens}" var="tempElement"> 
+				                          			 <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+					                                		  <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+							                                <div class="m-b-sm">
+							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
+							                                </div>
+							                                <div style="display:block;" class="ryxqhref">
+						                                		<p class="font-bold">${tempElement.username}</p>
+					
+						                               			<div class="text-center h10">
+						                                   			 ${tempElement.zhiwu }
+						                                		</div>
+						                                		
+						                                	</div>
 				                          				 </div>
-												
-							                        	 <div class="ibox-content text-center w10" ondblclick="xianshi(this)">
+												</c:forEach> 
+							                        	<%--  <div class="ibox-content text-center w10" ondblclick="xianshi(this)">
 					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
@@ -83,14 +98,29 @@
 						                                		</div>
 						                                		
 						                                	</div>
-				                          				 </div>
+				                          				 </div> --%>
 												
 													
 											</div>
 												
 											<div class="text-center"> 
-							                   
-							                        	 <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+									                   <c:forEach items="${zhurens}" var="tempElement"> 
+									                   <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+							                                <div class="m-b-sm">
+							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
+							                                </div>
+							                                <div style="display:block;" class="ryxqhref">
+						                                		<p class="font-bold">${tempElement.username}</p>
+					
+						                               			<div class="text-center h10">
+						                                   			 ${tempElement.zhiwu }
+						                                		</div>
+						                                		
+						                                	</div>
+				                          				 </div>
+				                          				 </c:forEach> 
+							                        	 <%--  <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
 					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
@@ -178,7 +208,7 @@
 						                                		</div>
 						                                		
 						                                	</div>
-				                          				 </div>
+				                          				 </div>  --%>
 												</div>
 						                      
 						                    </div>

@@ -36,11 +36,11 @@ a.btn1{display:none;}
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>人员档案-岗位-人员${pid}</h5>
+                        <h5>人员档案-岗位-人员</h5>
                         <div class="ibox-tools">
                         <a href="jypx_rydd.jsp" class="btn btn-primary btn-rounded btn-xs">人员调动</a>
-                        	<a onclick="opadd()" class="btn btn-primary btn-rounded btn-xs">新增</a>
-                            <a href="${path}/renYuanDaController/listByPid?id="+${pid}  class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuanda_gw.jsp -->
+                        	<a onclick="opadd(${id })" class="btn btn-primary btn-rounded btn-xs">新增</a>
+                            <a onclick="back(${pid })"  class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuanda_gw.jsp -->
                           
                         </div>
                     </div>
@@ -54,8 +54,23 @@ a.btn1{display:none;}
 				                            <div class="ibox-content">
                       
 						                        <div class="text-center"> 
-							                   
-							                        	 <div class="ibox-content text-center w10" ondblclick="xianshi(this)">
+							                   			<c:forEach items="${users}" var="template">
+							                        	<div class="ibox-content text-center w10" ondblclick="xianshi(this)">
+					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+							                                <div class="m-b-sm">
+							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
+							                                </div>
+							                                <div style="display:block;" class="ryxqhref">
+						                                		<p class="font-bold">${template.username }</p>
+					
+						                               			<div class="text-center h10">
+						                                   			 ${template.zhicheng }
+						                                		</div>
+						                                		
+						                                	</div>
+				                          				 </div>
+				                          				 </c:forEach>
+							                        	<%--  <div class="ibox-content text-center w10" ondblclick="xianshi(this)">
 					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
@@ -191,7 +206,7 @@ a.btn1{display:none;}
 						                                		
 						                                	</div>
 					                                	
-				                          				 </div>
+				                          				 </div> --%>
 
 												</div>
 						                      
@@ -261,7 +276,7 @@ a.btn1{display:none;}
         });    
 
   };
-  function opadd(){ //点击按钮 打开新增页面 
+  function opadd(index){ //点击按钮 打开新增页面 
 	   layer.open({
           type: 2 //Page层类型
           ,area: ['70%', '80%']
@@ -269,7 +284,7 @@ a.btn1{display:none;}
           ,shade: 0.6 //遮罩透明度
           ,maxmin: false //允许全屏最小化
           ,anim: 5 //0-6的动画形式，-1不开启
-          ,content:['renyuanda_add.jsp']
+          ,content:['${path}/renYuanDaController/toAddPage?orgid='+index]/* 'renyuanda_add.jsp' */
          
         });    
 
@@ -283,7 +298,10 @@ a.btn1{display:none;}
         	a=$(z).find(".btn1");
         	a.css("display","block");
         }
-
+		//返回岗位层
+		function back(index){
+			location.href="${path}/renYuanDaController/listByPid?id="+index;
+		}
   </script>  
 
 </body>

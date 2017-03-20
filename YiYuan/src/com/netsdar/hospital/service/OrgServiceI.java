@@ -1,7 +1,5 @@
 package com.netsdar.hospital.service;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +55,7 @@ public class OrgServiceI {
 		
 		
 	}
+	
 	
 	/*public List<YYDict> getListDict(LinkedHashMap<String, Object> map) {
 		List<YYDict> yydict = yyOrginfoMapper.getListDict(map);

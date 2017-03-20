@@ -1,6 +1,5 @@
 package com.netsdar.hospital.dao;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -25,4 +24,6 @@ public interface YYUserinfoMapper {
 	YYUserinfo selectByname(String name);
 
 	int UpdateTemp7ById(int id);
+
+	List<YYUserinfo> GetUsersByOrgid(int id);
 }

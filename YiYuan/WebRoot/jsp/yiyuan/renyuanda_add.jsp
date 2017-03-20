@@ -64,19 +64,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                                                </div>   
                                                       		<label class="control-label col-sm-2">所在组：</label>
                                                             <div class="col-sm-10">
-	                                                            <select class="form-control" name="" id="">
+	                                                            <select class="form-control" name="" id="groupRenyuan" onclick="group_Renyuan()" >
 	                                                                  <option value="" selected="selected">请选择...</option>
-	                                                                  <option value="" >1组</option>
-	                                                                  <option value="" >2组</option>
+	                                                                  
+	                                                                  <!-- <option value="" >1组</option>
+	                                                                  <option value="" >2组</option> -->
 	                                                            </select>
+	                                                            
                                                             </div> 
                                                             <label class="control-label col-sm-2">目前岗位：</label>
                                                             <div class="col-sm-10">
-	                                                            <select class="form-control" name="" id="">
+	                                                            <select class="form-control" name="" id="gangweiRenyuan"  onclick="gangwei_Renyuan()">
 	                                                                  <option value="" selected="selected">请选择...</option>
-	                                                                  <option value="" >主任医师</option>
-	                                                                  <option value="" >副主任医师</option>
-	                                                            </select>
+	                                                                <!--   <option value="" >主任医师</option>
+	                                                                  <option value="" >副主任医师</option> -->
+	                                                            </select> 
                                                             </div>  
                                                             <label class="control-label col-sm-2">在岗时间：</label>
 			                                                <div class="col-sm-10">
@@ -161,6 +163,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
    });
    
+   function gangwei_Renyuan(){
+	   alert($("#groupRenyuan").value())
+	    if($("#groupRenyuan").value()=="" &&  $("#gangweiRenyuan option").length<=1){
+		   $("#gangweiRenyuan").append("<option value='主任'>主任</option><option value='副主任'>副主任</option>");
+	   }else if($("#gangweiRenyuan option").length<=1){
+		   $("#gangweiRenyuan").append("<option value='组长'>组长</option><option value='副组长'>副组长</option>");
+	   } 
+   }
+   function group_Renyuan(){
+	   if($("#groupRenyuan")!="" && $("#groupRenyuan option").length<=1){
+		   $("#groupRenyuan").append("<option value='2'>临检与血液组</option><option value='3'>生化组</option>"+
+				  					 "<option value='4'>免疫组</option><option value='5'>微生物组</option>"+
+				  					 "<option value='6'>分子生物组</option>");
+	   }
+   }
    </script> 
 
     

@@ -201,7 +201,9 @@
                           		html +='<i class="fa fa-user-md fa-4x"></i>'
                           		html +='<h2 class="m-xs">&nbsp;</h2>'
                           		html +='<h2 class="font-bold no-margins">'
+                          		html +='<a href="${path}/orgController/GetUsersByOrgid?id='+data[i].id+'&gopage=yiyuan/renyuanda_ld">'
                           		html +=data[i].orgname
+                          		html +='</a>'
                           		html +='</h2>'
                           		html +='</div>'
                           		html +='<a class="btn btn-danger btn-circle btn-outline btn1" onclick="opedit2('+data[i].id+')" title="编辑" style="margin-bottom:12px;right:20px"><i class="fa fa-edit"></i></a>'
@@ -213,9 +215,9 @@
                     			html2 +='<div class="m-b-md fontlink_gw">'
                     			
                     			html2 +='<h2 class="font-bold no-margins">'
-                    			html2 +='<a href="${path}/orgController/listByPid?id='+data[i].id+'">'
-                    			html2 +=data[i].orgname
-                    			html += '</a>'
+                 				html2 +='<a href="${path}/orgController/GetUsersOrgByOrgid?id='+data[i].id+'&gopage=yiyuan/zuzzjg_gw">'
+                           		html2+=data[i].orgname
+                           		html2 +='</a>'
                     			html2 +='</h2>'
                     			
                     			html2 +='</div>'

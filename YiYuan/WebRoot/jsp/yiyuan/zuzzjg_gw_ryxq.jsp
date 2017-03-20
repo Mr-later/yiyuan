@@ -75,13 +75,13 @@
 	                           	  </tr>
                              <tr>
                                 <td class="col-sm-2 fw">姓名</td>
-                                <td class="col-sm-1"></td>
+                                <td class="col-sm-1">${user.username }</td>
                                 <td class="col-sm-1 fw" >性别</td>
-                                <td class="col-sm-1"></td>
+                                <td class="col-sm-1">${user.usersex}</td>
                                 <td class="col-sm-1 fw" >出生日期</td>
-                                <td class="col-sm-1"></td>
+                                <td class="col-sm-1">${user.birthdaystr }</td>
                                  <td class="col-sm-1 fw">民族</td>
-                                <td class="col-sm-1" colspan="2"></td>
+                                <td class="col-sm-1" colspan="2">${user.minzu }</td>
                                  <td class="col-sm-1" rowspan="3">
                                  	<img alt="image" class="img-responsive" src="${path}/static/img/1cun.jpg" width="100%">
                                  </td>
@@ -89,21 +89,21 @@
                             </tr>
                             <tr>
                                 <td class="col-sm-1 fw">党派</td>
-                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2">${user.dangpai }</td>
                                 <td class="col-sm-1 fw" >学历</td>
-                                <td class="col-sm-1"></td>
+                                <td class="col-sm-1">${user.xueli }</td>
                                 <td class="col-sm-1 fw" >职称</td>
-                                <td class="col-sm-2"></td>
+                                <td class="col-sm-2">${user.zhicheng }</td>
                                  <td class="col-sm-1 fw" >职务</td>
-                                 <td class="" colspan="2"></td>
+                                 <td class="" colspan="2">${user.zhiwu }</td>
                               
                                
                             </tr>
                              <tr>
                                 <td class="col-sm-1 fw">工作单位</td>
-                                <td class="" colspan="3"></td>
+                                <td class="" colspan="3">${user.gongzuodanwei }</td>
                                 <td class="col-sm-1 fw" >邮编</td>
-                                <td class="col-sm-1"></td>
+                                <td class="col-sm-1">${user.youbian }</td>
                                 <td class="col-sm-1 fw" >专业组</td>
                                 <td class="" colspan="2"></td>
                                 
@@ -112,9 +112,9 @@
                             </tr>
                             <tr>
                                 <td class="col-sm-1 fw">邮箱</td>
-                                <td class="" colspan="3"></td>
+                                <td class="" colspan="3">${user.youxiang }</td>
                                 <td class="col-sm-1 fw" >手机</td>
-                                <td class="" colspan="5"></td>             
+                                <td class="" colspan="5">${user.shoujihao }</td>             
                             </tr>
                              <tr>
 	                                <td class="fw fwc" colspan="10">二、学习经历</td>

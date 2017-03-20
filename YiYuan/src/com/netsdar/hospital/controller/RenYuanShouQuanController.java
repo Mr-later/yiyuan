@@ -288,5 +288,11 @@ public class RenYuanShouQuanController {
 		
 	}*/
 	
-
+	@RequestMapping("/ToRenyuandaGwRy")
+	public String  toRenyuandaGwRy(Model model,HttpServletRequest req){
+		String pid = req.getParameter("id");
+		model.addAttribute("pid", pid);
+		
+		return "yiyuan/renyuansq_gw_ry";
+	}
 }

@@ -39,6 +39,9 @@
     userorgtemp10, userorgtemp11, userorgtemp12, userorgtemp13, userorgtemp14, userorgtemp15, 
     userorgtemp16, userorgtemp17, userorgtemp18, userorgtemp19, userorgtemp20
   </sql>
+  <!-- *************************************************** -->
+
+  <!-- *************************************************** -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

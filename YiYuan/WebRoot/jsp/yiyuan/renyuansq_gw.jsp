@@ -77,8 +77,8 @@
                       
 						                        <div class="text-center"  id="xiajijiedian"> 
 						                         <c:forEach items="${yyOrginfoList}" var="tempElement">
-							                        	<a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuansq_gw_ry"><!-- renyuansq_gw_ry.jsp -->
-							                        	<div class="widget style1 lazur-bg w10">
+							                        	<%-- <a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuansq_gw_ry"> --%><!-- renyuansq_gw_ry.jsp -->
+							                        	<div class="widget style1 lazur-bg w10" onclick="go_renyuan(${tempElement.pid})">
 							                        	<span class="badge badge-danger">2</span>
 																	                    <div class="row vertical-align">
 																	                       
@@ -87,7 +87,7 @@
 																	                        </div>
 																	                    </div>
 														</div>
-													</a>
+													<!-- </a> -->
 													</c:forEach>
 							                        <!-- <a href="renyuansq_gw_ry.jsp">
 							                        	<div class="widget style1 lazur-bg w10">
@@ -236,6 +236,11 @@
         //返回上一步
         function goback1(){
         	window.history.back(-1);
+        }
+        function go_renyuan(index){
+        	
+        	location.href="${path}/renYuanShouQuanController/ToRenyuandaGwRy?id="+index;
+        	 
         }
   </script>  
 

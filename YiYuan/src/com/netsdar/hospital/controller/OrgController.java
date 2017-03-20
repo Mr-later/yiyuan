@@ -1,6 +1,7 @@
 package com.netsdar.hospital.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
-import com.netsdar.hospital.entity.YYDict;
 import com.netsdar.hospital.entity.YYOrginfo;
+import com.netsdar.hospital.entity.YYUserinfo;
 import com.netsdar.hospital.service.OrgServiceI;
+import com.netsdar.hospital.service.UserinfoServiceI;
 
 
 @Controller
@@ -23,7 +25,8 @@ public class OrgController {
 
 	@Autowired
 	private OrgServiceI  orgServiceI;
-	
+	@Autowired
+	private UserinfoServiceI userinfoServiceI;
 	
 	@RequestMapping("/orgList")
 	public @ResponseBody JSONObject orgList(HttpServletRequest request){
@@ -188,10 +191,6 @@ public class OrgController {
 		
 	}
 	
-	
-	
-	
-	
 	/*@RequestMapping("/datagrid")
 	public @ResponseBody JSONObject dictList(String searchtext, String draw, String start, String length, HttpServletRequest request){
 		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
@@ -289,5 +288,75 @@ public class OrgController {
 		
 		
 	}*/
-	
+	/**
+	 * 根据科的orgid找出科下面的领导主任，副主任,组长，副组长,以及普通职员
+	 */
+	@RequestMapping("/GetUsersByOrgid")
+	public String GetUsersByOrgid(Model model ,int id,HttpServletRequest req){
+		String gopage = req.getParameter("gopage");
+		YYOrginfo parentOrg=orgServiceI.selectByPrimaryKey(id);
+		model.addAttribute("parentOrg", parentOrg);
+		
+		//查找开始
+		List<YYUserinfo> leads =userinfoServiceI.GetUsersByOrgid(id);
+		ArrayList<YYUserinfo> zhurens = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> fuzhurens = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> zhuzhangs = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> fuzhuzhangs = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> GWrenyuans = new ArrayList<YYUserinfo>();
+		
+		//遍历，使得不同的职务放不同的list，便于在前台遍历
+		for(int i=0;i<leads.size();i++){
+			if(leads.get(i).getZhiwu()!=null && !"主任".equals(leads.get(i).getZhiwu())){
+				zhurens.add(leads.get(i));
+			}else if(leads.get(i).getZhiwu()!=null && !"副主任".equals(leads.get(i).getZhiwu())){
+				fuzhurens.add(leads.get(i));
+			}else if(leads.get(i).getZhiwu()!=null && !"组长".equals(leads.get(i).getZhiwu())){
+				zhuzhangs.add(leads.get(i));
+			}else if(leads.get(i).getZhiwu()!=null && !"副组长".equals(leads.get(i).getZhiwu())){
+				fuzhuzhangs.add(leads.get(i));
+			}else{
+				GWrenyuans.add(leads.get(i));
+			}
+			
+		}
+		model.addAttribute("zhurens", zhurens);  
+		model.addAttribute("fuzhurens", fuzhurens);
+		model.addAttribute("zhuzhangs", zhuzhangs);
+		model.addAttribute("fuzhuzhangs", fuzhuzhangs);
+		model.addAttribute("GWrenyuans", GWrenyuans); //岗位人员
+		return gopage;
+		
+	}
+	@RequestMapping("/GetUsersOrgByOrgid")
+	public String GetUsersOrgByOrgid(Model model,int id,HttpServletRequest req){
+		String gopage = req.getParameter("gopage");
+		ArrayList<YYUserinfo> zhuzhangs = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> fuzhuzhangs = new ArrayList<YYUserinfo>();
+		
+		////查找本组下的组长，副组长
+		List<YYUserinfo> leads =userinfoServiceI.GetUsersByOrgid(id);
+		for(int i=0;i<leads.size();i++){
+		if(leads.get(i).getZhiwu()!=null && !"组长".equals(leads.get(i).getZhiwu())){
+			zhuzhangs.add(leads.get(i));
+		}else if(leads.get(i).getZhiwu()!=null && !"副组长".equals(leads.get(i).getZhiwu())){
+			fuzhuzhangs.add(leads.get(i));
+		}
+		}
+		
+		//首先查岗位下的职务
+		//根据职务查对应的人
+		//将职务信息、人员信息，返回到页面
+		YYOrginfo parentOrg=orgServiceI.selectByPrimaryKey(id);
+		model.addAttribute("parentOrg", parentOrg);
+		
+		//查找本组下的岗位
+		List<YYOrginfo> resultMap = new ArrayList<YYOrginfo>();// 结果集变量
+		resultMap=orgServiceI.selectOrgListByPid(id);
+		model.addAttribute("zhuzhangs", zhuzhangs);
+		model.addAttribute("fuzhuzhangs", fuzhuzhangs);
+		model.addAttribute("yyOrginfoList", resultMap);
+		return gopage;
+		
+	}
 }

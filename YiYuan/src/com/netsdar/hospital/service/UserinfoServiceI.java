@@ -1,6 +1,5 @@
 package com.netsdar.hospital.service;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -50,6 +49,16 @@ public class UserinfoServiceI {
 		public YYUserinfo selectByname(String name) {
 			// TODO Auto-generated method stub
 			return yyUserinfoMapper.selectByname(name);
+		}
+		/**
+		 * 根据组织机构编码得到用户
+		 * @param id
+		 * @return
+		 */
+		public List<YYUserinfo> GetUsersByOrgid(int id) {
+			// TODO Auto-generated method stub
+			List<YYUserinfo> leads =yyUserinfoMapper.GetUsersByOrgid(id);
+			return leads;
 		}
 		
 }

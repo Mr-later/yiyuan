@@ -1,12 +1,9 @@
 package com.netsdar.hospital.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONObject;
 import com.netsdar.hospital.entity.YYOrginfo;
+import com.netsdar.hospital.entity.YYUserinfo;
 import com.netsdar.hospital.service.OrgServiceI;
+import com.netsdar.hospital.service.UserinfoServiceI;
 
 @Controller
 @RequestMapping("/renYuanDaController")
@@ -25,13 +24,13 @@ public class RenYuanDaController {
 
 	@Autowired
 	private OrgServiceI  orgServiceI;
-	
+	@Autowired
+	private UserinfoServiceI userinfoServiceI;
 	
 	@RequestMapping("/orgList")
 	public @ResponseBody JSONObject orgList(HttpServletRequest request){
 		JSONObject jsonObject = new JSONObject(true);
 		
-
 		List<YYOrginfo> resultMap = new ArrayList<YYOrginfo>();// 结果集变量
 		resultMap=orgServiceI.selectAll();
 		
@@ -51,7 +50,18 @@ public class RenYuanDaController {
 		//首先查岗位下的职务
 		//根据职务查对应的人
 		//将职务信息、人员信息，返回到页面
-		
+		List<YYUserinfo> users = userinfoServiceI.GetUsersByOrgid(id);
+		ArrayList<YYUserinfo> zuzhangs = new ArrayList<YYUserinfo>();
+		ArrayList<YYUserinfo> fuzuzhangs = new ArrayList<YYUserinfo>();
+		for(int i =0;i<users.size();i++){
+			if(users.get(i).getZhiwu()!=null && "组长".equals(users.get(i).getZhiwu())){
+				zuzhangs.add(users.get(i));
+			}else if(users.get(i).getZhiwu()!=null && "副组长".equals(users.get(i).getZhiwu())){
+				fuzuzhangs.add(users.get(i));
+			}
+		}
+		model.addAttribute("zuzhangs", zuzhangs);
+		model.addAttribute("fuzuzhangs", fuzuzhangs);
 		model.addAttribute("parentOrg", parentOrg);
 		model.addAttribute("yyOrginfoList", resultMap);
 		return "yiyuan/renyuanda_gw";
@@ -66,15 +76,11 @@ public class RenYuanDaController {
 	}
 	
 	@RequestMapping("/toAddPage")
-	public String toAddPage(Model model) {
-
-		List<YYOrginfo> resultMap = new ArrayList<YYOrginfo>();// 结果集变量
-		// 查询所有根节点
-		resultMap = orgServiceI.selectOrgListByPid(0);
-		YYOrginfo orgParent = resultMap.get(0);
-		model.addAttribute("orgParent", orgParent);
-
-		return "yiyuan/zzjg_add";
+	public String toAddPage(Model model,HttpServletRequest req) {
+		String orgid = req.getParameter("orgid");
+		model.addAttribute("orgid", orgid);
+		
+		return "yiyuan/renyuanda_add";
 
 	}
 	
@@ -187,112 +193,25 @@ public class RenYuanDaController {
 		
 	}
 	
-	
-	
-	
-	
-	/*@RequestMapping("/datagrid")
-	public @ResponseBody JSONObject dictList(String searchtext, String draw, String start, String length, HttpServletRequest request){
-		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
-		JSONObject jsonObject = new JSONObject(true);
-		JSONArray jsonArray = new JSONArray();
-		
-		String order=request.getParameter("order[0][column]");
-		String dir=request.getParameter("order[0][dir]");
-		String orderColumn = request.getParameter("columns["+order+"][data]");
-		map.put("searchtext", URLDecoder.decode(searchtext, "utf-8").trim());
-		map.put("dir", dir);
-		map.put("orderColumn", orderColumn);
-
-		List<YYDict> resultMap = new ArrayList<YYDict>();// 结果集变量
-
-		//obtain the order params {order: column number; dir: desc/asc;  orderColumn: column name
-		
-		if(Integer.valueOf(length) != -1){
-			int page=0;
-			int row= Integer.valueOf(length == null ? "10":length);
-			if (null!=start && null!=length) {
-				page = Integer.valueOf(start) / Integer.valueOf(length) + 1;
-			} else {
-				page = 1;
-				row = 10;
-			}
-			PageHelper.startPage(page, row);
-			resultMap = orgServiceI.getListDict(map);
-		    Page pageInfo = (Page) resultMap;
-	        jsonObject.put("recordsTotal", pageInfo.getTotal());
-	        jsonObject.put("recordsFiltered",pageInfo.getTotal());
-	        
-		}
-		
-		
-		for (YYDict temp : resultMap) {
-			JSONObject info = new JSONObject();
-			// 放入页面需要展示的值
-			info.put("id", temp.getId() == null ? "" : temp.getId());
-			info.put("key", temp.getDictkey() == null ? "" : temp.getDictkey());
-			info.put("value", temp.getDictvalue() == null ? "" : temp.getDictvalue());
-			info.put("group", temp.getDictgroup() == null ? "" : temp.getDictgroup());
-			info.put("description", temp.getDescription() == null ? "" :  temp.getDescription());
-			jsonArray.add(info);
-		}
-		jsonObject.put("data", jsonArray);
-		return jsonObject;
-		
-		
-	}
-	
-	@RequestMapping("/addElement")
-	public @ResponseBody JSONObject addElement(YYDict yyDict,HttpServletRequest request){
-		JSONObject jsonObject = new JSONObject(true);
-		orgServiceI.addElement(yyDict);
-		jsonObject.put("msg", "添加成功");
-		jsonObject.put("success", true);
-		return jsonObject;
-		
-		
-	}
-	
-	@RequestMapping("/deleteElement")
-	public @ResponseBody JSONObject deletedict(int id){
-		LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();// 条件存储
-		JSONObject jsonObject = new JSONObject(true);
-		int deletestate = orgServiceI.deletebyid(id);
-		if(deletestate != 0){
-			jsonObject.put("success", true);
-			jsonObject.put("msg", "删除成功");
-		}
-		else{
-			jsonObject.put("msg", "删除失败");
-		}
-		return jsonObject;
-		}
-	
-	@RequestMapping("/toEditPage")
-	public String toEditPage(Model model, int id) {
-		YYDict yyDict=orgServiceI.selectByPrimaryKey(id);
-	
-		model.addAttribute("yyDict", yyDict);
-		return "system/editsjzd";
-
-	}
-	
-	
-	@RequestMapping("/editElement")
-	public @ResponseBody JSONObject editElement(YYDict yyDict,HttpServletRequest request){
-		JSONObject jsonObject = new JSONObject(true);
-		orgServiceI.editElement(yyDict);
-		jsonObject.put("msg", "修改成功");
-		jsonObject.put("success", true);
-		return jsonObject;
-		
-	}*/
 	@RequestMapping("/ToRenyuandaGwRy")
 	public String  toRenyuandaGwRy(Model model,HttpServletRequest req){
-		String pid = req.getParameter("id");
-		model.addAttribute("pid", pid);
+		Integer id =Integer.valueOf(req.getParameter("id")) ;
+		YYOrginfo orginfo = orgServiceI.selectByPrimaryKey(id);
+		List<YYUserinfo> users = userinfoServiceI.GetUsersByOrgid(id);
+		model.addAttribute("pid", orginfo.getPid());
+		model.addAttribute("id", id);
+		model.addAttribute("users", users);
 		
 		return "yiyuan/renyuanda_gw_ry";
 	}
 
+	@RequestMapping("/selectByPrimaryKey")
+	public String selectByPrimaryKey(Model model ,int id){
+		
+		YYUserinfo userinfo = userinfoServiceI.selectByPrimaryKey(id);
+		model.addAttribute("user", userinfo);
+		return "yiyuan/zuzzjg_gw_ryxq";
+		
+	}
+	
 }
