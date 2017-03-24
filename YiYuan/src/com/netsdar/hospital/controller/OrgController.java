@@ -32,7 +32,6 @@ public class OrgController {
 	public @ResponseBody JSONObject orgList(HttpServletRequest request){
 		JSONObject jsonObject = new JSONObject(true);
 		
-
 		List<YYOrginfo> resultMap = new ArrayList<YYOrginfo>();// 结果集变量
 		resultMap=orgServiceI.selectAll();
 		
@@ -170,7 +169,6 @@ public class OrgController {
 		return listByPid(model,yYOrginfo.getPid());
 	}
 	
-	
 	@RequestMapping("/passwordConform")
 	public @ResponseBody JSONObject passwordConform(String pw,int id,HttpServletRequest request){
 		JSONObject jsonObject = new JSONObject(true);
@@ -289,13 +287,19 @@ public class OrgController {
 		
 	}*/
 	/**
-	 * 根据科的orgid找出科下面的领导主任，副主任,组长，副组长,以及普通职员
+	 * 根据科的orgid(这里是id表示)找出科下面的领导主任，副主任,组长，副组长,以及普通职员
 	 */
 	@RequestMapping("/GetUsersByOrgid")
 	public String GetUsersByOrgid(Model model ,int id,HttpServletRequest req){
 		String gopage = req.getParameter("gopage");
+		String backpage = req.getParameter("backpage");
+		String porgid = req.getParameter("porgid");
+		String pporgid = req.getParameter("pporgid");
 		YYOrginfo parentOrg=orgServiceI.selectByPrimaryKey(id);
 		model.addAttribute("parentOrg", parentOrg);
+		if(gopage.contains("renyuanda_ld")){
+			pporgid=String.valueOf(id);
+		}
 		
 		//查找开始
 		List<YYUserinfo> leads =userinfoServiceI.GetUsersByOrgid(id);
@@ -307,28 +311,40 @@ public class OrgController {
 		
 		//遍历，使得不同的职务放不同的list，便于在前台遍历
 		for(int i=0;i<leads.size();i++){
-			if(leads.get(i).getZhiwu()!=null && !"主任".equals(leads.get(i).getZhiwu())){
+			if("主任".equals(leads.get(i).getZhiwu())){
 				zhurens.add(leads.get(i));
-			}else if(leads.get(i).getZhiwu()!=null && !"副主任".equals(leads.get(i).getZhiwu())){
+			}else if("副主任".equals(leads.get(i).getZhiwu())){
 				fuzhurens.add(leads.get(i));
-			}else if(leads.get(i).getZhiwu()!=null && !"组长".equals(leads.get(i).getZhiwu())){
+			}else if("组长".equals(leads.get(i).getZhiwu())){
 				zhuzhangs.add(leads.get(i));
-			}else if(leads.get(i).getZhiwu()!=null && !"副组长".equals(leads.get(i).getZhiwu())){
+			}else if("副组长".equals(leads.get(i).getZhiwu())){
 				fuzhuzhangs.add(leads.get(i));
 			}else{
 				GWrenyuans.add(leads.get(i));
 			}
 			
 		}
+		//这个id是岗位id,方便详情页返回岗位页
+		model.addAttribute("orgid", id);
+		model.addAttribute("porgid", porgid);
+		model.addAttribute("pporgid", pporgid);
+		model.addAttribute("backpage", backpage);
 		model.addAttribute("zhurens", zhurens);  
 		model.addAttribute("fuzhurens", fuzhurens);
 		model.addAttribute("zhuzhangs", zhuzhangs);
 		model.addAttribute("fuzhuzhangs", fuzhuzhangs);
-		model.addAttribute("GWrenyuans", GWrenyuans); //岗位人员
+		model.addAttribute("users", GWrenyuans); //岗位人员
 		return gopage;
 		
 	}
-	@RequestMapping("/GetUsersOrgByOrgid")
+	/**
+	 * 根据组织机构id得到该组织机构下的成员
+	 * @param model
+	 * @param id
+	 * @param req
+	 * @return
+	 */
+	/*@RequestMapping("/GetUsersOrgByOrgid")
 	public String GetUsersOrgByOrgid(Model model,int id,HttpServletRequest req){
 		String gopage = req.getParameter("gopage");
 		ArrayList<YYUserinfo> zhuzhangs = new ArrayList<YYUserinfo>();
@@ -353,10 +369,12 @@ public class OrgController {
 		//查找本组下的岗位
 		List<YYOrginfo> resultMap = new ArrayList<YYOrginfo>();// 结果集变量
 		resultMap=orgServiceI.selectOrgListByPid(id);
+		
 		model.addAttribute("zhuzhangs", zhuzhangs);
+		model.addAttribute("orgid", id);
 		model.addAttribute("fuzhuzhangs", fuzhuzhangs);
 		model.addAttribute("yyOrginfoList", resultMap);
 		return gopage;
 		
-	}
+	}*/
 }

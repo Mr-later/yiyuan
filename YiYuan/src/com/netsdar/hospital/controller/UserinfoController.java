@@ -114,7 +114,7 @@ public class UserinfoController {
 		int state = userinfoServiceI.addElement(yyUserinfo);
 		
 		//添加用户角色中间表
-		YYUserinfo userinfo = userinfoServiceI.selectByname(yyUserinfo.getLoginname());
+		YYUserinfo userinfo = userinfoServiceI.selectByLoginname(yyUserinfo.getLoginname());
 		int userid=userinfo.getId();
 		HashMap<String,Object> map = new HashMap<String, Object>();
 		if(roleids!=null && roleids != ""){
@@ -205,7 +205,7 @@ public class UserinfoController {
 	@RequestMapping("/verify")
 	public @ResponseBody JSONObject verify(String name) {
 		JSONObject jsonObject = new JSONObject(true);
-		YYUserinfo userByName = userinfoServiceI.selectByname(name);
+		YYUserinfo userByName = userinfoServiceI.selectByLoginname(name);
 		if (userByName != null) {
 			jsonObject.put("msg", "用户名已存在！");
 			jsonObject.put("success", true);

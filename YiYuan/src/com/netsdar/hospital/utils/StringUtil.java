@@ -2,6 +2,9 @@ package com.netsdar.hospital.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.Cell;
 
@@ -101,5 +104,27 @@ public class StringUtil {
 	public static void main(String[] args) {
 		System.out.println(EncoderByMd5("123"));
 	}
-	
+	/**
+	 * 判断是否为空
+	 * @param str
+	 * @return
+	 */
+	public static boolean IsBlank(String str){
+		if(str==null || "".equals(str)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public static Date StrToDate(String str){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date time = format.parse(str);
+			return time;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

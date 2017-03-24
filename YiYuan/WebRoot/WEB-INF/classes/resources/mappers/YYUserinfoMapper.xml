@@ -74,14 +74,19 @@
     userinfotemp35, userinfotemp36, userinfotemp37, userinfotemp38, userinfotemp39, userinfotemp40
   </sql>
   <!-- **************************************** -->
+  <select id="GetUsersNotInOrg" resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+  SELECT  user.* from yy_userinfo user LEFT JOIN yy_userorg userorg 
+  on user.id=userorg.user_id  where userorg.org_id not in (#{orgid,jdbcType=INTEGER})  GROUP BY user.id
+  </select>
    <select id="GetUsersByOrgid"  resultMap="BaseResultMap"  parameterType="java.lang.Integer">
-  select 
-   user.id ,user.zhiwu ,user.username  ,user.zhicheng ,userorg.org_id 
+   select 
+    user.id ,user.zhiwu ,user.username  ,user.zhicheng ,userorg.org_id 
    from yy_userinfo  user LEFT JOIN yy_userorg userorg 
 	on user.id=userorg.user_id  where userorg.org_id=#{id,jdbcType=INTEGER} and user.userinfotemp7='1'
+	 and userorg.userorgtemp3='1'
     
   </select>
-  <select id="selectByname" resultMap="BaseResultMap"  parameterType="java.lang.String">
+  <select id="selectByLoginname" resultMap="BaseResultMap"  parameterType="java.lang.String">
   select 
   <include refid="Base_Column_List" />
   from yy_userinfo where loginname=#{loginname,jdbcType=VARCHAR}
@@ -101,6 +106,7 @@
   update yy_userinfo userinfo set userinfo.userinfotemp7='2' 
   where userinfo.id= #{id,jdbcType=INTEGER}
   </update>
+  
    <!-- **************************************** -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 

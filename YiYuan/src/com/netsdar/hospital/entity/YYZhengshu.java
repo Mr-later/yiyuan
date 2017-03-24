@@ -7,17 +7,17 @@ public class YYZhengshu {
 
     private Integer userId;
 
-    private String peixunmingcheng;
+    private String peixunmingcheng;//培训名称
 
     private Date peixunkaishishijian;
 
-    private String peixunkaishishijianstr;
+    private String peixunkaishishijianstr;//培训开始时间
 
     private Date peixunjieshushijian;
 
-    private String peixunjieshushijianstr;
+    private String peixunjieshushijianstr;//培训结束时间
 
-    private String neirongjianjie;
+    private String neirongjianjie;//内容简介
 
     private String zhengshulujing;
 

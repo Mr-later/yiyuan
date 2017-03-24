@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 
 
-    <title> 人员详情编辑工作经历</title>
+    <title> 人员详情编辑工作经历|${orgid }|${porgid }|${pporgid }</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <link href="${path}/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
@@ -41,24 +41,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                              <div class="ibox float-e-margins">
                                   
                                     <div class="ibox-content">
-                                        <form method="post" class="form-horizontal" id="modeladd" onsubmit="" enctype="" action="" target="">
+                                        <form method="post" class="form-horizontal" id="modeladd" onsubmit="" enctype="" action="${path}/GzjlController/editElement?userid=${userid }&orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}&"+$('#modeladd').serialize(); target="J_iframe">
                                               <div class="col-sm-12">
                                                		<label class="control-label col-sm-2">起止时间：</label>
+                                               		<input type="hidden" value="${yyGongzuojingli.id}" name="id">
 	                                                <div class="col-sm-4" style="width:31%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
+	                                                     <input type="text" name="shijianbeginstr" class="layer-date form-control" value="${yyGongzuojingli.shijianbeginstr }" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
 	                                                </div> 
 	                                                 <label class="control-label col-sm-1">至</label>
 	                                                <div class="col-sm-4" style="width:30%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
+	                                                     <input type="text" name="shijianendstr" class="layer-date form-control" value="${yyGongzuojingli.shijianendstr}" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
 	                                                </div>  
                                               		<label class="control-label col-sm-2">单位：</label>
 	                                                <div class="col-sm-10">
-	                                                     <input type="text" name="" class="form-control" value="">  
+	                                                     <input type="text" name="danwei" class="form-control" value="${yyGongzuojingli.danwei}">  
 	                                                </div>
 	                                               
 	                                                 <label class="control-label col-sm-2">职务：</label>
 	                                                <div class="col-sm-10" style="margin-top:1%">
-	                                                     <input type="text" name="" class="form-control" value="" style="">  
+	                                                     <input type="text" name="zhiwu" class="form-control" value="${yyGongzuojingli.zhiwu}" style="">  
 	                                                </div> 
 	                                              
 	                                                

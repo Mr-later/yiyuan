@@ -55,6 +55,14 @@ public class OrgServiceI {
 		
 		
 	}
+	/**
+	 * 找到所有的组
+	 * @return
+	 */
+	public List<YYOrginfo> getZu() {
+		// TODO Auto-generated method stub
+		return yyOrginfoMapper.getZu();
+	}
 	
 	
 	/*public List<YYDict> getListDict(LinkedHashMap<String, Object> map) {

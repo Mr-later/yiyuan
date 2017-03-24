@@ -38,9 +38,9 @@ a.btn1{display:none;}
                     <div class="ibox-title">
                         <h5>人员档案-岗位-人员</h5>
                         <div class="ibox-tools">
-                        <a href="jypx_rydd.jsp" class="btn btn-primary btn-rounded btn-xs">人员调动</a>
-                        	<a onclick="opadd(${id })" class="btn btn-primary btn-rounded btn-xs">新增</a>
-                            <a onclick="back(${pid })"  class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuanda_gw.jsp -->
+                        <a onclick="jypx_rydd(${orgid})" class="btn btn-primary btn-rounded btn-xs">人员调动</a><!-- jypx_rydd.jsp -->
+                        	<a onclick="opadd(${id})" class="btn btn-primary btn-rounded btn-xs">新增</a>
+                            <a onclick="back()"  class="btn btn-primary btn-rounded btn-xs">返回</a> <!-- //renyuanda_gw.jsp -->
                           
                         </div>
                     </div>
@@ -56,11 +56,11 @@ a.btn1{display:none;}
 						                        <div class="text-center"> 
 							                   			<c:forEach items="${users}" var="template">
 							                        	<div class="ibox-content text-center w10" ondblclick="xianshi(this)">
-					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this,${template.id})" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
 							                                </div>
-							                                <div style="display:block;" class="ryxqhref">
+							                                <div style="display:block;" class="ryxqhref" onclick="go_renyuanxq(${template.id})">
 						                                		<p class="font-bold">${template.username }</p>
 					
 						                               			<div class="text-center h10">
@@ -245,21 +245,37 @@ a.btn1{display:none;}
     <script src="${path}/static/js/demo/peity-demo.js"></script> --%>
 
    <script type="text/javascript">
-   jQuery(document).ready(function() {
+   /* jQuery(document).ready(function() {
    	$('.ryxqhref').click(function(){
-   	      tiaozhuan();//跳转到-人员详情
+   	      tiaozhuan(index);//跳转到-人员详情
    	    });
-   }); 
-   function tiaozhuan(){//跳转到-人员详情
-   	location.href="zuzzjg_gw_ryxq.jsp"
-   };
-  function deldiv(o){ //点击删除按钮 就删除当前的div 
+   });  */
+  
+  function deldiv(o,index){ //点击删除按钮 就删除当前的div 
 	   layer.confirm('确认删除此人员？', {
           btn: ['确认','取消'] //按钮
           }, function(){//确认就删除
-                var a=$(o).parent();
+        	  $.ajax({
+      			url : '${path}/renYuanDaController/delElement',
+      			method: 'post',
+      			async: false,
+      			data:{"orgId":${orgid},"userId":index },
+      			dataType : 'json',
+      			success : function(result) {
+      				if(result.success==true)
+      				{
+      					//parent.layer.msg(result.msg);	
+                	var a=$(o).parent();
                     a.remove();
                     layer.msg('已删除', {icon: 1});
+      					closethis();
+      				}
+      				else
+      				{
+      					closethis();
+      				}
+      			}
+      		});
       });
 	 
   };
@@ -284,7 +300,7 @@ a.btn1{display:none;}
           ,shade: 0.6 //遮罩透明度
           ,maxmin: false //允许全屏最小化
           ,anim: 5 //0-6的动画形式，-1不开启
-          ,content:['${path}/renYuanDaController/toAddPage?orgid='+index]/* 'renyuanda_add.jsp' */
+          ,content:['${path}/renYuanDaController/toAddPage?orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}']/* 'renyuanda_add.jsp' */
          
         });    
 
@@ -299,9 +315,18 @@ a.btn1{display:none;}
         	a.css("display","block");
         }
 		//返回岗位层
-		function back(index){
-			location.href="${path}/renYuanDaController/listByPid?id="+index;
+		function back(){
+			location.href="${path}/renYuanDaController/listByPid?id=${porgid}";
 		}
+		//人员调动页面
+		function jypx_rydd(index){
+			location.href="${path}/renYuanDaController/ToRyddPage?orgid="+index;
+		}
+		//跳转到-人员详情
+		 function go_renyuanxq(index){
+			alert(${orgid}+"|"+${porgid})
+			location.href="${path}/renYuanDaController/renYuanXQ?orgid=${orgid}&porgid=${porgid}&id="+index+"&userid="+index+"&gopage=yiyuan/zuzzjg_gw_ryxq&backpage=yiyuan/renyuanda_gw_ry";
+	    };
   </script>  
 
 </body>

@@ -42,27 +42,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   
                                     <div class="ibox-content">
                                         <form method="post" class="form-horizontal" id="modeladd" onsubmit="" enctype="" action="" target="">
+                                              <input name="userId" id="" type="hidden"  value="${userid }">
                                               <div class="col-sm-12">
                                                		<label class="control-label col-sm-2">起止时间：</label>
 	                                                <div class="col-sm-4" style="width:32%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
+	                                                     <input type="text" name="shijianbeginstr" id="shijianbeginstr" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
 	                                                </div> 
 	                                                 <label class="control-label col-sm-1">至</label>
 	                                                <div class="col-sm-4" style="width:30%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
+	                                                     <input type="text" name="shijianendstr" id="shijianendstr" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
 	                                                </div>  
                                               		<label class="control-label col-sm-2">院校：</label>
 	                                                <div class="col-sm-10">
-	                                                     <input type="text" name="" class="form-control" value="">  
+	                                                     <input type="text" name="yuanxiao" id="yuanxiao"  class="form-control" value="">  
 	                                                </div>
 	                                               
 	                                                 <label class="control-label col-sm-2">专业：</label>
 	                                                <div class="col-sm-10" style="margin-top:1%">
-	                                                     <input type="text" name="" class="form-control" value="" style="">  
+	                                                     <input type="text" name="zhuanye" id="zhuanye" class="form-control" value="" style="">  
 	                                                </div> 
 	                                                 <label class="control-label col-sm-2">学位：</label>
 	                                                <div class="col-sm-10" style="margin-top:1%">
-	                                                     <input type="text" name="" class="form-control" value="" style="">  
+	                                                     <input type="text" name="xuewei" id="xuewei" class="form-control" value="" style="">  
 	                                                </div>
 	                                                
                                  			  </div>
@@ -103,7 +104,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		
    });
-   
+   $("#modeladd").submit(function(){
+	   if( $("#shijianbeginstr").val()==null || ""==$("#shijianbeginstr").val() ||  $("#shijianbeginstr").val()==undefined ||  $("#shijianbeginstr").val().trim()==""){
+	   		layer.msg("请选择开始时间");
+	   		$("#shijianbeginstr").focus();
+	   		return false;
+	   	} 
+	   if( $("#shijianendstr").val()==null || ""==$("#shijianendstr").val() ||  $("#shijianendstr").val()==undefined ||  $("#shijianendstr").val().trim()==""){
+	   		layer.msg("请选择结束时间");
+	   		$("#shijianendstr").focus();
+	   		return false;
+	   	} 
+	   if( $("#yuanxiao").val()==null || ""==$("#yuanxiao").val() ||  $("#yuanxiao").val()==undefined ||  $("#yuanxiao").val().trim()==""){
+	   		layer.msg("请填写院校");
+	   		$("#yuanxiao").focus();
+	   		return false;
+	   	} 
+	   if( $("#zhuanye").val()==null || ""==$("#zhuanye").val() ||  $("#zhuanye").val()==undefined ||  $("#zhuanye").val().trim()==""){
+	   		layer.msg("请填写专业");
+	   		$("#zhuanye").focus();
+	   		return false;
+	   	} 
+	   if( $("#xuewei").val()==null || ""==$("#xuewei").val() ||  $("#xuewei").val()==undefined ||  $("#xuewei").val().trim()==""){
+	   		layer.msg("请填写学位");
+	   		$("#xuewei").focus();
+	   		return false;
+	   	} 
+	   $.ajax({
+			url : '${path}/XuexijlController/addElement',
+			method: 'post',
+			async: false,
+			data:$('#modeladd').serialize(),
+			dataType : 'json',
+			success : function(result) {
+				if(result.success==true)
+				{
+				//parent.layer.msg(result.msg);	
+              	layer.msg(msg);
+					closethis();
+				}
+				else
+				{
+					closethis();
+				}
+			}
+		});
+   })
    </script> 
 
     

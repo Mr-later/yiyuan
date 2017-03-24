@@ -39,6 +39,13 @@
     jiankangdangantemp16, jiankangdangantemp17, jiankangdangantemp18, jiankangdangantemp19, 
     jiankangdangantemp20
   </sql>
+   <!-- ******************************************* -->
+  <select id="getListByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  select 
+  <include refid="Base_Column_List" />
+  from yy_jiankangdangan where user_id=#{id,jdbcType=INTEGER}
+  </select>
+  <!-- ******************************************* -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

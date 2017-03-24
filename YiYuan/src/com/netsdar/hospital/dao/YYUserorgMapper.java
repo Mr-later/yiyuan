@@ -1,5 +1,6 @@
 package com.netsdar.hospital.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.netsdar.hospital.entity.YYUserinfo;
@@ -17,5 +18,12 @@ public interface YYUserorgMapper {
     int updateByPrimaryKeySelective(YYUserorg record);
 
     int updateByPrimaryKey(YYUserorg record);
+
+	void addByMap(HashMap<String, Object> map);
+
+	List<YYUserorg> findByUserIdOrgId(HashMap<String, Object> map);
+
+	void delTimeMark(HashMap<String, Object> map);
+
 
 }

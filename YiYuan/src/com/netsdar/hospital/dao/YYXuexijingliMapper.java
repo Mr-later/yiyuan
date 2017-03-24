@@ -1,5 +1,7 @@
 package com.netsdar.hospital.dao;
 
+import java.util.List;
+
 import com.netsdar.hospital.entity.YYXuexijingli;
 
 public interface YYXuexijingliMapper {
@@ -14,4 +16,6 @@ public interface YYXuexijingliMapper {
     int updateByPrimaryKeySelective(YYXuexijingli record);
 
     int updateByPrimaryKey(YYXuexijingli record);
+
+	List<YYXuexijingli> getListByUserId(int id);
 }

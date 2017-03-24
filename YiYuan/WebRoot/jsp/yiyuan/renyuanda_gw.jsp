@@ -48,34 +48,30 @@
 							        <div class="row " >
 							    		<div class="col-sm-2"  id="shangjijiedian">
 							    		<c:forEach items="${zuzhangs }" var="template">
-							    		<a href="zuzzjg_gw_ryxq.jsp">
 				                            <div class="ibox-content text-center"  >
 					                                <h1>${template.zhiwu }</h1>
 						                                <div class="m-b-sm">
 						                                    <img alt="image" class="img-circle" src="${path}/static/img/a1.jpg">
 						                                </div>
-					                                <p class="font-bold">${template.username }</p>
+					                                <p class="font-bold" onclick="go_renyuanxq(${template.id})">${template.username }</p>
 				
 					                                <div class="text-center">
 					                                    ${template.zhicheng }
 					                                </div>
 				                            </div>
-				                         </a>
 				                         </c:forEach>
 				                         <c:forEach items="${fuzuzhangs }" var="template">
-				                         <a href="zuzzjg_gw_ryxq.jsp">
 				                             <div class="ibox-content text-center">
 					                                <h1>${template.zhiwu }</h1>
 						                                <div class="m-b-sm">
 						                                    <img alt="image" class="img-circle" src="${path}/static/img/a2.jpg">
 						                                </div>
-					                                <p class="font-bold">${template.username }</p>
+					                                <p class="font-bold"  onclick="go_renyuanxq(${template.id})">${template.username }</p>
 				
 					                                <div class="text-center">
 					                                    ${template.zhicheng }
 					                                </div>
 				                            </div>
-				                          </a>
 				                          </c:forEach>
 							    		<%--  <a href="zuzzjg_gw_ryxq.jsp">
 				                            <div class="ibox-content text-center"  >
@@ -271,10 +267,16 @@
         function goback1(){
         	window.history.back(-1);
         }
-        function go_renyuan(index){
-        	location.href="${path}/renYuanDaController/ToRenyuandaGwRy?id="+index;
+        function go_renyuan(orgid){
+        	//location.href="${path}/renYuanDaController/ToRenyuandaGwRy?orgid="+index;
+        	location.href="${path}/orgController/GetUsersByOrgid?id="+orgid+"&gopage=yiyuan/renyuanda_gw_ry&porgid=${porgid}";
         	 
         }
+      //跳转到-人员详情  /* zuzzjg_gw_ryxq.jsp */
+		 function go_renyuanxq(index){
+    	  alert(${porgid})
+    	  location.href="${path}/renYuanDaController/renYuanXQ?porgid=${porgid}&id="+index+"&userid="+index+"&gopage=yiyuan/zuzzjg_gw_ryxq&backpage=yiyuan/renyuanda_gw";
+	    };
   </script>  
 
 </body>

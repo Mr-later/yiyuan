@@ -45,24 +45,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                               <div class="col-sm-12">
                                               		<label class="control-label col-sm-2">培训名称：</label>
 	                                                <div class="col-sm-10">
-	                                                     <input type="text" name="" class="form-control" value="">  
+	                                                     <input type="text" name="peixunmingcheng"  id="peixunmingcheng" class="form-control" value="">  
 	                                                </div>
-	                                               
+	                                               	<input name="userId" id="" type="hidden"  value="${userid }">
 	                                                 <label class="control-label col-sm-2">培训时间：</label>
 	                                                <div class="col-sm-4" style="width:32%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
+	                                                     <input type="text" name="peixunkaishishijianstr" id="peixunkaishishijianstr" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})" style="">  
 	                                                </div> 
 	                                                 <label class="control-label col-sm-1">至</label>
 	                                                <div class="col-sm-4" style="width:30%;margin-top:1%">
-	                                                     <input type="text" name="" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
+	                                                     <input type="text" name="peixunjieshushijianstr" id="peixunjieshushijianstr" class="layer-date form-control" value="" onclick="laydate({istime: true, format: 'YYYY-MM-DD',max: laydate.now()})">  
 	                                                </div>  
 	                                                <label class="control-label col-sm-2">培训内容简介：</label>
 	                                                <div class="col-sm-10">
-	                                                    <textarea class='form-control' style='height:100px' maxlength="150"></textarea> 
+	                                                    <textarea class='form-control' name="neirongjianjie" id="neirongjianjie" style='height:100px' maxlength="150"></textarea> 
 	                                                </div>
 			                                        <label class="control-label col-sm-2">证书上传：</label>
 			                                         <div class="col-sm-10">
-			                                            <input type="file" name="" class="form-control" value="">  
+			                                            <input type="file" name="zhengshulujing"  id="zhengshulujing" class="form-control" value="">  
 			                                         </div>         
                                  			  </div>
 				                                <div class="form-group" >
@@ -100,9 +100,45 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  
    $(function(){  
 
-		
+	  
    });
-   
+   $("#modeladd").submit(function(){
+	   if( $("#peixunmingcheng").val()==null || ""==$("#peixunmingcheng").val() ||  $("#peixunmingcheng").val()==undefined ||  $("#peixunmingcheng").val().trim()==""){
+	   		layer.msg("请填写培训名称");
+	   		$("#peixunmingcheng").focus();
+	   		return false;
+	   	} 
+	   if( $("#peixunkaishishijianstr").val()==null || ""==$("#peixunkaishishijianstr").val() ||  $("#peixunkaishishijianstr").val()==undefined ||  $("#peixunkaishishijianstr").val().trim()==""){
+	   		layer.msg("请选择开始时间");
+	   		$("#peixunkaishishijianstr").focus();
+	   		return false;
+	   	} 
+	   if( $("#peixunjieshushijianstr").val()==null || ""==$("#peixunjieshushijianstr").val() ||  $("#peixunjieshushijianstr").val()==undefined ||  $("#peixunjieshushijianstr").val().trim()==""){
+	   		layer.msg("请选择结束时间");
+	   		$("#peixunjieshushijianstr").focus();
+	   		return false;
+	   	} 
+	  
+	   $.ajax({
+			url : '${path}/ZhengShuController/addElement',
+			method: 'post',
+			async: false,
+			data:$('#modeladd').serialize(),
+			dataType : 'json',
+			success : function(result) {
+				if(result.success==true)
+				{
+				//parent.layer.msg(result.msg);	
+              	layer.msg(msg);
+					closethis();
+				}
+				else
+				{
+					closethis();
+				}
+			}
+		});
+   })
    </script> 
 
     

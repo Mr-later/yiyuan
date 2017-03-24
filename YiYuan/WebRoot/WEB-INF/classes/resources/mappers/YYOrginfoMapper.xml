@@ -34,6 +34,11 @@
     orginfotemp17, orginfotemp18, orginfotemp19, orginfotemp20
   </sql>
   <!-- ********************************** -->
+  <select id="getZu" resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+   from yy_orginfo where pid='1'
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     
     select 

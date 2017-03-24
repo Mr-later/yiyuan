@@ -161,7 +161,7 @@
                	if(data[i].pid==0){
                		
                			html +='<div class="col-sm-3" style="margin-left:38%;">'
-                     		html +='<a href="${path}/pageController/jumpPage?toPageName=yiyuan/renyuanda_ld">'/* renyuanda_ld.jsp */
+                     		html +='<a href="${path}/orgController/GetUsersByOrgid?id='+data[i].id+'&gopage=yiyuan/renyuanda_ld">'  /* renyuanda_ld.jsp */
                      		html +=' <div class="widget red-bg p-lg text-center">'
                      		html +='<div class="m-b-md"><i class="fa fa-user-md fa-4x"></i>'
                      		html +='<h2 class="m-xs">&nbsp;</h2>'

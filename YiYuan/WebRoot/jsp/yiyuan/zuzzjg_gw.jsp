@@ -51,43 +51,37 @@
 		
 							        <div class="row " >
 							    		<div class="col-sm-2">
-							    		<!-- 组长列表遍历 -->
-							    		<c:forEach items="${fuzhuzhangs}"  var="template">
 				                            <div class="ibox-content text-center">
-					                                <h1>${template.zhiwu }</h1>
+					                                <h1>组长</h1>
 						                                <div class="m-b-sm">
 						                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
 						                                </div>
-					                                <p class="font-bold">${template.username }</p>
+					                                <p class="font-bold">王毅</p>
 				
 					                                <div class="text-center">
-					                                    ${template.zhicheng }
+					                                    主任医师
 					                                </div>
 				                            </div>
-				                            </c:forEach>
-				                            <!-- 副组长列表遍历 -->
-				                            <c:forEach items="${ zhuzhangs}" var="template">
 				                             <div class="ibox-content text-center">
-					                                <h1>${template.zhiwu}</h1>
+					                                <h1>副组长</h1>
 						                                <div class="m-b-sm">
 						                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
 						                                </div>
-					                                <p class="font-bold">${template.username }</p>
+					                                <p class="font-bold">王毅</p>
 				
 					                                <div class="text-center">
-					                                   ${template.zhicheng }
+					                                    副主任医师
 					                                </div>
 				                            </div>
-				                            </c:forEach>
 		                        		</div>
-		                        		<!-- 岗位列表遍历 -->
+		                        		
 		                        		<div class="col-sm-10 ">
 				                            <div class="ibox float-e-margins">
 				                            <div class="ibox-content">
                       
 						                        <div class="text-center"> 
 							                       <c:forEach items="${yyOrginfoList}" var="tempElement">
-							                        	<div class="widget style1 lazur-bg w10" id="${tempElement.id}"  onclick="go_renyuan(${tempElement.id})">
+							                        	<div class="widget style1 lazur-bg w10" id="${tempElement.id}">
 							                        	
 																	                    <div class="row vertical-align">
 																	                       
@@ -317,9 +311,6 @@
               });    
     
      	 
-        }
-        function go_renyuan(index){
-        	location.href="${path}/orgController/GetUsersByOrgid?id="+index+"&gopage=yiyuan/zuzzjg_gw_ry";
         }
   </script>  
 

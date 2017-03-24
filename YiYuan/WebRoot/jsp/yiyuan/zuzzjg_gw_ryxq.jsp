@@ -39,7 +39,7 @@
                         <h5>人员详情</h5>
                         <div class="ibox-tools"> 
                         	<a onclick="opdaochu()" class="btn btn-primary btn-xs">pdf 导出</a>
-                        	<a onclick="opedit()" class="btn btn-primary btn-xs">编辑基本信息</a>
+                        	<a onclick="opedit(${user.id})" class="btn btn-primary btn-xs">编辑基本信息</a>
                         	<!-- <a onclick="opadll()" class="btn btn-primary btn-xs">新增培训履历</a> -->
                          <!--    <a onclick="opadjkda()" class="btn btn-primary btn-xs">新增健康档案</a> -->
                               <a data-toggle="dropdown" class="btn btn-primary btn-xs dropdown-toggle" aria-expanded="true">操作 <span class="caret"></span>
@@ -47,17 +47,17 @@
                                 <ul class="dropdown-menu">
                                 <!--  <li><a onclick="opedit()" >编辑基本信息</a>
                                     </li> -->
-                                     <li><a onclick="opadxx()" >新增学习经历</a>
+                                     <li><a onclick="opadxx(${user.id})" >新增学习经历</a>
                                     </li>
-                                    <li><a onclick="opadgz()">新增工作经历</a>
+                                    <li><a onclick="opadgz(${user.id})">新增工作经历</a>
                                     </li>
-                                     <li><a onclick="opadlw()" >新增发表论文</a>
+                                     <li><a onclick="opadlw(${user.id})" >新增发表论文</a>
                                     </li>
-                                    <li><a onclick="opadkt()">新增承担课题</a>
+                                    <li><a onclick="opadkt(${user.id})">新增承担课题</a>
                                     </li>
-                                    <li><a onclick="opadll()" >新增培训履历</a>
+                                    <li><a onclick="opadll(${user.id})" >新增培训履历</a>
                                     </li>
-                                    <li><a onclick="opadjkda()">新增健康档案</a>
+                                    <li><a onclick="opadjkda(${user.id})">新增健康档案</a>
                                     </li>
                                     
                                 </ul>
@@ -133,8 +133,9 @@
                                 <td class="fw text-center"  colspan="2">操作</td>
  
                             </tr>
+                                <c:forEach items="${xuexijinglis }" var="xuexijl">
                              <tr>
-                                 <td class="text-center" colspan="1"></td>
+                                <!--  <td class="text-center" colspan="1"></td>
                                  
                                 <td class="text-center" colspan="1"></td>
                                
@@ -148,8 +149,24 @@
                                 	
 									<a onclick="opedxx()" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
                         			<a onclick="delthisrow(this)" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
+                                </td> -->
+                                <td class="text-center" colspan="1">${xuexijl.shijianbeginstr }</td>
+                                 
+                                <td class="text-center" colspan="1">${xuexijl.shijianendstr }</td>
+                               
+                                <td class="text-center"  colspan="3">${xuexijl.yuanxiao }</td>
+                                
+                                <td class="text-center"  colspan="1">${xuexijl.zhuanye }</td>
+                                
+                                <td class="text-center"  colspan="2">${xuexijl.xuewei }</td>
+                                
+                                <td class="text-center"  colspan="2">
+                                	
+									<a onclick="opedxx(${xuexijl.id})" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
+                        			<a onclick="delthisrow(this)" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
                                 </td>
                             </tr>
+                                </c:forEach>
                              <tr>
 	                                <td class="fw fwc" colspan="10">三、工作经历</td>
 	                          </tr>
@@ -165,21 +182,23 @@
                                 <td class="fw text-center"  colspan="2">操作</td>
                                 
                             </tr>
+                            <c:forEach items="${gzjls }" var="gzjl">
                               <tr>
-                                  <td class="text-center" colspan="1"></td>
+                                  <td class="text-center" colspan="1">${gzjl.shijianbeginstr }</td>
                                 
-                                <td class="text-center" colspan="1"></td>
+                                <td class="text-center" colspan="1">${gzjl.shijianendstr }</td>
                                
-                                <td class="text-center"  colspan="3"></td>
+                                <td class="text-center"  colspan="3">${gzjl.danwei }</td>
                                 
-                                <td class="text-center"  colspan="3"></td>
+                                <td class="text-center"  colspan="3">${gzjl.zhiwu }</td>
                                 
                                 <td class="text-center"  colspan="2">
-                                	<a onclick="opeditgz()" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
-                        			<a onclick="delthisrow(this)" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
+                                	<a onclick="opeditgz(${gzjl.id })" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
+                        			<a onclick="delthisrow(this,${gzjl.id },'GzjlController')" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
                                 </td>
                                 
                             </tr>
+                            </c:forEach>
                              <tr>
                                 <td class="fw fwc" colspan="10">四、其他</td>
                                 
@@ -204,11 +223,12 @@
                                 <td class="fw text-center " colspan="3">操作</td>
                                
                             </tr>
+                            <c:forEach items="${zhengshus }" var="zhengshu">
                             <tr>
-                                <td class="fw text-center" colspan="1"></td>
-                                <td class="fw text-center" colspan="1"></td>
-                                <td class="fw text-center" colspan="3"></td>
-                                <td class="fw text-center" colspan="2"></td>
+                                <td class="fw text-center" colspan="1">${zhengshu.peixunkaishishijianstr }</td>
+                                <td class="fw text-center" colspan="1">${zhengshu.peixunjieshushijianstr }</td>
+                                <td class="fw text-center" colspan="3">${zhengshu.peixunmingcheng }</td>
+                                <td class="fw text-center" colspan="2">${zhengshu.zhengshulujing }</td>
                                 <td class="fw text-center " colspan="3">
                                 	<a onclick="opckll()" class="btn btn-primary btn-rounded btn-xs btn-new">查看</a>
 									<a onclick="opeditll()" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
@@ -216,22 +236,28 @@
                                 </td>
                              
                             </tr>
-                          
+                          </c:forEach>
                               <tr>
                                 <td class="col-sm-2 fw fwc" colspan="7">六、健康档案</td>
                                 <td class="col-sm-2 fw fwc text-center" colspan="3">操作</td>
                                 
                             </tr>
+                            <c:forEach items="${jkdas}" var="jkda">
                             <tr>
-                                <td class="col-sm-2" colspan="7">2014年度健康档案</td>
+                                <!-- <td class="col-sm-2" colspan="7">2014年度健康档案</td>
+                                 <td class="text-center" colspan="3">
+                                 <a onclick="opckjk()" class="btn btn-primary btn-rounded btn-xs btn-new">查看</a>
+									<a onclick="opedjkda()" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
+                        			<a onclick="delthisrow(this)" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
+								</td> -->
+                                <td class="col-sm-2" colspan="7">${jkda.danganmingcheng }</td>
                                  <td class="text-center" colspan="3">
                                  <a onclick="opckjk()" class="btn btn-primary btn-rounded btn-xs btn-new">查看</a>
 									<a onclick="opedjkda()" class="btn btn-primary btn-rounded btn-xs btn-new">编辑</a>
                         			<a onclick="delthisrow(this)" class="btn btn-primary btn-rounded btn-xs btn-new">删除</a>
 								</td>
-                                
                             </tr>
-                             
+                             </c:forEach>
                     
                            
                             
@@ -265,11 +291,38 @@
  <!-- Page-Level Scripts -->
     <script>
   //返回上一步
+    function isNull(str){
+    	if( str==null || ""==str ||  str==undefined ){
+       		return true;
+       	}else{
+       		return false;
+       	}
+    }
     function goback1(){
-    	window.history.back(-1);
+    	//window.history.back(-1); 
+    	//alert(isNull(${orgid}) && !isNull(${porgid}) && !isNull(${pporgid}))
+	    if(isNull(${orgid}) && !isNull(${porgid})  ){
+	    	//是组长详情
+	    	//alert("组长")
+	    	//alert("orgid:"+${orgid} +"|pporgid:"+${pporgid}+"|porgid:"+${porgid} )
+	    	location.href="${path}/renYuanDaController/listByPid?id=${porgid}&gopage=${backpage}";
+	    	/* alert(ge)
+	    	location.href="${path}/orgController/GetUsersByOrgid?id=${porgid}&gopage=${backpage}"; */
+	    }else if( isNull(${porgid}) && !isNull(${pporgid}) ){
+	    	//是主任详情
+	    	//alert("主任")
+	    	//alert("orgid:"+${orgid} +"|pporgid:"+${pporgid}+"|porgid:"+${porgid} )
+	    	location.href="${path}/orgController/GetUsersByOrgid?id=${pporgid}&gopage=${backpage}";
+	    }else if(  !isNull(${orgid}) && !isNull(${porgid})  ){
+	    	//普通员工详情
+	    	//alert("普通员工")
+	    	//alert("orgid:"+${orgid} +"|pporgid:"+${pporgid}+"|porgid:"+${porgid} )
+	    	location.href="${path}/orgController/GetUsersByOrgid?id=${orgid}&gopage=${backpage}&porgid=${porgid}&pporgid=${pporgid}";
+	    }
+	    
     }
          //打开基本信息编辑页面
-        function opedit() {
+        function opedit(userid) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '80%']
@@ -277,17 +330,38 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_edit.jsp']
-            });    
+              ,content: ['${path}/renYuanDaController/renYuanXQ?id='+userid+"&gopage=yiyuan/ryxq_edit&backpage=yiyuan/zuzzjg_gw_ryxq&orgid=${orgid}&porgid=${porgid}"] /* ryxq_edit.jsp */
+            });  
   
         };
-        function delthisrow(o){ //点击删除按钮 就删除当前的div 
+        function delthisrow(o,id,controller){ //点击删除按钮 就删除当前的div 
      	   layer.confirm('确认删除？', {
                 btn: ['确认','取消'] //按钮
                 }, function(){//确认就删除
-                      var a=$(o).parent().parent();
+                	$.ajax({
+              			url : '${path}/'+controller+'/deleteElement?orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}&userid=${userid}',
+              			method: 'post',
+              			async: false,
+              			data:{"id":id},//$('#modeladd').serialize()
+              			dataType : 'json',
+              			success : function(result) {
+              				if(result.success==true)
+              				{
+              					//parent.layer.msg(result.msg);	
+                        	var a=$(o).parent().parent();
+                            a.remove();
+                            layer.msg('已删除', {icon: 1});
+              					closethis();
+              				}
+              				else
+              				{
+              					closethis();
+              				}
+              			}
+              		});
+                      /* var a=$(o).parent().parent();
                           a.remove();
-                          layer.msg('已删除', {icon: 1});
+                          layer.msg('已删除', {icon: 1}); */
             });
      	 
         };
@@ -300,7 +374,7 @@
         };
 
         //打开新增培训履历页面
-        function opadll() {
+        function opadll(index) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '65%']
@@ -308,12 +382,12 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_adlvli.jsp']
+              ,content: ['${path}/renYuanDaController/ToAdlvli?userid='+index]/* 'ryxq_adlvli.jsp' */
             });    
   
         };
         //打开新增健康档案页面
-        function opadjkda() {
+        function opadjkda(index) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '60%']
@@ -321,7 +395,7 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_adjkda.jsp']
+              ,content: ['${path}/renYuanDaController/ToAdjkda?userid='+index]/* 'ryxq_adjkda.jsp' */
             });    
   
         };
@@ -391,7 +465,7 @@
   
         };
       //打开新增学习经历页面
-        function opadxx() {
+        function opadxx(index) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '60%']
@@ -399,12 +473,12 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_adxuexijl.jsp']
+              ,content: ['${path}/XuexijlController/ToAdxuexijl?userid='+index]/* ryxq_adxuexijl.jsp */
             });    
   
         };
       //打开编辑学习经历页面
-        function opedxx() {
+        function opedxx(id) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '60%']
@@ -412,12 +486,12 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_edxuexijl.jsp']
+              ,content: ['${path}/XuexijlController/editElement?id='+id]/* ryxq_edxuexijl.jsp */
             });    
   
         };
         //打开新增工作经历页面
-        function opadgz() {
+        function opadgz(index) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '60%']
@@ -425,12 +499,12 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_adgzjl.jsp']
+              ,content: ['${path}/GzjlController/ToAdgzjl?userid=${user.id}&orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}']/* 'ryxq_adgzjl.jsp' */
             });    
   
         };
         //打开编辑工作经历页面
-        function opeditgz() {
+        function opeditgz(id) {
           layer.open({
               type: 2 //Page层类型
               ,area: ['70%', '60%']
@@ -438,7 +512,7 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content: ['ryxq_edgzjl.jsp']
+              ,content: ['${path}/GzjlController/toEditPage?id='+id+'&orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}&userid=${userid}']/* ryxq_edgzjl.jsp' */
             });    
   
         };

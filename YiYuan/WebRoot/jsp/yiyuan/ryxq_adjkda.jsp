@@ -42,14 +42,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                   
                                     <div class="ibox-content">
                                         <form method="post" class="form-horizontal" id="modeladd" onsubmit="" enctype="" action="" target="">
+	                                                <input name="userId" id="" type="hidden"  value="${userid }">
                                               <div class="col-sm-12">
                                               		<label class="control-label col-sm-2">健康档案名称：</label>
 	                                                <div class="col-sm-10">
-	                                                     <input type="text" name="" class="form-control" value="">  
+	                                                     <input type="text" name="danganmingcheng" id="danganmingcheng" class="form-control" value="">  
 	                                                </div>
 			                                        <label class="control-label col-sm-2">档案上传：</label>
 			                                         <div class="col-sm-10">
-			                                            <input type="file" name="" class="form-control" value="">  
+			                                            <input type="file" name="jiankangdanganlujing" id="jiankangdanganlujing"  class="form-control" value="">  
 			                                         </div>         
                                  			  </div>
 				                                <div class="form-group" >
@@ -89,7 +90,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		
    });
-   
+   $("#modeladd").submit(function(){
+		if($("#danganmingcheng").val()==null || ""==$("#danganmingcheng").val() ||  $("#danganmingcheng").val()==undefined ||  $("#danganmingcheng").val().trim()==""){
+	   		layer.msg("请填写档案名称");
+	   		$("#danganmingcheng").focus();
+	   		return false;
+	   	}
+	   $.ajax({
+			url : '${path}/JkdaController/addElement',
+			method: 'post',
+			async: false,
+			data:$('#modeladd').serialize(),
+			dataType : 'json',
+			success : function(result) {
+				if(result.success==true)
+				{
+				//parent.layer.msg(result.msg);	
+              	layer.msg(msg);
+					closethis();
+				}
+				else
+				{
+					closethis();
+				}
+			}
+		});
+   })
    </script> 
 
     

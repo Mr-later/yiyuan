@@ -21,4 +21,6 @@ public interface YYOrginfoMapper {
 
 	List<YYOrginfo> selectOrgListByPid(int pid);
 
+	List<YYOrginfo> getZu();
+
 }

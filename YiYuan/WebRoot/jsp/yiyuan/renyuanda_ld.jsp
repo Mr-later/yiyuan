@@ -69,13 +69,14 @@
 						                                		
 						                                	</div>
 				                          				 </div>  --%>
-				                          		 <c:forEach items="${fuzhurens}" var="tempElement"> 
-				                          			 <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
-					                                		  <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+				                          				 
+				                          				 <c:forEach items="${zhurens}" var="tempElement"> 
+									                   <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this,${tempElement.id})" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
 							                                </div>
-							                                <div style="display:block;" class="ryxqhref">
+							                                <div style="display:block;" class="ryxqhref" onclick="go_renyuanxq(${tempElement.id})">
 						                                		<p class="font-bold">${tempElement.username}</p>
 					
 						                               			<div class="text-center h10">
@@ -84,7 +85,8 @@
 						                                		
 						                                	</div>
 				                          				 </div>
-												</c:forEach> 
+				                          				 </c:forEach> 
+				                          		 
 							                        	<%--  <div class="ibox-content text-center w10" ondblclick="xianshi(this)">
 					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
@@ -104,13 +106,13 @@
 											</div>
 												
 											<div class="text-center"> 
-									                   <c:forEach items="${zhurens}" var="tempElement"> 
-									                   <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
-					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
+									                   <c:forEach items="${fuzhurens}" var="tempElement"> 
+				                          			 <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
+					                                		  <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this,${tempElement.id})" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
 							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
 							                                </div>
-							                                <div style="display:block;" class="ryxqhref">
+							                                <div style="display:block;" class="ryxqhref" onclick="go_renyuanxq(${tempElement.id})">
 						                                		<p class="font-bold">${tempElement.username}</p>
 					
 						                               			<div class="text-center h10">
@@ -119,7 +121,7 @@
 						                                		
 						                                	</div>
 				                          				 </div>
-				                          				 </c:forEach> 
+												</c:forEach> 
 							                        	 <%--  <div class="ibox-content text-center w10"  ondblclick="xianshi(this)">
 					                                		 <a class="btn btn-danger btn-circle btn1" onclick="deldiv(this)" title="删除"><i class="fa fa-close"></i></a>
 							                                <div class="m-b-sm">
@@ -244,14 +246,14 @@
     <script src="${path}/static/js/demo/peity-demo.js"></script> --%>
 
    <script type="text/javascript">
-        jQuery(document).ready(function() {
+       /*  jQuery(document).ready(function() {
         	$('.ryxqhref').click(function(){
          	      tiaozhuan();//跳转到-人员详情
          	    });
          }); 	
         function tiaozhuan(){//跳转到-人员详情
            	location.href="zuzzjg_gw_ryxq.jsp"
-        };    	
+        };   */  	
 
         //返回上一步
         function goback1(){
@@ -284,13 +286,35 @@
                                       layer.msg('全部已授权', {icon: 1});
                         });
       };
-        function deldiv(o){ //点击删除按钮 就删除当前的div 
+        function deldiv(o,userid){ //点击删除按钮 就删除当前的div 
      	   layer.confirm('确认删除此人员？', {
                btn: ['确认','取消'] //按钮
-               }, function(){//确认就删除
-                     var a=$(o).parent();
+               }, function(){
+            	   //确认就删除
+                   $.ajax({
+      			url : '${path}/renYuanDaController/delElement',
+      			method: 'post',
+      			async: false,
+      			data:{"orgId":${pporgid},"userId":userid },
+      			dataType : 'json',
+      			success : function(result) {
+      				if(result.success==true)
+      				{
+      					//parent.layer.msg(result.msg);	
+                	var a=$(o).parent();
+                    a.remove();
+                    layer.msg('已删除', {icon: 1});
+      					closethis();
+      				}
+      				else
+      				{
+      					closethis();
+      				}
+      			}
+      		});
+            	  /*  var a=$(o).parent();
                          a.remove();
-                         layer.msg('已删除', {icon: 1});
+                         layer.msg('已删除', {icon: 1}); */
            });
      	 
        };
@@ -302,12 +326,17 @@
               ,shade: 0.6 //遮罩透明度
               ,maxmin: false //允许全屏最小化
               ,anim: 5 //0-6的动画形式，-1不开启
-              ,content:['${path}/renYuanDaController/toAddPage']  // renyuanda_add.jsp 
+              ,content:['${path}/renYuanDaController/toAddPage?pporgid=${pporgid}']  // renyuanda_add.jsp 
              
             });    
 
     	 
       };
+      //人员详情页 pid是指所属的组织机构id
+      function go_renyuanxq(userid){
+    	
+    	 location.href="${path}/renYuanDaController/renYuanXQ?id="+userid+"&userid="+userid+"&gopage=yiyuan/zuzzjg_gw_ryxq&backpage=yiyuan/renyuanda_ld&orgid=${orgid}&porgid=${porgid}&pporgid=${pporgid}";
+      }
   </script>  
 
 </body>

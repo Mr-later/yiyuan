@@ -35,10 +35,10 @@
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>组织结构-${parentOrg.orgname}-人员</h5>
+                        <h5>组织结构-临检与血液组-岗位-人员</h5>
                         <div class="ibox-tools">
                          <a href="" class="btn btn-primary btn-rounded btn-xs">一键授权</a>
-                            <a onclick="goback(${parentOrg.pid})" class="btn btn-primary btn-rounded btn-xs">返回</a>
+                            <a href="zuzzjg_gw.jsp" class="btn btn-primary btn-rounded btn-xs">返回</a>
                             <!--  <a href="" class="btn btn-primary btn-rounded btn-xs">编辑</a>
                               <a href="" class="btn btn-info btn-rounded btn-xs">删除</a> -->
                         </div>
@@ -54,27 +54,7 @@
 				                            <div class="ibox-content">
                       
 						                        <div class="text-center"> 
-						                        <c:forEach items="${GWrenyuans}" var="template">
-						                        <!-- <a href="zuzzjg_gw_ryxq.jsp" ondblclick=""> -->
-							                        	 <div class="ibox-content text-center w10">
-					                                		
-							                                <div class="m-b-sm">
-							                                    <img alt="image" class="img-circle" src="${path}/static/img/1cun.jpg">
-							                                </div>
-							                                <div style="display:block;">
-							                                <a onclick="go_renyuanxq(${template.id})">
-						                                		<p class="font-bold">${template.username }</p>
-															</a>
-						                               			<div class="text-center h10">
-						                                   			 ${template.zhicheng }
-						                                		</div>
-						                                		<div class="h30" style="height:50px;">
-						                                			<button type="button" class="btn btn-info btn-sm" onclick="sfsq()">授权</button>
-						                                		</div>
-						                                	</div>
-				                          				 </div>
-						                        </c:forEach>
-							                    <%--    <a href="zuzzjg_gw_ryxq.jsp" ondblclick="">
+							                       <a href="zuzzjg_gw_ryxq.jsp" ondblclick="">
 							                        	 <div class="ibox-content text-center w10">
 					                                		
 							                                <div class="m-b-sm">
@@ -217,7 +197,7 @@
 					                                		</div>
 					                                		<button type="button" class="btn btn-info btn-sm" onclick="sfsq()">授权</button>
 				                          				 </div>
-													</a> --%>
+													</a>
 												</div>
 						                      
 						                    </div>
@@ -273,14 +253,6 @@
                                       a.remove();
                                       layer.msg('已删除', {icon: 1});
                         });
-      }
-      //人员详情页
-      function go_renyuanxq(index){
-    	  location.href="${path}/renYuanDaController/selectByPrimaryKey?id="+index;
-      }
-      //返回岗位页
-      function goback(index){
-    	  location.href="${path}/orgController/GetUsersOrgByOrgid?id="+index+"&gopage=yiyuan/zuzzjg_gw";
       }
   </script>  
 

@@ -43,6 +43,13 @@
     zhengshutemp11, zhengshutemp12, zhengshutemp13, zhengshutemp14, zhengshutemp15, zhengshutemp16, 
     zhengshutemp17, zhengshutemp18, zhengshutemp19, zhengshutemp20
   </sql>
+   <!-- ******************************************* -->
+  <select id="getListByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  select 
+  <include refid="Base_Column_List" />
+  from yy_zhengshu where user_id=#{id,jdbcType=INTEGER}
+  </select>
+  <!-- ******************************************* -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

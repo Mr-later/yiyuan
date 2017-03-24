@@ -40,7 +40,193 @@
     userorgtemp16, userorgtemp17, userorgtemp18, userorgtemp19, userorgtemp20
   </sql>
   <!-- *************************************************** -->
-
+  <select id="findByUserIdOrgId" parameterType="map" resultMap="BaseResultMap">
+  select 
+  <include refid="Base_Column_List" />
+  from yy_userorg where org_id=#{orgId,jdbcType=INTEGER} and user_id=#{userId,jdbcType=INTEGER} 
+  
+  </select>
+	<insert id="addByMap" parameterType="map">
+	insert into yy_userorg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orgId != null" >
+        org_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="tianjiashijian != null" >
+        tianjiashijian,
+      </if>
+      <if test="tianjiashijianstr != null" >
+        tianjiashijianstr,
+      </if>
+      <if test="shouquanflag != null" >
+        shouquanflag,
+      </if>
+      <if test="zuihoucaozuoyonghu != null" >
+        zuihoucaozuoyonghu,
+      </if>
+      <if test="zuihoucaozuoshijian != null" >
+        zuihoucaozuoshijian,
+      </if>
+      <if test="zuihoucaozuoshijianstr != null" >
+        zuihoucaozuoshijianstr,
+      </if>
+      <if test="userorgtemp1 != null" >
+        userorgtemp1,
+      </if>
+      <if test="userorgtemp2 != null" >
+        userorgtemp2,
+      </if>
+      <if test="userorgtemp3 != null" >
+        userorgtemp3,
+      </if>
+      <if test="userorgtemp4 != null" >
+        userorgtemp4,
+      </if>
+      <if test="userorgtemp5 != null" >
+        userorgtemp5,
+      </if>
+      <if test="userorgtemp6 != null" >
+        userorgtemp6,
+      </if>
+      <if test="userorgtemp7 != null" >
+        userorgtemp7,
+      </if>
+      <if test="userorgtemp8 != null" >
+        userorgtemp8,
+      </if>
+      <if test="userorgtemp9 != null" >
+        userorgtemp9,
+      </if>
+      <if test="userorgtemp10 != null" >
+        userorgtemp10,
+      </if>
+      <if test="userorgtemp11 != null" >
+        userorgtemp11,
+      </if>
+      <if test="userorgtemp12 != null" >
+        userorgtemp12,
+      </if>
+      <if test="userorgtemp13 != null" >
+        userorgtemp13,
+      </if>
+      <if test="userorgtemp14 != null" >
+        userorgtemp14,
+      </if>
+      <if test="userorgtemp15 != null" >
+        userorgtemp15,
+      </if>
+      <if test="userorgtemp16 != null" >
+        userorgtemp16,
+      </if>
+      <if test="userorgtemp17 != null" >
+        userorgtemp17,
+      </if>
+      <if test="userorgtemp18 != null" >
+        userorgtemp18,
+      </if>
+      <if test="userorgtemp19 != null" >
+        userorgtemp19,
+      </if>
+      <if test="userorgtemp20 != null" >
+        userorgtemp20,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orgId != null" >
+        #{orgId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="tianjiashijian != null" >
+        #{tianjiashijian,jdbcType=DATE},
+      </if>
+      <if test="tianjiashijianstr != null" >
+        #{tianjiashijianstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shouquanflag != null" >
+        #{shouquanflag,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoyonghu != null" >
+        #{zuihoucaozuoyonghu,jdbcType=VARCHAR},
+      </if>
+      <if test="zuihoucaozuoshijian != null" >
+        #{zuihoucaozuoshijian,jdbcType=DATE},
+      </if>
+      <if test="zuihoucaozuoshijianstr != null" >
+        #{zuihoucaozuoshijianstr,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp1 != null" >
+        #{userorgtemp1,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp2 != null" >
+        #{userorgtemp2,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp3 != null" >
+        #{userorgtemp3,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp4 != null" >
+        #{userorgtemp4,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp5 != null" >
+        #{userorgtemp5,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp6 != null" >
+        #{userorgtemp6,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp7 != null" >
+        #{userorgtemp7,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp8 != null" >
+        #{userorgtemp8,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp9 != null" >
+        #{userorgtemp9,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp10 != null" >
+        #{userorgtemp10,jdbcType=VARCHAR},
+      </if>
+      <if test="userorgtemp11 != null" >
+        #{userorgtemp11,jdbcType=DATE},
+      </if>
+      <if test="userorgtemp12 != null" >
+        #{userorgtemp12,jdbcType=DATE},
+      </if>
+      <if test="userorgtemp13 != null" >
+        #{userorgtemp13,jdbcType=DATE},
+      </if>
+      <if test="userorgtemp14 != null" >
+        #{userorgtemp14,jdbcType=DATE},
+      </if>
+      <if test="userorgtemp15 != null" >
+        #{userorgtemp15,jdbcType=DATE},
+      </if>
+      <if test="userorgtemp16 != null" >
+        #{userorgtemp16,jdbcType=INTEGER},
+      </if>
+      <if test="userorgtemp17 != null" >
+        #{userorgtemp17,jdbcType=INTEGER},
+      </if>
+      <if test="userorgtemp18 != null" >
+        #{userorgtemp18,jdbcType=INTEGER},
+      </if>
+      <if test="userorgtemp19 != null" >
+        #{userorgtemp19,jdbcType=INTEGER},
+      </if>
+      <if test="userorgtemp20 != null" >
+        #{userorgtemp20,jdbcType=INTEGER},
+      </if>
+    </trim>
+	</insert>
   <!-- *************************************************** -->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
